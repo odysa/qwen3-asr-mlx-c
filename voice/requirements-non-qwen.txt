@@ -1,4 +1,8 @@
 mlx-audio==0.6.3
 soundfile==0.14.0
 parakeet-mlx==0.6.0
-misaki[en]==0.9.4
+misaki==0.7.4
+spacy==3.8.18
+num2words==0.5.14
+phonemizer-fork==3.3.2
+espeakng-loader==0.2.4

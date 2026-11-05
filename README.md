@@ -79,10 +79,10 @@ The `speak` inference command requires a local model directory and sets Hugging 
 
 The Parakeet TDT v3 adapter and Kokoro 82M adapter have each run an English example locally. Parakeet returns when its generator finishes; this is not an exposed EOS check. The adapter accepts `auto` or `English` for Parakeet; other languages are outside this integration's tested scope. Kokoro is restricted to American or British English (`a` or `b`) in this adapter. These examples do not establish speech quality or comparative speed.
 
-The following setup was tested with Python 3.12 and Apple Silicon Homebrew at `/opt/homebrew`. It downloads model files and the spaCy language package during setup. The inference commands use local paths with Hugging Face offline mode. Kokoro requires the Homebrew espeak-ng library/data: the tested `espeakng-loader` wheel refers to a build-machine path, so the adapter explicitly selects Homebrew's installation. The Python package versions listed are direct dependencies; their transitive dependencies are not locked.
+The following setup was tested in a clean Python 3.14 environment and with Apple Silicon Homebrew at `/opt/homebrew`. It installs the English dependencies directly because the `misaki[en]` extra does not resolve reliably on Python 3.14. It downloads model files and the spaCy language package during setup. The inference commands use local paths with Hugging Face offline mode. Kokoro requires the Homebrew espeak-ng library/data: the tested `espeakng-loader` wheel refers to a build-machine path, so the adapter explicitly selects Homebrew's installation. The Python package versions listed are direct dependencies; their transitive dependencies are not locked.
 
 ```sh
-python3.12 -m venv .venv-voice312 && . .venv-voice312/bin/activate
+python3.14 -m venv .venv-voice314 && . .venv-voice314/bin/activate
 python -m pip install -r voice/requirements-non-qwen.txt
 python -m spacy download en_core_web_sm
 brew install espeak-ng
