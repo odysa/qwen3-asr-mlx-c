@@ -171,7 +171,7 @@ python voice/voice.py transcribe --backend mlx-audio --model models/Voxtral-Mini
 python voice/voice.py transcribe --backend mlx-audio --model models/FireRedASR2-AED-mlx --audio fixtures/asr_zh.wav
 ```
 
-MMS is a non-commercial checkpoint; this example downloads only its English adapter. The wrapper does not expose tested selection of other MMS language adapters. Distil-Whisper is a Whisper derivative:
+MMS is a non-commercial checkpoint; this example downloads only its English adapter weights, along with language vocabulary text files. The wrapper does not expose tested selection of other MMS language adapters. Distil-Whisper is a Whisper derivative:
 
 ```sh
 python -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/mms-1b-fl102', revision='d483345545bea550895b1aa0c6ba40236b9f1e22', local_dir='models/mms-1b-fl102-eng', allow_patterns=['*.json','*.txt','*.model','model.safetensors','adapter.eng.safetensors'])"
