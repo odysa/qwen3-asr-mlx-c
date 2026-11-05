@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for revisions, scope and links to model licenses.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. Model files were not hashed at measurement time, so the receipts do not bind their bytes to those revisions.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|

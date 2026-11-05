@@ -1,6 +1,6 @@
 # Local ASR compatibility smoke tests
 
-The generic adapter has run one short clip each for the checkpoints below on an Apple M1 Max, Python 3.14.3, MLX 0.32.4 and MLX Audio 0.6.3. The wav2vec2 CTC path is a dedicated adapter in this repository. A successful text result indicates that inference returned; it does not prove transcription accuracy, a full language capability, realtime performance, or compatibility of other revisions. The example clips lack independently pinned reference transcripts.
+The generic adapter has run one short clip each for the checkpoints below on an Apple M1 Max, Python 3.14.3, MLX 0.32.4 and MLX Audio 0.6.3. The wav2vec2 CTC path is a dedicated adapter in this repository. Revisions are the recorded download targets; model files were not hashed at measurement time, so these receipts do not bind the actual model bytes to those revisions. A successful text result indicates that inference returned; it does not prove transcription accuracy, a full language capability, realtime performance, or compatibility of other revisions. The example clips lack independently pinned reference transcripts.
 
 | Model | Exact revision | Adapter | Example |
 |---|---|---|---|
