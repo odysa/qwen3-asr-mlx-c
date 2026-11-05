@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the six later models were hashed before and after their runs.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the eight later models were hashed before and after their runs.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|
@@ -134,6 +134,8 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | VibeVoice-ASR 4-bit | `mlx-audio` | English; structured JSON returned as text |
 | Voxtral Mini Realtime 4-bit | `mlx-audio` | English, whole file |
 | FireRedASR2-AED | `mlx-audio` | Mandarin, whole file |
+| MMS 1B FL102, English adapter | `mlx-audio` | English only; non-commercial |
+| Distil-Whisper small.en | `mlx-audio` | English; Whisper derivative |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -167,6 +169,15 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx
 python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/FireRedASR2-AED-mlx', revision='f3212eacfa49b851130b97c63653c8e06ee09bdb', local_dir='models/FireRedASR2-AED-mlx')"
 python voice/voice.py transcribe --backend mlx-audio --model models/Voxtral-Mini-Realtime-4bit --audio fixtures/asr_en.wav
 python voice/voice.py transcribe --backend mlx-audio --model models/FireRedASR2-AED-mlx --audio fixtures/asr_zh.wav
+```
+
+MMS is a non-commercial checkpoint; this example downloads only its English adapter. The wrapper does not expose tested selection of other MMS language adapters. Distil-Whisper is a Whisper derivative:
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/mms-1b-fl102', revision='d483345545bea550895b1aa0c6ba40236b9f1e22', local_dir='models/mms-1b-fl102-eng', allow_patterns=['*.json','*.txt','*.model','model.safetensors','adapter.eng.safetensors'])"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('distil-whisper/distil-small.en', revision='9e4a67ca4569c30be43a3fe7fba1621e504f0093', local_dir='models/distil-small.en', allow_patterns=['*.json','*.txt','*.model','*.tiktoken','model.safetensors'])"
+python voice/voice.py transcribe --backend mlx-audio --model models/mms-1b-fl102-eng --audio fixtures/asr_en.wav
+python voice/voice.py transcribe --backend mlx-audio --model models/distil-small.en --audio fixtures/asr_en.wav
 ```
 
 The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
