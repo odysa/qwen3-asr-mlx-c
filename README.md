@@ -139,6 +139,7 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | GLM-ASR Nano 4-bit | `mlx-audio` | Mandarin, whole file |
 | Ming 3.0 ASR tiny 4-bit | `mlx-audio` | Mandarin, whole file |
 | MOSS Transcribe/Diarize 4-bit | `mlx-audio` | English; speaker/time markers in text |
+| Phonon 1 Micro; Phonon 2 | `mlx-audio` | English; Qwen and Parakeet derivatives, respectively |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -191,6 +192,8 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx
 python voice/voice.py transcribe --backend mlx-audio --model models/GLM-ASR-Nano-4bit --audio fixtures/asr_zh.wav
 python voice/voice.py transcribe --backend mlx-audio --model models/Ming-ASR-tiny-4bit --audio fixtures/asr_zh.wav
 ```
+
+The Phonon examples need `zstandard==0.25.0` in the voice Python environment and the downloaded model directories. The generic `mlx-audio` adapter accepts those local directories. The downloaded archives were hashed across the smoke runs, but the loader's extracted cache files were not independently hashed at measurement time; see [ASR compatibility](results/asr-compatibility.md) for revisions, licenses and scope.
 
 For the tested MOSS conversion, the generic adapter returns speaker/time markers inside its text field; the wrapper does not parse or validate those fields:
 
