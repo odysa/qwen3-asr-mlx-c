@@ -3,6 +3,7 @@
 import argparse
 import contextlib
 import json
+import inspect
 import os
 from pathlib import Path
 import subprocess
@@ -11,7 +12,43 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def mlx_audio_transcribe(model_path, paths, language):
+    if not model_path.is_dir():
+        raise ValueError("--model must point to a downloaded local model directory")
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
+    try:
+        import mlx.core as mx
+        from mlx_audio.stt.utils import load_model
+    except ImportError as e:
+        raise ValueError("MLX Audio requires optional dependencies; see README") from e
+    with contextlib.redirect_stdout(sys.stderr):
+        model = load_model(model_path.resolve())
+        kwargs = {}
+        if language != "auto":
+            parameters = inspect.signature(model.generate).parameters
+            if "language" not in parameters:
+                raise ValueError("this model does not expose a language argument")
+            kwargs["language"] = language
+        records = []
+        for path in paths:
+            result = model.generate(str(path), **kwargs)
+            mx.synchronize()
+            if not isinstance(getattr(result, "text", None), str):
+                raise ValueError("this model does not return a single text transcription")
+            records.append({"audio": str(path), "text": result.text,
+                            "status": "ok", "termination": "generate_returned"})
+    return records
+
+
+def transcribe_many(args):
+    print(json.dumps({"results": mlx_audio_transcribe(args.model, args.audio, args.language)}, ensure_ascii=False))
+    return 0
+
 def transcribe(args):
+    if args.backend == "mlx-audio":
+        print(json.dumps(mlx_audio_transcribe(args.model, [args.audio], args.language)[0], ensure_ascii=False))
+        return 0
     if args.backend == "parakeet":
         if not args.model.is_dir():
             raise ValueError("--model must point to a downloaded local model directory")
@@ -113,12 +150,17 @@ def main():
     parser = argparse.ArgumentParser(description="Run supported voice models locally")
     subs = parser.add_subparsers(dest="task", required=True)
     p = subs.add_parser("transcribe", help="Qwen3-ASR BF16 native C/MLX backend")
-    p.add_argument("--backend", choices=("qwen", "parakeet"), default="qwen")
+    p.add_argument("--backend", choices=("qwen", "parakeet", "mlx-audio"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--audio", type=Path, required=True)
     p.add_argument("--language", default="auto")
     p.add_argument("--executable", type=Path, default=ROOT / "build/qwen3-asr")
     p.set_defaults(handler=transcribe)
+    p = subs.add_parser("transcribe-many", help="Reuse one MLX Audio ASR model for sequential files")
+    p.add_argument("--model", type=Path, required=True)
+    p.add_argument("--audio", type=Path, nargs="+", required=True)
+    p.add_argument("--language", default="auto")
+    p.set_defaults(handler=transcribe_many)
     p = subs.add_parser("speak", help="Qwen3-TTS or Kokoro through optional MLX Audio")
     p.add_argument("--backend", choices=("qwen", "kokoro"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
