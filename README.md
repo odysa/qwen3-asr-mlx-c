@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the eight later models were hashed before and after their runs.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the ten later models were hashed before and after their runs.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|
@@ -136,6 +136,8 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | FireRedASR2-AED | `mlx-audio` | Mandarin, whole file |
 | MMS 1B FL102, English adapter | `mlx-audio` | English only; non-commercial |
 | Distil-Whisper small.en | `mlx-audio` | English; Whisper derivative |
+| GLM-ASR Nano 4-bit | `mlx-audio` | Mandarin, whole file |
+| Ming 3.0 ASR tiny 4-bit | `mlx-audio` | Mandarin, whole file |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -178,6 +180,15 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('fac
 python -c "from huggingface_hub import snapshot_download; snapshot_download('distil-whisper/distil-small.en', revision='9e4a67ca4569c30be43a3fe7fba1621e504f0093', local_dir='models/distil-small.en', allow_patterns=['*.json','*.txt','*.model','*.tiktoken','model.safetensors'])"
 python voice/voice.py transcribe --backend mlx-audio --model models/mms-1b-fl102-eng --audio fixtures/asr_en.wav
 python voice/voice.py transcribe --backend mlx-audio --model models/distil-small.en --audio fixtures/asr_en.wav
+```
+
+For the tested GLM-ASR and Ming conversions:
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/GLM-ASR-Nano-2512-4bit', revision='35553fa5bebfcc3ece3ce7d47b98827cb0ac9eef', local_dir='models/GLM-ASR-Nano-4bit')"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Ming-3.0-asr-tiny-4bit', revision='89acb1a5f240a15119f175065ba8e2356f59d7a1', local_dir='models/Ming-ASR-tiny-4bit')"
+python voice/voice.py transcribe --backend mlx-audio --model models/GLM-ASR-Nano-4bit --audio fixtures/asr_zh.wav
+python voice/voice.py transcribe --backend mlx-audio --model models/Ming-ASR-tiny-4bit --audio fixtures/asr_zh.wav
 ```
 
 The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
