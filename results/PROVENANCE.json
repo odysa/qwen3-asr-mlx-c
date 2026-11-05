@@ -1,0 +1,73 @@
+{
+  "competitors": {
+    "original_plan_sha256": "18ea9ead8ed460a5fef42bc25cb430cb436e8b201d0dde72b4fe598220a9ff44",
+    "pins": {
+      "runner": "0692dfe0328e0251fcdb18577bb3d242e790480d0b25f64d7ce14ba6c4adbc9a",
+      "whisper_source": "c7527f08fa1348a350066613a2a597646a6b1d12842df851a47013c948c26b71",
+      "whisper_binary": "7fa0883e9d372b629f1c276afbd69792c963de8fc9b3c1c9ffa4d542f2242497",
+      "whisper_small": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b",
+      "whisper_turbo": "1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69",
+      "parakeet_source": "1fa7e1ccd5f07bfa26cd8e2c58e8166fcdd6b29f953604f98fb38719944638f1",
+      "parakeet_weights": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "requirements": "7aab1b0dd70e381a1380ed82bd48fcb339f208a92f46bdc316d769182b0b64d1",
+      "qwen_bf16_binary": "f45d0812883064dff00b132b198f045ccdcc98e6b2bba2804df9e8ee1a7a8a5e",
+      "qwen_q8_binary": "db3c7e328e816ea33798be9591a4a024f694784e9571af2785200fe790835222",
+      "qwen_bf16_weights": "79d6cbd4c98c7bbffe9db2edac07f56cd6637d0d5944b27f6c2b8353840323ea",
+      "qwen_q8_weights": "a54a3d865764b9d7e9817d5007fc6f01f9effa3cf64f8fc7ad628cc2624bb7e1",
+      "metal": "be48d4b700adf890723c8141b40234d5a92f99fc210807abf1b0e2283cfcf428",
+      "inputs": "f460c45774715e264ebe858874e46a5b0f4be8111ee3f4679527c0a5d711133d",
+      "quality_seal": "93a3aab29353c34f1f1abfaaa145cc6fbc6b4c830d3dcbccbd692b7a908255c1"
+    },
+    "scope": "Extracted hashes from original local plan; filesystem paths removed. Original plan and full runtime are not included."
+  },
+  "q4": {
+    "original_plan_sha256": "575abaf97c088a8129a7fe6b1c0bd400acc743fbab362648e96488f8dd0577fb",
+    "pins": {
+      "runner": "9526fb18850f8c36ed69e53365a7d661aed93398472a6513437cc5aa52d7540d",
+      "q4_src": "6d696c4bb942ea793fc84687e7d020237b5440bbec73ce2cab99bcf3df7f5aa9",
+      "q4_binary": "9dd3ea8278cefeda67925cf25282329598390c0376a499397092d41ea16f9a20",
+      "q4_weights": "d03bf11cd1c9616f0af57f21b73933f513f66cb947c384ef0f68d4277b860199",
+      "q8_binary": "db3c7e328e816ea33798be9591a4a024f694784e9571af2785200fe790835222",
+      "q8_weights": "a54a3d865764b9d7e9817d5007fc6f01f9effa3cf64f8fc7ad628cc2624bb7e1",
+      "parakeet_runner": "1fa7e1ccd5f07bfa26cd8e2c58e8166fcdd6b29f953604f98fb38719944638f1",
+      "parakeet_weights": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "parakeet_requirements": "7aab1b0dd70e381a1380ed82bd48fcb339f208a92f46bdc316d769182b0b64d1",
+      "metal": "be48d4b700adf890723c8141b40234d5a92f99fc210807abf1b0e2283cfcf428",
+      "cohort": "f460c45774715e264ebe858874e46a5b0f4be8111ee3f4679527c0a5d711133d",
+      "quality_seal": "93a3aab29353c34f1f1abfaaa145cc6fbc6b4c830d3dcbccbd692b7a908255c1",
+      "parakeet_.gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "parakeet_README.md": "724e3ba46903986ff6caeb8fddb7495c06b5a7a8d908f11e43cc0a7e136b5e23",
+      "parakeet_config.json": "f320f1292511f34ec47f513755fe20fd01dbfc09a925d42730e66059a6e1ef4c",
+      "parakeet_model.safetensors": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "parakeet_tokenizer.model": "eacec2b0a77f336d4a2ca4a25a7047575d3c2b74de47e997f4c205126ed3135e",
+      "parakeet_tokenizer.vocab": "41130ff456706304a1adec782ccc9e003c4d417e8e324353d281be958cac4e17",
+      "parakeet_vocab.txt": "3cde1409fd78783a79b29ed4d32da57c746993856f7c8263bcb905d2e5839db7"
+    },
+    "scope": "Extracted hashes from original local plan; filesystem paths removed. Original plan and full runtime are not included."
+  },
+  "head8": {
+    "original_plan_sha256": "ea6dd00f94d1f3278fcbaf359b9feb1181414e16af7e5b0e9081a52eb96f0093",
+    "pins": {
+      "runner": "df6f28881145c82474e82c4f1878385255548db55ffb56f6ce5dade05de68e81",
+      "head8_src": "3c8f851a2b9c043cd4e4a193f19220525eab282c56f72c6b3bf9dff098e13f1c",
+      "head8_binary": "6d6fc3c68d2a9a8fa584428ccc3d8ee63d2f0f98024533ec49c737bd2d34812a",
+      "head8_weights": "577054d5ec0eaee383756b8752a98d075b765aa94123fbc39380db66a184f714",
+      "q8_binary": "db3c7e328e816ea33798be9591a4a024f694784e9571af2785200fe790835222",
+      "q8_weights": "a54a3d865764b9d7e9817d5007fc6f01f9effa3cf64f8fc7ad628cc2624bb7e1",
+      "parakeet_runner": "1fa7e1ccd5f07bfa26cd8e2c58e8166fcdd6b29f953604f98fb38719944638f1",
+      "parakeet_weights": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "parakeet_requirements": "7aab1b0dd70e381a1380ed82bd48fcb339f208a92f46bdc316d769182b0b64d1",
+      "metal": "be48d4b700adf890723c8141b40234d5a92f99fc210807abf1b0e2283cfcf428",
+      "cohort": "f460c45774715e264ebe858874e46a5b0f4be8111ee3f4679527c0a5d711133d",
+      "quality_seal": "93a3aab29353c34f1f1abfaaa145cc6fbc6b4c830d3dcbccbd692b7a908255c1",
+      "parakeet_.gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "parakeet_README.md": "724e3ba46903986ff6caeb8fddb7495c06b5a7a8d908f11e43cc0a7e136b5e23",
+      "parakeet_config.json": "f320f1292511f34ec47f513755fe20fd01dbfc09a925d42730e66059a6e1ef4c",
+      "parakeet_model.safetensors": "05e01c7f396c298cf7d23f61da7b504adeab698f0aaeafd9c82d198625464592",
+      "parakeet_tokenizer.model": "eacec2b0a77f336d4a2ca4a25a7047575d3c2b74de47e997f4c205126ed3135e",
+      "parakeet_tokenizer.vocab": "41130ff456706304a1adec782ccc9e003c4d417e8e324353d281be958cac4e17",
+      "parakeet_vocab.txt": "3cde1409fd78783a79b29ed4d32da57c746993856f7c8263bcb905d2e5839db7"
+    },
+    "scope": "Extracted hashes from original local plan; filesystem paths removed. Original plan and full runtime are not included."
+  }
+}
