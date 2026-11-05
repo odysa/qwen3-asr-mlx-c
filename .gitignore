@@ -1,0 +1,17 @@
+/build*/
+/models/
+/deps/mlx-c/
+/deps/*.log
+/.venv*/
+/qwen3-asr
+__pycache__/
+*.o
+*.dylib
+*.metallib
+/dist/
+/fixtures/*.wav
+/tests/task5_dumps/
+/benchmarks/*/snapshot/build/
+/experimental/*-model/
+
+/deps/mlx-c

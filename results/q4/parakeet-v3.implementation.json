@@ -1,0 +1,9 @@
+{
+  "implementation_id": "parakeet-v3",
+  "model_id": "mlx-community/parakeet-tdt-0.6b-v3@ed2b7e8c15f9aaa0b5772e2efb986255eaef7e15",
+  "precision": "BF16",
+  "evaluated_configs": [
+    "en_us"
+  ],
+  "scope_note": "English-only benchmark scope; Chinese not evaluated"
+}

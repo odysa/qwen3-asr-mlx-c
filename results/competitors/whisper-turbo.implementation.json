@@ -1,0 +1,10 @@
+{
+  "implementation_id": "whisper-turbo",
+  "model_id": "Whisper large-v3-turbo ggml",
+  "precision": "FP16 weights",
+  "evaluated_configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "scope_note": "multilingual"
+}

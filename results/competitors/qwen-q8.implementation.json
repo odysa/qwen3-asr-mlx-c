@@ -1,0 +1,10 @@
+{
+  "implementation_id": "qwen-q8",
+  "model_id": "Qwen3-ASR-0.6B",
+  "precision": "decoder-linear affine 8-bit group64; rest BF16",
+  "evaluated_configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "scope_note": "multilingual"
+}

@@ -1,0 +1,1044 @@
+{
+  "plan_sha256": "18ea9ead8ed460a5fef42bc25cb430cb436e8b201d0dde72b4fe598220a9ff44",
+  "jobs": 90,
+  "statuses": {
+    "ok": 90,
+    "error": 0,
+    "timeout": 0
+  },
+  "pin_mismatches": [],
+  "summary": {
+    "qwen-bf16": {
+      "en_us": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.198646,
+        "median_case_rtf": 0.022945610007496252,
+        "peak_process_rss_max_bytes": 1641021440,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.219828,
+            "samples_s": [
+              0.219828,
+              0.220008,
+              0.219742
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.197923,
+            "samples_s": [
+              0.196975,
+              0.198054,
+              0.197923
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.294382,
+            "samples_s": [
+              0.296447,
+              0.294182,
+              0.294382
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.153694,
+            "samples_s": [
+              0.153347,
+              0.153694,
+              0.153982
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.143657,
+            "samples_s": [
+              0.142453,
+              0.143657,
+              0.144011
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.199369,
+            "samples_s": [
+              0.199369,
+              0.199182,
+              0.200415
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.179788,
+            "samples_s": [
+              0.179823,
+              0.179641,
+              0.179788
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.161873,
+            "samples_s": [
+              0.16223,
+              0.161873,
+              0.161276
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.249875,
+            "samples_s": [
+              0.249875,
+              0.248602,
+              0.250208
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.280799,
+            "samples_s": [
+              0.281622,
+              0.280586,
+              0.280799
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.0
+      },
+      "cmn_hans_cn": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.192683,
+        "median_case_rtf": 0.018744693832737313,
+        "peak_process_rss_max_bytes": 1642250240,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.152236,
+            "samples_s": [
+              0.153065,
+              0.152102,
+              0.152236
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.157124,
+            "samples_s": [
+              0.157085,
+              0.157124,
+              0.157771
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.256591,
+            "samples_s": [
+              0.256813,
+              0.255708,
+              0.256591
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.364727,
+            "samples_s": [
+              0.365682,
+              0.364727,
+              0.363544
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.185218,
+            "samples_s": [
+              0.185218,
+              0.185335,
+              0.18486
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.196824,
+            "samples_s": [
+              0.198088,
+              0.196824,
+              0.196664
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.241111,
+            "samples_s": [
+              0.241111,
+              0.241242,
+              0.240807
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.30125,
+            "samples_s": [
+              0.299855,
+              0.302713,
+              0.30125
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.188542,
+            "samples_s": [
+              0.188542,
+              0.188989,
+              0.188312
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.165396,
+            "samples_s": [
+              0.164217,
+              0.165957,
+              0.165396
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.0
+      }
+    },
+    "qwen-q8": {
+      "en_us": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.172491,
+        "median_case_rtf": 0.020063093453273364,
+        "peak_process_rss_max_bytes": 1229946880,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.186307,
+            "samples_s": [
+              0.186122,
+              0.18734,
+              0.186307
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.168831,
+            "samples_s": [
+              0.168831,
+              0.169908,
+              0.16865
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.249632,
+            "samples_s": [
+              0.249632,
+              0.24977,
+              0.249498
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.129336,
+            "samples_s": [
+              0.129336,
+              0.128764,
+              0.129478
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.120878,
+            "samples_s": [
+              0.119471,
+              0.120878,
+              0.121091
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.176151,
+            "samples_s": [
+              0.175511,
+              0.176234,
+              0.176151
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.156527,
+            "samples_s": [
+              0.156252,
+              0.156527,
+              0.158489
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.144456,
+            "samples_s": [
+              0.149147,
+              0.144391,
+              0.144456
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.213856,
+            "samples_s": [
+              0.217059,
+              0.213856,
+              0.213661
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.234932,
+            "samples_s": [
+              0.235567,
+              0.233813,
+              0.234932
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.1757891012932895
+      },
+      "cmn_hans_cn": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.168696,
+        "median_case_rtf": 0.016457659808209617,
+        "peak_process_rss_max_bytes": 1232683008,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.133657,
+            "samples_s": [
+              0.133608,
+              0.133763,
+              0.133657
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.145134,
+            "samples_s": [
+              0.145134,
+              0.149303,
+              0.145085
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.223058,
+            "samples_s": [
+              0.223058,
+              0.222602,
+              0.223249
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.311241,
+            "samples_s": [
+              0.312398,
+              0.311241,
+              0.311174
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.164957,
+            "samples_s": [
+              0.16499,
+              0.164792,
+              0.164957
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.172435,
+            "samples_s": [
+              0.172977,
+              0.172435,
+              0.172387
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.234551,
+            "samples_s": [
+              0.220593,
+              0.234551,
+              0.242833
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.260063,
+            "samples_s": [
+              0.258754,
+              0.260063,
+              0.263116
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.161618,
+            "samples_s": [
+              0.161663,
+              0.161511,
+              0.161618
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.14456,
+            "samples_s": [
+              0.141822,
+              0.14456,
+              0.144981
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.142786363328777
+      }
+    },
+    "whisper-small": {
+      "en_us": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.176416188,
+        "median_case_rtf": 0.020200281408532354,
+        "peak_process_rss_max_bytes": 778551296,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.179334208,
+            "samples_s": [
+              0.207172542,
+              0.179334208,
+              0.171956584
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.177127709,
+            "samples_s": [
+              0.177159458,
+              0.177127709,
+              0.176916375
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.231268584,
+            "samples_s": [
+              0.234389917,
+              0.231268584,
+              0.231205667
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.154697958,
+            "samples_s": [
+              0.154697958,
+              0.15322825,
+              0.158964083
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.15354975,
+            "samples_s": [
+              0.1539435,
+              0.15354975,
+              0.152923958
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.175704667,
+            "samples_s": [
+              0.175193541,
+              0.175704667,
+              0.178125542
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.159238375,
+            "samples_s": [
+              0.159238375,
+              0.160661875,
+              0.15852675
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.154410125,
+            "samples_s": [
+              0.154631667,
+              0.154410125,
+              0.153947625
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.195387333,
+            "samples_s": [
+              0.195022375,
+              0.195387333,
+              0.1978365
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.228140333,
+            "samples_s": [
+              0.229118458,
+              0.22749975,
+              0.228140333
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.1318659451312523
+      },
+      "cmn_hans_cn": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.2301125205,
+        "median_case_rtf": 0.019104529773270363,
+        "peak_process_rss_max_bytes": 767016960,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.184738792,
+            "samples_s": [
+              0.18413675,
+              0.184738792,
+              0.187405042
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.198352292,
+            "samples_s": [
+              0.193749042,
+              0.198985541,
+              0.198352292
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.232816041,
+            "samples_s": [
+              0.233953333,
+              0.232816041,
+              0.231035292
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.466354709,
+            "samples_s": [
+              0.460629042,
+              0.482927667,
+              0.466354709
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.227409,
+            "samples_s": [
+              0.227143292,
+              0.227409,
+              0.228530166
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.246364875,
+            "samples_s": [
+              0.24662575,
+              0.246364875,
+              0.245778291
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.238324084,
+            "samples_s": [
+              0.238324084,
+              0.236919458,
+              0.242646333
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.31350675,
+            "samples_s": [
+              0.3157315,
+              0.311498125,
+              0.31350675
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.213290958,
+            "samples_s": [
+              0.213168625,
+              0.21330175,
+              0.213290958
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.213271042,
+            "samples_s": [
+              0.2126945,
+              0.213271042,
+              0.214917625
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 0.8192658305008456
+      }
+    },
+    "whisper-turbo": {
+      "en_us": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.42896022899999997,
+        "median_case_rtf": 0.04364052735549209,
+        "peak_process_rss_max_bytes": 1941766144,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.428483375,
+            "samples_s": [
+              0.426890916,
+              0.430706917,
+              0.428483375
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.429437083,
+            "samples_s": [
+              0.429619459,
+              0.429437083,
+              0.42858975
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.466329375,
+            "samples_s": [
+              0.466605416,
+              0.466329375,
+              0.46556675
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.420267084,
+            "samples_s": [
+              0.426396,
+              0.420267084,
+              0.415091625
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.414901959,
+            "samples_s": [
+              0.41557125,
+              0.414901959,
+              0.414504792
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.430411875,
+            "samples_s": [
+              0.43053475,
+              0.430121167,
+              0.430411875
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.419511375,
+            "samples_s": [
+              0.419511375,
+              0.419302083,
+              0.421220959
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.414964583,
+            "samples_s": [
+              0.414964583,
+              0.415315292,
+              0.414692333
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.441013167,
+            "samples_s": [
+              0.441251083,
+              0.440669041,
+              0.441013167
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.461232458,
+            "samples_s": [
+              0.464049959,
+              0.461232458,
+              0.461175333
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 0.4620472789012741
+      },
+      "cmn_hans_cn": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.4893472085,
+        "median_case_rtf": 0.04507355397914277,
+        "peak_process_rss_max_bytes": 1941356544,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.439494375,
+            "samples_s": [
+              0.439494375,
+              0.441525917,
+              0.438648833
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.441770916,
+            "samples_s": [
+              0.440112375,
+              0.441770916,
+              0.576770709
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.496023583,
+            "samples_s": [
+              0.472928875,
+              0.496023583,
+              0.717838291
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.737177917,
+            "samples_s": [
+              0.737177917,
+              0.7769635,
+              0.704995292
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.475683,
+            "samples_s": [
+              0.475683,
+              0.477533375,
+              0.473302125
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.482670834,
+            "samples_s": [
+              0.476682667,
+              0.482670834,
+              0.600160208
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.772050625,
+            "samples_s": [
+              0.524497667,
+              0.772050625,
+              0.797110417
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.536518208,
+            "samples_s": [
+              0.534480875,
+              0.536518208,
+              0.662107542
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.608047542,
+            "samples_s": [
+              0.457118666,
+              0.608047542,
+              0.726853084
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.463291041,
+            "samples_s": [
+              0.463291041,
+              0.462215,
+              0.663702209
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 0.37318756266427267
+      }
+    },
+    "parakeet-v3": {
+      "en_us": {
+        "selected": 10,
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.12423491600202397,
+        "median_case_rtf": 0.012869648822284994,
+        "peak_process_rss_max_bytes": 2037760000,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.12403066596016288,
+            "samples_s": [
+              0.13212962495163083,
+              0.12403066596016288,
+              0.12321616697590798
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.1085449579404667,
+            "samples_s": [
+              0.11900254094507545,
+              0.1085449579404667,
+              0.10588216700125486
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.16135029098950326,
+            "samples_s": [
+              0.16780887497588992,
+              0.16105429199524224,
+              0.16135029098950326
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.09219658304937184,
+            "samples_s": [
+              0.10462150000967085,
+              0.08863941591698676,
+              0.09219658304937184
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.07448220800142735,
+            "samples_s": [
+              0.07793495792429894,
+              0.07448220800142735,
+              0.07428570894990116
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.13867087510880083,
+            "samples_s": [
+              0.1459604580886662,
+              0.1320188749814406,
+              0.13867087510880083
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.12443916604388505,
+            "samples_s": [
+              0.14003445906564593,
+              0.12443916604388505,
+              0.12356220802757889
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.10104125004727393,
+            "samples_s": [
+              0.10964291694108397,
+              0.0983667919645086,
+              0.10104125004727393
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.12952600000426173,
+            "samples_s": [
+              0.1324328751070425,
+              0.12952600000426173,
+              0.12669404095504433
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.13214837503619492,
+            "samples_s": [
+              0.14128262491431087,
+              0.13214837503619492,
+              0.13016554107889533
+            ]
+          }
+        ],
+        "median_paired_speed_vs_qwen_bf16": 1.7978938495966676
+      },
+      "cmn_hans_cn": {
+        "selected": 10,
+        "supported": 0
+      }
+    }
+  },
+  "note": "Warm latency medians are per case; ratios are median of matched-case medians, not ratio of aggregate means. RSS is maximum recorded per-process lifetime peak, including startup and warmup. No claim of population-level significance."
+}

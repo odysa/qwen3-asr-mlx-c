@@ -1,0 +1,10 @@
+{
+  "implementation_id": "qwen-head8",
+  "model_id": "Qwen3-ASR-0.6B decoder q8 plus output-head q8",
+  "precision": "decoder and output head affine 8-bit/group64, input embeddings and remaining BF16",
+  "evaluated_configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "scope_note": "multilingual"
+}

@@ -1,0 +1,10 @@
+{
+  "implementation_id": "qwen-q4",
+  "model_id": "Qwen3-ASR-0.6B q4",
+  "precision": "decoder affine 4-bit/group64, remaining BF16",
+  "evaluated_configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "scope_note": "multilingual"
+}

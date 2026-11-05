@@ -1,0 +1,10 @@
+{
+  "implementation_id": "whisper-small",
+  "model_id": "Whisper small ggml",
+  "precision": "FP16 weights",
+  "evaluated_configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "scope_note": "multilingual"
+}

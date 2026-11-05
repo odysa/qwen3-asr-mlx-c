@@ -1,0 +1,589 @@
+{
+  "plan_sha256": "ea6dd00f94d1f3278fcbaf359b9feb1181414e16af7e5b0e9081a52eb96f0093",
+  "status_counts": {
+    "ok": 50,
+    "error": 0,
+    "timeout": 0
+  },
+  "pin_mismatches": [],
+  "summary": {
+    "qwen-q8": {
+      "en_us": {
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.1715845,
+        "median_rtf": 0.020221148800599702,
+        "max_process_rss_bytes": 1230028800,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.187,
+            "samples_s": [
+              0.185938,
+              0.187423,
+              0.187
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.168106,
+            "samples_s": [
+              0.166611,
+              0.168106,
+              0.168614
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.251258,
+            "samples_s": [
+              0.248831,
+              0.251573,
+              0.251258
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.129207,
+            "samples_s": [
+              0.129479,
+              0.128704,
+              0.129207
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.120656,
+            "samples_s": [
+              0.119222,
+              0.120966,
+              0.120656
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.175063,
+            "samples_s": [
+              0.174892,
+              0.175063,
+              0.1751
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.155905,
+            "samples_s": [
+              0.155905,
+              0.157914,
+              0.155196
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.145742,
+            "samples_s": [
+              0.145572,
+              0.145742,
+              0.146944
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.215306,
+            "samples_s": [
+              0.214042,
+              0.21595,
+              0.215306
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.235297,
+            "samples_s": [
+              0.235297,
+              0.23304,
+              0.237185
+            ]
+          }
+        ],
+        "head8_speed_ratio_vs_this": 1.0684442485679384,
+        "head8_faster_count": 10
+      },
+      "cmn_hans_cn": {
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.17026049999999998,
+        "median_rtf": 0.016419951063429326,
+        "max_process_rss_bytes": 1231863808,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.135235,
+            "samples_s": [
+              0.134517,
+              0.135235,
+              0.137098
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.138236,
+            "samples_s": [
+              0.137475,
+              0.138236,
+              0.138865
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.223766,
+            "samples_s": [
+              0.221766,
+              0.223766,
+              0.225835
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.314029,
+            "samples_s": [
+              0.310598,
+              0.314029,
+              0.31646
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.16595,
+            "samples_s": [
+              0.16595,
+              0.165721,
+              0.167585
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.174571,
+            "samples_s": [
+              0.173143,
+              0.174571,
+              0.175608
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.215583,
+            "samples_s": [
+              0.213049,
+              0.216893,
+              0.215583
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.260682,
+            "samples_s": [
+              0.257265,
+              0.260682,
+              0.263252
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.161608,
+            "samples_s": [
+              0.161665,
+              0.161041,
+              0.161608
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.14214,
+            "samples_s": [
+              0.14214,
+              0.141716,
+              0.142761
+            ]
+          }
+        ],
+        "head8_speed_ratio_vs_this": 1.0662033984739165,
+        "head8_faster_count": 10
+      }
+    },
+    "qwen-head8": {
+      "en_us": {
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.1615725,
+        "median_rtf": 0.01894903017241379,
+        "max_process_rss_bytes": 1395458048,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.17503,
+            "samples_s": [
+              0.174736,
+              0.17503,
+              0.175052
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.158262,
+            "samples_s": [
+              0.158339,
+              0.158262,
+              0.157636
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.232903,
+            "samples_s": [
+              0.232903,
+              0.23304,
+              0.232722
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.120532,
+            "samples_s": [
+              0.120814,
+              0.120195,
+              0.120532
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.112105,
+            "samples_s": [
+              0.111734,
+              0.112634,
+              0.112105
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.164883,
+            "samples_s": [
+              0.164622,
+              0.164883,
+              0.165178
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.147204,
+            "samples_s": [
+              0.147319,
+              0.147038,
+              0.147204
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.136736,
+            "samples_s": [
+              0.136828,
+              0.136001,
+              0.136736
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.201503,
+            "samples_s": [
+              0.200786,
+              0.201514,
+              0.201503
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.218099,
+            "samples_s": [
+              0.220094,
+              0.21712,
+              0.218099
+            ]
+          }
+        ]
+      },
+      "cmn_hans_cn": {
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.162086,
+        "median_rtf": 0.015370807453416149,
+        "max_process_rss_bytes": 1397325824,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "cmn_hans_cn_00",
+            "duration_s": 10.38,
+            "median_s": 0.128366,
+            "samples_s": [
+              0.127808,
+              0.128366,
+              0.12977
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_01",
+            "duration_s": 8.28,
+            "median_s": 0.12969,
+            "samples_s": [
+              0.130034,
+              0.129615,
+              0.12969
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_02",
+            "duration_s": 13.86,
+            "median_s": 0.208989,
+            "samples_s": [
+              0.208196,
+              0.208989,
+              0.209362
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_03",
+            "duration_s": 15.42,
+            "median_s": 0.290112,
+            "samples_s": [
+              0.290112,
+              0.289545,
+              0.290195
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_04",
+            "duration_s": 12.9,
+            "median_s": 0.15765,
+            "samples_s": [
+              0.15765,
+              0.157442,
+              0.1579
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_05",
+            "duration_s": 13.74,
+            "median_s": 0.166522,
+            "samples_s": [
+              0.164346,
+              0.166522,
+              0.166968
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_06",
+            "duration_s": 15.18,
+            "median_s": 0.201657,
+            "samples_s": [
+              0.201657,
+              0.19969,
+              0.202615
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_07",
+            "duration_s": 15.46,
+            "median_s": 0.244425,
+            "samples_s": [
+              0.241604,
+              0.244425,
+              0.245544
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_08",
+            "duration_s": 7.62,
+            "median_s": 0.151747,
+            "samples_s": [
+              0.151747,
+              0.152302,
+              0.151142
+            ]
+          },
+          {
+            "case_id": "cmn_hans_cn_09",
+            "duration_s": 6.84,
+            "median_s": 0.132852,
+            "samples_s": [
+              0.132852,
+              0.131704,
+              0.133135
+            ]
+          }
+        ]
+      }
+    },
+    "parakeet-v3": {
+      "en_us": {
+        "supported": 10,
+        "completed": 10,
+        "failed": 0,
+        "median_case_latency_s": 0.12818464601878077,
+        "median_rtf": 0.013128083980366419,
+        "max_process_rss_bytes": 2251669504,
+        "varied_transcripts": [],
+        "per_case": [
+          {
+            "case_id": "en_us_00",
+            "duration_s": 10.56,
+            "median_s": 0.12832825002260506,
+            "samples_s": [
+              0.13282679207623005,
+              0.12832825002260506,
+              0.12364612496457994
+            ]
+          },
+          {
+            "case_id": "en_us_01",
+            "duration_s": 8.76,
+            "median_s": 0.1068347078980878,
+            "samples_s": [
+              0.11817512498237193,
+              0.1068347078980878,
+              0.10431216692086309
+            ]
+          },
+          {
+            "case_id": "en_us_02",
+            "duration_s": 11.46,
+            "median_s": 0.17076637502759695,
+            "samples_s": [
+              0.17235062492545694,
+              0.16459741699509323,
+              0.17076637502759695
+            ]
+          },
+          {
+            "case_id": "en_us_03",
+            "duration_s": 5.76,
+            "median_s": 0.09521499997936189,
+            "samples_s": [
+              0.09606754197739065,
+              0.09521499997936189,
+              0.09317854105029255
+            ]
+          },
+          {
+            "case_id": "en_us_04",
+            "duration_s": 4.32,
+            "median_s": 0.07768233306705952,
+            "samples_s": [
+              0.08066450001206249,
+              0.0759118749992922,
+              0.07768233306705952
+            ]
+          },
+          {
+            "case_id": "en_us_05",
+            "duration_s": 11.42,
+            "median_s": 0.13362279208377004,
+            "samples_s": [
+              0.14330783300101757,
+              0.1321548749692738,
+              0.13362279208377004
+            ]
+          },
+          {
+            "case_id": "en_us_06",
+            "duration_s": 10.8,
+            "median_s": 0.12804104201495647,
+            "samples_s": [
+              0.13567558291833848,
+              0.12804104201495647,
+              0.1262433750089258
+            ]
+          },
+          {
+            "case_id": "en_us_07",
+            "duration_s": 6.96,
+            "median_s": 0.10700349998660386,
+            "samples_s": [
+              0.11338633298873901,
+              0.10360112506896257,
+              0.10700349998660386
+            ]
+          },
+          {
+            "case_id": "en_us_08",
+            "duration_s": 11.04,
+            "median_s": 0.12979895796161145,
+            "samples_s": [
+              0.14536545891314745,
+              0.12822833296377212,
+              0.12979895796161145
+            ]
+          },
+          {
+            "case_id": "en_us_09",
+            "duration_s": 9.9,
+            "median_s": 0.139198207994923,
+            "samples_s": [
+              0.1494767499389127,
+              0.139198207994923,
+              0.13419383391737938
+            ]
+          }
+        ],
+        "head8_speed_ratio_vs_this": 0.7331933681771059,
+        "head8_faster_count": 0
+      },
+      "cmn_hans_cn": {
+        "supported": 0,
+        "completed": 0,
+        "failed": 0,
+        "median_case_latency_s": null,
+        "median_rtf": null,
+        "max_process_rss_bytes": null,
+        "varied_transcripts": [],
+        "per_case": []
+      }
+    }
+  },
+  "limits": "small fixed cohort, single session, different models and precisions; RSS is process-lifetime peak including initialization"
+}

@@ -1,0 +1,14 @@
+{
+  "repository": "https://github.com/ml-explore/mlx-c",
+  "commit": "a26f2d584a14ec619ae8db9a09be03becd47598a",
+  "headers": "deps/mlx-c/mlx/c",
+  "cmake": "deps/mlx-c/CMakeLists.txt",
+  "configure": "cmake -S deps/mlx-c -B deps/mlx-c/build -DMLX_C_BUILD_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release",
+  "build": "cmake --build deps/mlx-c/build -j4",
+  "result": "built",
+  "metal_toolchain": "17F42",
+  "install_log": "deps/metal-toolchain-install.log",
+  "headers_verified": true,
+  "model_or_runtime_calls": false,
+  "build_artifact": "deps/mlx-c/build/libmlxc.a"
+}
