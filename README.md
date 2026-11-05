@@ -73,7 +73,7 @@ python voice/voice.py speak --model models/Qwen3-TTS-0.6B-CustomVoice-4bit \
   --text 'Hello from my Mac.' --speaker Vivian --language English --output hello.wav
 ```
 
-The `speak` inference command requires a local model directory and sets Hugging Face offline mode. It writes a new WAV, refuses to overwrite an existing file, and returns JSON with the sample rate and duration. The optional dependency versions shown are those used for the initial smoke test; transitive dependencies are not locked. One English example produced a nonempty 24 kHz WAV that the ASR path transcribed correctly except punctuation. This is a functional smoke test, not a speech-quality or latency benchmark. The TTS model and its dependencies have their own licenses and are downloaded separately.
+The `speak` inference command requires a local model directory and sets Hugging Face offline mode. It writes a new WAV, refuses to overwrite an existing file, and returns JSON with the sample rate and duration. If writing fails, a partial output may remain; inspect or remove it and choose a new output path for a retry. The optional dependency versions shown are those used for the initial smoke test; transitive dependencies are not locked. One English example produced a nonempty 24 kHz WAV that the ASR path transcribed correctly except punctuation. This is a functional smoke test, not a speech-quality or latency benchmark. The TTS model and its dependencies have their own licenses and are downloaded separately.
 
 ## Experimental quantized paths
 
