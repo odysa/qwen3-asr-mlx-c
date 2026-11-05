@@ -32,7 +32,7 @@ def validate_config(config, processor, tokenizer, vocab, weight_shape, bias_shap
         raise ValueError("invalid CTC dimensions or blank token")
     if not isinstance(vocab, dict) or any(not isinstance(k, str) or type(v) is not int for k, v in vocab.items()):
         raise ValueError("invalid CTC vocabulary")
-    if set(vocab.values()) != set(range(size)) or vocab.get("<pad>") != blank:
+    if len(vocab) != size or set(vocab.values()) != set(range(size)) or vocab.get("<pad>") != blank:
         raise ValueError("invalid CTC vocabulary or blank token")
     if tuple(weight_shape) != (size, hidden) or tuple(bias_shape) != (size,):
         raise ValueError("CTC head dimensions do not match configuration")

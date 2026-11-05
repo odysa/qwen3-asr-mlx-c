@@ -19,6 +19,7 @@ class CTCTest(unittest.TestCase):
         for cfg2, vocab2, shape, bias in [
             ({**cfg, "pad_token_id":1}, vocab, (3,4), (3,)),
             (cfg, {"<pad>":0, "|":1, "A":1}, (3,4), (3,)),
+            (cfg, {"<pad>":0, "|":1, "A":2, "B":2}, (3,4), (3,)),
             (cfg, vocab, (2,4), (3,)), (cfg, vocab, (3,4), (2,))]:
             with self.assertRaises(ValueError):
                 ctc.validate_config(cfg2, proc, tok, vocab2, shape, bias)
