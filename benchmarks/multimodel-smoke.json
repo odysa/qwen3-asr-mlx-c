@@ -149,5 +149,6 @@
         "status": "ok"
       }
     }
-  ]
+  ],
+  "verification_status": "Unverified exploration: runner, raw stderr and measured executable/input hashes were not retained. Use results/multimodel-bf16.md for the separate reviewed repeat."
 }

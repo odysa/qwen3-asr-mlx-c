@@ -42,7 +42,7 @@ python3 tools/fetch_model.py
 
 ### Larger BF16 model
 
-The same native executable also runs the official 1.7B checkpoint, automatically loading its two safetensors shards. This is speech recognition; speech generation and conversational audio are not implemented. Downloading model weights requires network access, but inference is local. The 1.7B variant has only been smoke-tested; the latency and quality table above covers 0.6B only.
+The same native executable also runs the official 1.7B checkpoint, automatically loading its two safetensors shards. This is speech recognition; speech generation and conversational audio are not implemented. Downloading model weights requires network access, but inference is local. The 1.7B variant has only been smoke-tested; the latency and quality table above covers 0.6B only. See [the separate fresh-process smoke comparison](results/multimodel-bf16.md), which is not an accuracy or warm-latency test.
 
 ```sh
 python3 tools/fetch_model.py --size 1.7B
