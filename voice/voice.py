@@ -12,6 +12,27 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def transcribe(args):
+    if args.backend == "parakeet":
+        if not args.model.is_dir():
+            raise ValueError("--model must point to a downloaded local model directory")
+        if args.language not in ("auto", "English"):
+            raise ValueError("Parakeet adapter currently supports auto or English only")
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["TRANSFORMERS_OFFLINE"] = "1"
+        try:
+            import mlx.core as mx
+            from parakeet_mlx import from_pretrained
+            from parakeet_mlx.audio import load_audio, get_logmel
+        except ImportError as e:
+            raise ValueError("Parakeet requires optional dependencies; see README") from e
+        with contextlib.redirect_stdout(sys.stderr):
+            model = from_pretrained(str(args.model))
+            audio = load_audio(str(args.audio), model.preprocessor_config.sample_rate, mx.bfloat16)
+            mx.eval(audio)
+            result = model.generate(get_logmel(audio, model.preprocessor_config))[0]
+            mx.synchronize()
+        print(json.dumps({"text": result.text, "status": "ok", "termination": "generate_returned"}, ensure_ascii=False))
+        return 0
     executable = Path(args.executable).resolve()
     if not executable.is_file():
         raise ValueError(f"ASR executable does not exist: {executable}")
@@ -35,12 +56,39 @@ def speak(args):
         from mlx_audio.tts.utils import load_model
     except ImportError as e:
         raise ValueError("TTS requires the optional mlx-audio dependencies; see README") from e
+    if args.backend == "kokoro":
+        if (args.language or "a") not in ("a", "b"):
+            raise ValueError("Kokoro adapter currently supports English language codes a or b")
+        try:
+            import spacy.util
+        except ImportError as e:
+            raise ValueError("Kokoro requires misaki[en] and the spaCy English model; see README") from e
+        if not spacy.util.is_package("en_core_web_sm"):
+            raise ValueError("Kokoro requires the local spaCy en_core_web_sm model; see README")
+        # The tested espeakng-loader wheel points to its build-machine data path
+        # on macOS; use the installed Homebrew library and data explicitly.
+        try:
+            import espeakng_loader
+        except ImportError as e:
+            raise ValueError("Kokoro requires espeakng-loader; see README") from e
+        espeak_prefix = Path("/opt/homebrew/opt/espeak-ng")
+        espeak_lib = espeak_prefix / "lib/libespeak-ng.dylib"
+        espeak_data = espeak_prefix / "share/espeak-ng-data"
+        if not espeak_lib.is_file() or not (espeak_data / "phontab").is_file():
+            raise ValueError("Kokoro requires Homebrew espeak-ng; see README")
+        espeakng_loader.get_library_path = lambda: str(espeak_lib)
+        espeakng_loader.get_data_path = lambda: str(espeak_data)
     with contextlib.redirect_stdout(sys.stderr):
         model = load_model(args.model, strict=True)
         outputs = []
         rate = None
-        for result in model.generate_custom_voice(text=args.text, speaker=args.speaker,
-                                                   language=args.language):
+        if args.backend == "kokoro":
+            results = model.generate(text=args.text, voice=args.speaker or "af_heart",
+                                     lang_code=args.language or "a")
+        else:
+            results = model.generate_custom_voice(text=args.text, speaker=args.speaker or "Vivian",
+                                                   language=args.language or "English")
+        for result in results:
             mx.eval(result.audio)
             current_rate = int(result.sample_rate)
             if rate is not None and rate != current_rate:
@@ -65,17 +113,19 @@ def main():
     parser = argparse.ArgumentParser(description="Run supported voice models locally")
     subs = parser.add_subparsers(dest="task", required=True)
     p = subs.add_parser("transcribe", help="Qwen3-ASR BF16 native C/MLX backend")
+    p.add_argument("--backend", choices=("qwen", "parakeet"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--audio", type=Path, required=True)
     p.add_argument("--language", default="auto")
     p.add_argument("--executable", type=Path, default=ROOT / "build/qwen3-asr")
     p.set_defaults(handler=transcribe)
-    p = subs.add_parser("speak", help="Qwen3-TTS CustomVoice via optional MLX Audio")
+    p = subs.add_parser("speak", help="Qwen3-TTS or Kokoro through optional MLX Audio")
+    p.add_argument("--backend", choices=("qwen", "kokoro"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--text", required=True)
     p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--speaker", default="Vivian")
-    p.add_argument("--language", default="English")
+    p.add_argument("--speaker", default=None)
+    p.add_argument("--language", default=None)
     p.set_defaults(handler=speak)
     args = parser.parse_args()
     try:

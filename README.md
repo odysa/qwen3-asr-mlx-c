@@ -54,7 +54,7 @@ Experimental q8, q4 and head8 binaries and the conversion tool support 0.6B only
 
 ## Local voice interface (experimental)
 
-One entry point supports native Qwen3-ASR transcription and, with an optional Python dependency, local Qwen3-TTS speech generation through [MLX Audio](https://github.com/Blaizzy/mlx-audio). The TTS backend is MLX Audio, not this repository's native C graph. These are separate speech-to-text and text-to-speech tasks; conversational speech-to-speech is not yet implemented.
+One entry point supports native Qwen3-ASR transcription plus optional Parakeet transcription and Qwen3-TTS / Kokoro speech generation. Parakeet uses [parakeet-mlx](https://github.com/senstella/parakeet-mlx); the TTS models use [MLX Audio](https://github.com/Blaizzy/mlx-audio). The TTS backend is MLX Audio, not this repository's native C graph. These are separate speech-to-text and text-to-speech tasks; conversational speech-to-speech is not yet implemented.
 
 After building the C executable and downloading an ASR checkpoint as above:
 
@@ -74,6 +74,27 @@ python voice/voice.py speak --model models/Qwen3-TTS-0.6B-CustomVoice-4bit \
 ```
 
 The `speak` inference command requires a local model directory and sets Hugging Face offline mode. It writes a new WAV, refuses to overwrite an existing file, and returns JSON with the sample rate and duration. If writing fails, a partial output may remain; inspect or remove it and choose a new output path for a retry. The optional dependency versions shown are those used for the initial smoke test; transitive dependencies are not locked. One English example produced a nonempty 24 kHz WAV that the ASR path transcribed correctly except punctuation. This is a functional smoke test, not a speech-quality or latency benchmark. The TTS model and its dependencies have their own licenses and are downloaded separately.
+
+### Non-Qwen models (experimental)
+
+The Parakeet TDT v3 adapter and Kokoro 82M adapter have each run an English example locally. Parakeet returns when its generator finishes; this is not an exposed EOS check. The adapter accepts `auto` or `English` for Parakeet; other languages are outside this integration's tested scope. Kokoro is restricted to American or British English (`a` or `b`) in this adapter. These examples do not establish speech quality or comparative speed.
+
+The following setup was tested with Python 3.12 and Apple Silicon Homebrew at `/opt/homebrew`. It downloads model files and the spaCy language package during setup. The inference commands use local paths with Hugging Face offline mode. Kokoro requires the Homebrew espeak-ng library/data: the tested `espeakng-loader` wheel refers to a build-machine path, so the adapter explicitly selects Homebrew's installation. The Python package versions listed are direct dependencies; their transitive dependencies are not locked.
+
+```sh
+python3.12 -m venv .venv-voice312 && . .venv-voice312/bin/activate
+python -m pip install -r voice/requirements-non-qwen.txt
+python -m spacy download en_core_web_sm
+brew install espeak-ng
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/parakeet-tdt-0.6b-v3', revision='ed2b7e8c15f9aaa0b5772e2efb986255eaef7e15', local_dir='models/parakeet-tdt-0.6b-v3')"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Kokoro-82M-bf16', revision='a71e4d38b236d968966a2002c4c895dbd12b1c3c', local_dir='models/Kokoro-82M')"
+python voice/voice.py transcribe --backend parakeet --model models/parakeet-tdt-0.6b-v3 \
+  --audio fixtures/asr_en.wav --language English
+python voice/voice.py speak --backend kokoro --model models/Kokoro-82M \
+  --text 'Hello from my Mac.' --speaker af_heart --language a --output kokoro.wav
+```
+
+Parakeet requires an audio decoder supported by its backend; the tested example was 16 kHz mono PCM16. The Kokoro model repository's `bf16` name is not a guarantee about the dtype of every stored tensor. Both models and dependencies are distributed separately under their own terms. If Kokoro's spaCy package or Homebrew data is absent, the command fails rather than attempting a download during inference.
 
 ## Experimental quantized paths
 
