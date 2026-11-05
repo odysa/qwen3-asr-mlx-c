@@ -4,6 +4,7 @@ import argparse
 import contextlib
 import json
 import inspect
+import pkgutil
 import os
 from pathlib import Path
 import subprocess
@@ -12,7 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def mlx_audio_transcribe(model_path, paths, language):
+def mlx_audio_transcribe(model_path, paths, language, options=None):
     if not model_path.is_dir():
         raise ValueError("--model must point to a downloaded local model directory")
     os.environ["HF_HUB_OFFLINE"] = "1"
@@ -24,7 +25,9 @@ def mlx_audio_transcribe(model_path, paths, language):
         raise ValueError("MLX Audio requires optional dependencies; see README") from e
     with contextlib.redirect_stdout(sys.stderr):
         model = load_model(model_path.resolve())
-        kwargs = {}
+        kwargs = dict(options or {})
+        if any(key in kwargs for key in ("audio", "language", "stream")):
+            raise ValueError("options must not override audio, language, or stream")
         if language != "auto":
             parameters = inspect.signature(model.generate).parameters
             if "language" not in parameters:
@@ -41,14 +44,36 @@ def mlx_audio_transcribe(model_path, paths, language):
     return records
 
 
+def parse_options(text):
+    try:
+        result = json.loads(text)
+    except json.JSONDecodeError as e:
+        raise ValueError("--options-json must be a JSON object") from e
+    if not isinstance(result, dict):
+        raise ValueError("--options-json must be a JSON object")
+    return result
+
+
+def list_asr(args):
+    try:
+        import mlx_audio.stt.models as models
+    except ImportError as e:
+        raise ValueError("model listing requires the optional mlx-audio dependency") from e
+    names = sorted(item.name for item in pkgutil.iter_modules(models.__path__) if item.ispkg)
+    print(json.dumps({"mlx_audio_modules": names,
+                      "status": "installed modules; model compatibility is not verified"}))
+    return 0
+
 def transcribe_many(args):
-    print(json.dumps({"results": mlx_audio_transcribe(args.model, args.audio, args.language)}, ensure_ascii=False))
+    print(json.dumps({"results": mlx_audio_transcribe(args.model, args.audio, args.language, parse_options(args.options_json))}, ensure_ascii=False))
     return 0
 
 def transcribe(args):
     if args.backend == "mlx-audio":
-        print(json.dumps(mlx_audio_transcribe(args.model, [args.audio], args.language)[0], ensure_ascii=False))
+        print(json.dumps(mlx_audio_transcribe(args.model, [args.audio], args.language, parse_options(args.options_json))[0], ensure_ascii=False))
         return 0
+    if args.options_json != "{}":
+        raise ValueError("--options-json is available only with the mlx-audio backend")
     if args.backend == "parakeet":
         if not args.model.is_dir():
             raise ValueError("--model must point to a downloaded local model directory")
@@ -149,17 +174,21 @@ def speak(args):
 def main():
     parser = argparse.ArgumentParser(description="Run supported voice models locally")
     subs = parser.add_subparsers(dest="task", required=True)
-    p = subs.add_parser("transcribe", help="Qwen3-ASR BF16 native C/MLX backend")
+    p = subs.add_parser("list-asr", help="List installed MLX Audio ASR implementation modules")
+    p.set_defaults(handler=list_asr)
+    p = subs.add_parser("transcribe", help="Transcribe with a local model")
     p.add_argument("--backend", choices=("qwen", "parakeet", "mlx-audio"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--audio", type=Path, required=True)
     p.add_argument("--language", default="auto")
+    p.add_argument("--options-json", default="{}", help="MLX Audio model-specific generate options as JSON")
     p.add_argument("--executable", type=Path, default=ROOT / "build/qwen3-asr")
     p.set_defaults(handler=transcribe)
     p = subs.add_parser("transcribe-many", help="Reuse one MLX Audio ASR model for sequential files")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--audio", type=Path, nargs="+", required=True)
     p.add_argument("--language", default="auto")
+    p.add_argument("--options-json", default="{}", help="MLX Audio model-specific generate options as JSON")
     p.set_defaults(handler=transcribe_many)
     p = subs.add_parser("speak", help="Qwen3-TTS or Kokoro through optional MLX Audio")
     p.add_argument("--backend", choices=("qwen", "kokoro"), default="qwen")
@@ -172,7 +201,7 @@ def main():
     args = parser.parse_args()
     try:
         return args.handler(args)
-    except (ValueError, OSError, RuntimeError) as e:
+    except (ValueError, OSError, RuntimeError, TypeError) as e:
         print(f"voice: {e}", file=sys.stderr)
         return 1
 

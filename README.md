@@ -96,6 +96,26 @@ python voice/voice.py speak --backend kokoro --model models/Kokoro-82M \
 
 Parakeet requires an audio decoder supported by its backend; the tested example was 16 kHz mono PCM16. The Kokoro model repository's `bf16` name is not a guarantee about the dtype of every stored tensor. Both models and dependencies are distributed separately under their own terms. If Kokoro's spaCy package or Homebrew data is absent, the command fails rather than attempting a download during inference. Missing Kokoro voice assets may resolve from an existing local Hugging Face cache; this setup is not a self-contained offline installer.
 
+### Generic local MLX Audio ASR
+
+The `mlx-audio` ASR backend attempts any local checkpoint that the installed MLX Audio version can load and whose `generate` method returns a single result with a text field. The model-specific API, dependencies, options and licensing still apply. This interface does not establish that every installed model family or checkpoint works, and it does not support streaming or forced alignment. We have smoke-tested local Whisper tiny, Parakeet TDT v3, and Qwen3-ASR 0.6B; the dedicated Qwen C and Parakeet paths above remain available.
+
+```sh
+# In the optional Python environment above; list installed implementation modules.
+python voice/voice.py list-asr
+# One explicit example, downloaded once at a pinned revision.
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/whisper-tiny-asr-fp16', revision='77fa3f52b482ec80d086df55f893065a9baab172', local_dir='models/whisper-tiny-asr-fp16')"
+python voice/voice.py transcribe --backend mlx-audio --model models/whisper-tiny-asr-fp16 \
+  --audio fixtures/asr_en.wav --language en
+# Reuse a loaded model across multiple sequential requests (not parallel batching).
+python voice/voice.py transcribe-many --model models/whisper-tiny-asr-fp16 \
+  --audio fixtures/asr_en.wav fixtures/asr_zh.wav --options-json '{"temperature":0}'
+```
+
+`list-asr` lists modules installed in MLX Audio, not verified model support. `--options-json` passes model-specific generation arguments; `audio`, `language`, and `stream` cannot be overridden there. With `--language auto`, the backend's default is used; if a language is specified the model must expose that parameter. A returned `status: ok` means the generator returned a text result, not that an EOS token was checked or the transcription is correct. Inference uses a local directory and requests Hugging Face offline mode; third-party dependencies may require their own offline setup.
+
+The multi-file mode avoids repeated process startup and model loading. In an exploratory M1 Max test of Whisper tiny on the same short English clip three times, two end-to-end trials took 3.27/3.19 seconds in one process versus 10.58/8.99 seconds in three separate processes. All returned texts matched. This compares total process wall time, with filesystem caches retained, not model-only latency; no memory or transcription accuracy was measured. Full local runner and raw-output receipt seal SHA-256: `ff4085a2aeb50ee037af9c6a689d3f6f0ab70d8aa197635d78c452d15ee615b2` (machine-local receipt not published). Code used for the timing was `849fe68`; this small test is exploratory and not independently reviewed.
+
 ## Experimental quantized paths
 
 Conversion is local and requires Python with MLX (`mlx==0.32.4` used for the reported experiments). It writes a new model directory, refuses to overwrite an existing one, and records source/output hashes. Q8 and q4 each quantize the same 196 decoder linear matrices; the head8 conversion adds a quantized output-head copy to the q8 checkpoint. It does not train or improve the model, and precision changes can alter transcripts.
