@@ -1,4 +1,4 @@
-/* Qwen3-ASR 0.6B graph in C over Apple's MLX C API.
+/* Qwen3-ASR 0.6B and 1.7B graph in C over Apple's MLX C API.
  * Architecture follows QwenLM/Qwen3-ASR and MLX-Audio (see review/upstream).
  * No host-side tensor arithmetic in the model's hot path. */
 #include "mlx/c/compile.h"
@@ -20,6 +20,7 @@ struct qwen_model {
   mlx_stream s;
   mlx_array k[28], v[28];
   int offset;
+  int hidden, enc_width, enc_heads, enc_layers;
   mlx_closure silu_compiled, gelu_compiled;
 };
 typedef struct {
@@ -273,9 +274,9 @@ static mlx_array enc_layer(arena *a, mlx_array x, int i, mlx_array mask) {
   mlx_array v = linear(a, h, n, 1);
   int t = mlx_array_dim(x, 1);
   h = unheads(a,
-              sdpa(a, heads(a, q, t, 14, 64), heads(a, k, t, 14, 64),
-                   heads(a, v, t, 14, 64), 1.f, "", mask),
-              t, 896);
+              sdpa(a, heads(a, q, t, a->m->enc_heads, 64), heads(a, k, t, a->m->enc_heads, 64),
+                   heads(a, v, t, a->m->enc_heads, 64), 1.f, "", mask),
+              t, a->m->enc_width);
   snprintf(n, sizeof n, "%s.self_attn.out_proj", p);
   x = add(a, x, linear(a, h, n, 1));
   snprintf(n, sizeof n, "%s.final_layer_norm", p);
@@ -303,23 +304,50 @@ int qwen_model_load(const char *path, const qwen_model_opts_t *opts,
   if (l > 12 && !strcmp(path + l - 12, ".safetensors"))
     snprintf(file, sizeof file, "%s", path);
   else
-    snprintf(file, sizeof file, "%s/model.safetensors", path);
+    {
+      snprintf(file, sizeof file, "%s/model.safetensors", path);
+      FILE *probe = fopen(file, "rb");
+      if (probe) fclose(probe);
+      else snprintf(file, sizeof file, "%s/model-00001-of-00002.safetensors", path);
+    }
   if (qwen_weights_load_mlx(file, &m->w, &m->metadata, err, cap)) {
     mlx_stream_free(m->s);
     free(m);
     return -1;
   }
+  /* Official 1.7B weights have two safetensors shards. */
+  if (!(l > 12 && !strcmp(path + l - 12, ".safetensors"))) {
+    char second[4096];
+    snprintf(second, sizeof second, "%s/model-00002-of-00002.safetensors", path);
+    if (strstr(file, "model-00001-of-00002.safetensors")) {
+      mlx_map_string_to_array extra = {0};
+      mlx_map_string_to_string meta = {0};
+      if (qwen_weights_load_mlx(second, &extra, &meta, err, cap)) {
+        qwen_model_free(m); return -1;
+      }
+      mlx_map_string_to_array_iterator it = mlx_map_string_to_array_iterator_new(extra);
+      const char *key = NULL; mlx_array value = mlx_array_new();
+      int failed = 0, next;
+      while ((next = mlx_map_string_to_array_iterator_next(&key, &value, it)) == 0) {
+        if (mlx_map_string_to_array_insert(m->w, key, value)) { failed = 1; break; }
+      }
+      if (!failed && next != 2) failed = 1;
+      mlx_array_free(value); mlx_map_string_to_array_iterator_free(it);
+      mlx_map_string_to_array_free(extra); mlx_map_string_to_string_free(meta);
+      if (failed) { if (err && cap) snprintf(err, cap, "failed to merge model shards"); qwen_model_free(m); return -1; }
+    }
+  }
   mlx_array w = mlx_array_new();
   int bad = mlx_map_string_to_array_get(&w, m->w,
                                         "thinker.model.embed_tokens.weight") ||
-            mlx_array_ndim(w) != 2 || mlx_array_dim(w, 0) != 151936 ||
-            mlx_array_dim(w, 1) != 1024;
+            mlx_array_ndim(w) != 2 || mlx_array_dim(w, 0) != 151936;
+  int hidden = bad ? 0 : mlx_array_dim(w, 1);
   mlx_array_free(w);
-  if (bad) {
-    if (err && cap)
-      snprintf(err, cap, "expected original Qwen3-ASR 0.6B weights");
-    qwen_model_free(m);
-    return -1;
+  if (hidden == 1024) { m->hidden = 1024; m->enc_width = 896; m->enc_heads = 14; m->enc_layers = 18; }
+  else if (hidden == 2048) { m->hidden = 2048; m->enc_width = 1024; m->enc_heads = 16; m->enc_layers = 24; }
+  else {
+    if (err && cap) snprintf(err, cap, "expected Qwen3-ASR 0.6B or 1.7B BF16 weights");
+    qwen_model_free(m); return -1;
   }
   mlx_closure raw = mlx_closure_new_unary(silu_graph);
   m->silu_compiled = mlx_closure_new();
@@ -429,11 +457,11 @@ int qwen_encode(qwen_model_t *m, qwen_array_t mel, qwen_array_t *out, char *err,
   x = linear(a, x, "thinker.audio_tower.conv_out", 0);
   mlx_array channels = fresh(a), times = fresh(a), inv = fresh(a), phase,
             sn = fresh(a), cs = fresh(a);
-  TRY(a, mlx_arange(&channels, 0, 448, 1, MLX_FLOAT32, m->s));
-  TRY(a, mlx_exp(&inv, scale(a, channels, (float)(-log(10000.) / 447.)), m->s));
+  TRY(a, mlx_arange(&channels, 0, m->enc_width / 2, 1, MLX_FLOAT32, m->s));
+  TRY(a, mlx_exp(&inv, scale(a, channels, (float)(-log(10000.) / (m->enc_width / 2 - 1))), m->s));
   TRY(a, mlx_arange(&times, 0, ct, 1, MLX_FLOAT32, m->s));
   phase = mul(a, reshape(a, times, (int[]){ct, 1}, 2),
-              reshape(a, inv, (int[]){1, 448}, 2));
+              reshape(a, inv, (int[]){1, m->enc_width / 2}, 2));
   TRY(a, mlx_sin(&sn, phase, m->s));
   TRY(a, mlx_cos(&cs, phase, m->s));
   x = add(a, x, join(a, (mlx_array[]){sn, cs}, 2, 1, 0));
@@ -450,11 +478,11 @@ int qwen_encode(qwen_model_t *m, qwen_array_t mel, qwen_array_t *out, char *err,
     int n = (len + 7) / 8;
     nout += n;
     parts[i] =
-        reshape(a, slice(a, x, (int[]){i, 0, 0}, (int[]){i + 1, n, 896}, 3),
-                (int[]){n, 896}, 2);
+        reshape(a, slice(a, x, (int[]){i, 0, 0}, (int[]){i + 1, n, m->enc_width}, 3),
+                (int[]){n, m->enc_width}, 2);
   }
   x = join(a, parts, (size_t)nc, 0, 0);
-  x = reshape(a, x, (int[]){1, nout, 896}, 3);
+  x = reshape(a, x, (int[]){1, nout, m->enc_width}, 3);
   /* The reference groups eight 100-frame convolution chunks per encoder window.
    */
   int window = ct * 8;
@@ -467,12 +495,12 @@ int qwen_encode(qwen_model_t *m, qwen_array_t mel, qwen_array_t *out, char *err,
     for (int j = 0; j < nout; j++)
       mask[(size_t)i * nout + j] = (i / window == j / window) ? 0.f : -1e9f;
   mlx_array am = data(a, mask, (int[]){1, 1, nout, nout}, 4, MLX_FLOAT32);
-  for (int i = 0; i < 18; i++)
+  for (int i = 0; i < m->enc_layers; i++)
     x = enc_layer(a, x, i, am);
   x = ln(a, x, "thinker.audio_tower.ln_post");
   x = gelu(a, linear(a, x, "thinker.audio_tower.proj1", 1));
   x = linear(a, x, "thinker.audio_tower.proj2", 1);
-  x = reshape(a, x, (int[]){nout, 1024}, 2);
+  x = reshape(a, x, (int[]){nout, m->hidden}, 2);
   TRY(a, mlx_array_eval(x));
   *out = mlx_array_new();
   TRY(a, mlx_array_set(out, x));
@@ -527,8 +555,8 @@ static mlx_array decoder(arena *a, mlx_array x) {
     x = add(a, x, linear(a, h, n, 0));
   }
   x = rms(a, x, "thinker.model.norm");
-  x = slice(a, x, (int[]){0, t - 1, 0}, (int[]){1, t, 1024}, 3);
-  x = reshape(a, x, (int[]){1, 1024}, 2);
+  x = slice(a, x, (int[]){0, t - 1, 0}, (int[]){1, t, m->hidden}, 3);
+  x = reshape(a, x, (int[]){1, m->hidden}, 2);
   mlx_array embed = weight(a, "thinker.model.embed_tokens.weight");
   x = mm(a, x, permute(a, embed, (int[]){1, 0}, 2));
   m->offset += t;
@@ -557,7 +585,7 @@ int qwen_prefill(qwen_model_t *m, const int64_t *ids, size_t n,
     }
     count += ids[i] == 151676;
   }
-  if (count != audio_n || mlx_array_dim(audio, 1) != 1024) {
+  if (count != audio_n || mlx_array_dim(audio, 1) != m->hidden) {
     a->why = "audio placeholder count/shape mismatch";
     longjmp(a->jump, 1);
   }
@@ -573,14 +601,14 @@ int qwen_prefill(qwen_model_t *m, const int64_t *ids, size_t n,
   int j = 0;
   for (size_t i = 0; i < n; i++) {
     if (ids[i] == 151676) {
-      parts[i] = slice(a, audio, (int[]){j, 0}, (int[]){j + 1, 1024}, 2);
+      parts[i] = slice(a, audio, (int[]){j, 0}, (int[]){j + 1, m->hidden}, 2);
       j++;
     } else
       parts[i] =
-          slice(a, tokens, (int[]){(int)i, 0}, (int[]){(int)i + 1, 1024}, 2);
+          slice(a, tokens, (int[]){(int)i, 0}, (int[]){(int)i + 1, m->hidden}, 2);
   }
   mlx_array x =
-      reshape(a, join(a, parts, n, 0, 0), (int[]){1, (int)n, 1024}, 3);
+      reshape(a, join(a, parts, n, 0, 0), (int[]){1, (int)n, m->hidden}, 3);
   x = decoder(a, x);
   TRY(a, mlx_array_eval(x));
   *out = mlx_array_new();
@@ -614,7 +642,7 @@ int qwen_step_token_array(qwen_model_t *m, qwen_array_t token,
   mlx_array x = fresh(a);
   TRY(a, mlx_take_axis(&x, weight(a, "thinker.model.embed_tokens.weight"),
                        token, 0, m->s));
-  x = reshape(a, x, (int[]){1, 1, 1024}, 3);
+  x = reshape(a, x, (int[]){1, 1, m->hidden}, 3);
   x = decoder(a, x);
   *out = mlx_array_new();
   TRY(a, mlx_array_set(out, x));

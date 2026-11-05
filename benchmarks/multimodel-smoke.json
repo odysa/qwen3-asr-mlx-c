@@ -1,0 +1,153 @@
+{
+  "scope": "Exploratory process wall time including startup, model loading, audio and inference; separate fresh process for each repeat; not warm latency. Official examples lack pinned ground truth.",
+  "model_revisions": {
+    "0.6B": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+    "1.7B": "7278e1e70fe206f11671096ffdd38061171dd6e5"
+  },
+  "records": [
+    {
+      "size": "0.6B",
+      "lang": "en",
+      "repeat": 1,
+      "process_seconds": 0.6702951668994501,
+      "peak_rss_bytes": 1638596608,
+      "result": {
+        "text": "Mhm. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "0.6B",
+      "lang": "en",
+      "repeat": 2,
+      "process_seconds": 0.5716584590263665,
+      "peak_rss_bytes": 1638547456,
+      "result": {
+        "text": "Mhm. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "0.6B",
+      "lang": "en",
+      "repeat": 3,
+      "process_seconds": 0.5734735000878572,
+      "peak_rss_bytes": 1640251392,
+      "result": {
+        "text": "Mhm. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "en",
+      "repeat": 1,
+      "process_seconds": 1.0709310830570757,
+      "peak_rss_bytes": 4155867136,
+      "result": {
+        "text": "Uh huh. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "en",
+      "repeat": 2,
+      "process_seconds": 1.0871457079192623,
+      "peak_rss_bytes": 4156276736,
+      "result": {
+        "text": "Uh huh. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "en",
+      "repeat": 3,
+      "process_seconds": 1.0737578329863027,
+      "peak_rss_bytes": 4156489728,
+      "result": {
+        "text": "Uh huh. Oh yeah, yeah. He wasn't even that big when I started listening to him, but and his solo music didn't do overly well, but he did very well when he started writing for other people.",
+        "tokens": 45,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "0.6B",
+      "lang": "zh",
+      "repeat": 1,
+      "process_seconds": 0.37545787496492267,
+      "peak_rss_bytes": 1636253696,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "0.6B",
+      "lang": "zh",
+      "repeat": 2,
+      "process_seconds": 0.34193558304104954,
+      "peak_rss_bytes": 1635975168,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "0.6B",
+      "lang": "zh",
+      "repeat": 3,
+      "process_seconds": 0.3395990829449147,
+      "peak_rss_bytes": 1636089856,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "zh",
+      "repeat": 1,
+      "process_seconds": 0.5568937910720706,
+      "peak_rss_bytes": 4151214080,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "zh",
+      "repeat": 2,
+      "process_seconds": 0.5703607499599457,
+      "peak_rss_bytes": 4150771712,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    },
+    {
+      "size": "1.7B",
+      "lang": "zh",
+      "repeat": 3,
+      "process_seconds": 0.5660367090022191,
+      "peak_rss_bytes": 4151410688,
+      "result": {
+        "text": "甚至出现交易几乎停滞的情况。",
+        "tokens": 7,
+        "status": "ok"
+      }
+    }
+  ]
+}

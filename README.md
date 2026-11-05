@@ -1,6 +1,6 @@
 # Qwen3-ASR on Apple Silicon: native MLX C inference
 
-A local C11 application for Qwen3-ASR 0.6B on Apple Silicon, built on the official MLX C API and Metal. The default model path uses BF16. Separate experimental builds quantize decoder linear weights to q8 or q4, or additionally use a q8 output head while retaining BF16 input embeddings. Model weights and audio are **not** included.
+A local C11 application for Qwen3-ASR 0.6B and 1.7B on Apple Silicon, built on the official MLX C API and Metal. The default model path uses BF16. For 0.6B only, separate experimental builds quantize decoder linear weights to q8 or q4, or additionally use a q8 output head while retaining BF16 input embeddings. Model weights and audio are **not** included.
 
 ## Local results
 
@@ -39,6 +39,18 @@ python3 tools/fetch_model.py
 ./build/qwen3-asr transcribe --model models/Qwen3-ASR-0.6B \
   --audio fixtures/asr_zh.wav --language Chinese --json
 ```
+
+### Larger BF16 model
+
+The same native executable also runs the official 1.7B checkpoint, automatically loading its two safetensors shards. This is speech recognition; speech generation and conversational audio are not implemented. Downloading model weights requires network access, but inference is local. The 1.7B variant has only been smoke-tested; the latency and quality table above covers 0.6B only.
+
+```sh
+python3 tools/fetch_model.py --size 1.7B
+./build/qwen3-asr transcribe --model models/Qwen3-ASR-1.7B \
+  --audio fixtures/asr_zh.wav --language Chinese --json
+```
+
+Experimental q8, q4 and head8 binaries and the conversion tool support 0.6B only; use the BF16 executable for 1.7B.
 
 ## Experimental quantized paths
 
