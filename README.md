@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the two later models were hashed before and after their runs.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the three later models were hashed before and after their runs.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|
@@ -130,6 +130,7 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | wav2vec2 base-960h CTC | `wav2vec2-ctc` | English |
 | Nemotron 3.5 streaming 0.6B 8-bit | `mlx-audio` | English, whole file |
 | Canary 1B v2 q8 | `mlx-audio` | English, whole file |
+| Granite 4.0 1B Speech | `mlx-audio` | English, whole file |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -138,6 +139,13 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx
 python -c "from huggingface_hub import snapshot_download; snapshot_download('Mediform/canary-1b-v2-mlx-q8', revision='0b6b32ee10f30c89e3ead7249bb636445e3019ee', local_dir='models/canary-1b-v2-q8')"
 python voice/voice.py transcribe --backend mlx-audio --model models/nemotron-streaming-8bit --audio fixtures/asr_en.wav --language en-US
 python voice/voice.py transcribe --backend mlx-audio --model models/canary-1b-v2-q8 --audio fixtures/asr_en.wav --options-json '{"source_lang":"en","target_lang":"en"}'
+```
+
+For IBM Granite Speech (a larger download), the tested whole-file example is:
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('ibm-granite/granite-4.0-1b-speech', revision='bd87ab862416353633ea431fe49b1614003623c5', local_dir='models/granite-4.0-1b-speech')"
+python voice/voice.py transcribe --backend mlx-audio --model models/granite-4.0-1b-speech --audio fixtures/asr_en.wav
 ```
 
 The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
