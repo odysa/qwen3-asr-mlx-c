@@ -26,7 +26,7 @@ def transcribe(args):
         except ImportError as e:
             raise ValueError("Parakeet requires optional dependencies; see README") from e
         with contextlib.redirect_stdout(sys.stderr):
-            model = from_pretrained(str(args.model))
+            model = from_pretrained(str(args.model.resolve()))
             audio = load_audio(str(args.audio), model.preprocessor_config.sample_rate, mx.bfloat16)
             mx.eval(audio)
             result = model.generate(get_logmel(audio, model.preprocessor_config))[0]
