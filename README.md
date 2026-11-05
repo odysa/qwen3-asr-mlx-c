@@ -52,6 +52,29 @@ python3 tools/fetch_model.py --size 1.7B
 
 Experimental q8, q4 and head8 binaries and the conversion tool support 0.6B only; use the BF16 executable for 1.7B.
 
+## Local voice interface (experimental)
+
+One entry point supports native Qwen3-ASR transcription and, with an optional Python dependency, local Qwen3-TTS speech generation through [MLX Audio](https://github.com/Blaizzy/mlx-audio). The TTS backend is MLX Audio, not this repository's native C graph. These are separate speech-to-text and text-to-speech tasks; conversational speech-to-speech is not yet implemented.
+
+After building the C executable and downloading an ASR checkpoint as above:
+
+```sh
+python3 voice/voice.py transcribe --model models/Qwen3-ASR-0.6B \
+  --audio fixtures/asr_zh.wav --language Chinese
+```
+
+For the optional Qwen3-TTS 0.6B CustomVoice 4-bit model, create a separate Python environment and download the pinned community conversion once (check that model's terms):
+
+```sh
+python3 -m venv .venv-voice && . .venv-voice/bin/activate
+python -m pip install -r voice/requirements.txt
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Qwen3-TTS-12Hz-0.6B-CustomVoice-4bit', revision='08c72cad5e2fd0f41730c8bd1f28149585e46361', local_dir='models/Qwen3-TTS-0.6B-CustomVoice-4bit')"
+python voice/voice.py speak --model models/Qwen3-TTS-0.6B-CustomVoice-4bit \
+  --text 'Hello from my Mac.' --speaker Vivian --language English --output hello.wav
+```
+
+The `speak` inference command requires a local model directory and sets Hugging Face offline mode. It writes a new WAV, refuses to overwrite an existing file, and returns JSON with the sample rate and duration. The optional dependency versions shown are those used for the initial smoke test; transitive dependencies are not locked. One English example produced a nonempty 24 kHz WAV that the ASR path transcribed correctly except punctuation. This is a functional smoke test, not a speech-quality or latency benchmark. The TTS model and its dependencies have their own licenses and are downloaded separately.
+
 ## Experimental quantized paths
 
 Conversion is local and requires Python with MLX (`mlx==0.32.4` used for the reported experiments). It writes a new model directory, refuses to overwrite an existing one, and records source/output hashes. Q8 and q4 each quantize the same 196 decoder linear matrices; the head8 conversion adds a quantized output-head copy to the q8 checkpoint. It does not train or improve the model, and precision changes can alter transcripts.
