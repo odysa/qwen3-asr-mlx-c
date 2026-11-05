@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the ten later models were hashed before and after their runs.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the eleven later models were hashed before and after their runs.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|
@@ -138,6 +138,7 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | Distil-Whisper small.en | `mlx-audio` | English; Whisper derivative |
 | GLM-ASR Nano 4-bit | `mlx-audio` | Mandarin, whole file |
 | Ming 3.0 ASR tiny 4-bit | `mlx-audio` | Mandarin, whole file |
+| MOSS Transcribe/Diarize 4-bit | `mlx-audio` | English; speaker/time markers in text |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -190,6 +191,15 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx
 python voice/voice.py transcribe --backend mlx-audio --model models/GLM-ASR-Nano-4bit --audio fixtures/asr_zh.wav
 python voice/voice.py transcribe --backend mlx-audio --model models/Ming-ASR-tiny-4bit --audio fixtures/asr_zh.wav
 ```
+
+For the tested MOSS conversion, the generic adapter returns speaker/time markers inside its text field; the wrapper does not parse or validate those fields:
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('vanch007/mlx-MOSS-Transcribe-Diarize-4bit', revision='d42a296ee807e933ddd7588e2041dbbc84aff85d', local_dir='models/moss-transcribe-4bit')"
+python voice/voice.py transcribe --backend mlx-audio --model models/moss-transcribe-4bit --audio fixtures/asr_en.wav
+```
+
+The official Cohere Transcribe checkpoint was gated and returned HTTP 401 on download in our environment; it has not been tested. See the compatibility report for details.
 
 The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
 
