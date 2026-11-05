@@ -94,7 +94,7 @@ python voice/voice.py speak --backend kokoro --model models/Kokoro-82M \
   --text 'Hello from my Mac.' --speaker af_heart --language a --output kokoro.wav
 ```
 
-Parakeet requires an audio decoder supported by its backend; the tested example was 16 kHz mono PCM16. The Kokoro model repository's `bf16` name is not a guarantee about the dtype of every stored tensor. Both models and dependencies are distributed separately under their own terms. If Kokoro's spaCy package or Homebrew data is absent, the command fails rather than attempting a download during inference.
+Parakeet requires an audio decoder supported by its backend; the tested example was 16 kHz mono PCM16. The Kokoro model repository's `bf16` name is not a guarantee about the dtype of every stored tensor. Both models and dependencies are distributed separately under their own terms. If Kokoro's spaCy package or Homebrew data is absent, the command fails rather than attempting a download during inference. Missing Kokoro voice assets may resolve from an existing local Hugging Face cache; this setup is not a self-contained offline installer.
 
 ## Experimental quantized paths
 
