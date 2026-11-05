@@ -74,6 +74,21 @@ def transcribe(args):
         return 0
     if args.options_json != "{}":
         raise ValueError("--options-json is available only with the mlx-audio backend")
+    if args.backend == "wav2vec2-ctc":
+        if not args.model.is_dir():
+            raise ValueError("--model must point to a downloaded local model directory")
+        if args.language not in ("auto", "English"):
+            raise ValueError("wav2vec2-ctc adapter currently supports auto or English only")
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["TRANSFORMERS_OFFLINE"] = "1"
+        try:
+            from wav2vec2_ctc import transcribe as ctc_transcribe
+            with contextlib.redirect_stdout(sys.stderr):
+                text = ctc_transcribe(args.model.resolve(), args.audio)
+        except ImportError as e:
+            raise ValueError("wav2vec2-ctc requires optional mlx-audio dependencies") from e
+        print(json.dumps({"text": text, "status": "ok", "termination": "ctc_decoded"}, ensure_ascii=False))
+        return 0
     if args.backend == "parakeet":
         if not args.model.is_dir():
             raise ValueError("--model must point to a downloaded local model directory")
@@ -177,7 +192,7 @@ def main():
     p = subs.add_parser("list-asr", help="List installed MLX Audio ASR implementation modules")
     p.set_defaults(handler=list_asr)
     p = subs.add_parser("transcribe", help="Transcribe with a local model")
-    p.add_argument("--backend", choices=("qwen", "parakeet", "mlx-audio"), default="qwen")
+    p.add_argument("--backend", choices=("qwen", "parakeet", "mlx-audio", "wav2vec2-ctc"), default="qwen")
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--audio", type=Path, required=True)
     p.add_argument("--language", default="auto")

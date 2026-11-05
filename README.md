@@ -98,10 +98,12 @@ Parakeet requires an audio decoder supported by its backend; the tested example 
 
 ### Generic local MLX Audio ASR
 
-The `mlx-audio` ASR backend attempts any local checkpoint that the installed MLX Audio version can load and whose `generate` method returns a single result with a text field. The model-specific API, dependencies, options and licensing still apply. This interface does not establish that every installed model family or checkpoint works, and it does not support streaming or forced alignment. We have smoke-tested local Whisper tiny, Parakeet TDT v3, and Qwen3-ASR 0.6B; the dedicated Qwen C and Parakeet paths above remain available.
+The `mlx-audio` ASR backend attempts any local checkpoint that the installed MLX Audio version can load and whose `generate` method returns a single result with a text field. The model-specific API, dependencies, options and licensing still apply. This interface does not establish that every installed model family or checkpoint works, and it does not support streaming or forced alignment. We have smoke-tested local Whisper tiny, Parakeet TDT v3, Qwen3-ASR 0.6B, Moonshine tiny, SenseVoiceSmall and Fun-ASR Nano; the dedicated Qwen C and Parakeet paths above remain available.
 
 ```sh
-# In the optional Python environment above; list installed implementation modules.
+# Python 3.14 ASR environment (separate from the older Kokoro setup).
+python3.14 -m venv .venv-asr314 && . .venv-asr314/bin/activate
+python -m pip install -r voice/requirements.txt
 python voice/voice.py list-asr
 # One explicit example, downloaded once at a pinned revision.
 python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/whisper-tiny-asr-fp16', revision='77fa3f52b482ec80d086df55f893065a9baab172', local_dir='models/whisper-tiny-asr-fp16')"
@@ -115,6 +117,25 @@ python voice/voice.py transcribe-many --model models/whisper-tiny-asr-fp16 \
 `list-asr` lists modules installed in MLX Audio, not verified model support. `--options-json` passes model-specific generation arguments; `audio`, `language`, and `stream` cannot be overridden there. With `--language auto`, the backend's default is used; if a language is specified the model must expose that parameter. A returned `status: ok` means the generator returned a text result, not that an EOS token was checked or the transcription is correct. Inference uses a local directory and requests Hugging Face offline mode; third-party dependencies may require their own offline setup. `transcribe-many` retains model state across files and aborts without partial JSON if any file fails; equivalence to separate model loads has not been established for arbitrary backends.
 
 The multi-file mode avoids repeated process startup and model loading. In an exploratory M1 Max test of Whisper tiny on the same short English clip three times, two end-to-end trials took 3.27/3.19 seconds in one process versus 10.58/8.99 seconds in three separate processes. All returned texts matched. Each trial used the fixed order of separate processes first and the reused-model process second. This compares total process wall time, with filesystem caches retained, not model-only latency; no memory or transcription accuracy was measured. Full local runner and raw-output receipt seal SHA-256: `ff4085a2aeb50ee037af9c6a689d3f6f0ab70d8aa197635d78c452d15ee615b2` (machine-local receipt not published). Code used for the timing was originally recorded as `849fe68`; after the author-attribution rewrite its equivalent is `1c1b5da` (identical source tree). this small test is exploratory; the raw receipts and timing arithmetic were independently reviewed without rerunning inference.
+
+### Additional locally tested ASR families
+
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for revisions, scope and links to model licenses.
+
+| Family / checkpoint | CLI backend | Example language |
+|---|---|---|
+| Moonshine tiny | `mlx-audio` | English |
+| SenseVoiceSmall | `mlx-audio` | Mandarin |
+| Fun-ASR Nano | `mlx-audio` | Mandarin |
+| wav2vec2 base-960h CTC | `wav2vec2-ctc` | English |
+
+The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/wav2vec2-base-960h', revision='22aad52d435eb6dbaf354bdad9b0da84ce7d6156', local_dir='models/wav2vec2-base-960h', allow_patterns=['*.json','*.safetensors','*.txt'])"
+python voice/voice.py transcribe --backend wav2vec2-ctc --model models/wav2vec2-base-960h \
+  --audio fixtures/asr_en.wav --language English
+```
 
 ## Experimental quantized paths
 
