@@ -22,7 +22,6 @@ The generic adapter has run one short clip each for the checkpoints below on an 
 | [GLM-ASR Nano 4-bit MLX](https://huggingface.co/mlx-community/GLM-ASR-Nano-2512-4bit) | `35553fa5bebfcc3ece3ce7d47b98827cb0ac9eef` | `mlx-audio` | Mandarin, whole file |
 | [Ming 3.0 ASR tiny 4-bit MLX](https://huggingface.co/mlx-community/Ming-3.0-asr-tiny-4bit) | `89acb1a5f240a15119f175065ba8e2356f59d7a1` | `mlx-audio` | Mandarin, whole file |
 | [MOSS Transcribe/Diarize 4-bit MLX](https://huggingface.co/vanch007/mlx-MOSS-Transcribe-Diarize-4bit) | `d42a296ee807e933ddd7588e2041dbbc84aff85d` | `mlx-audio` | English; speaker/time markers returned as text |
-
 | [Phonon 1 Micro](https://huggingface.co/FermionResearch/Phonon-1-Micro) | `4d528ed30a4febeb45706dc3ca42073464dc9da1` | `mlx-audio` | English; Qwen3-ASR derivative |
 | [Phonon 2](https://huggingface.co/FermionResearch/Phonon-2) | `3e6ab3a81d73b4d424ff34cc72535deb606378ef` | `mlx-audio` | English; Parakeet derivative |
 
