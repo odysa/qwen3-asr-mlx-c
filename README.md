@@ -120,7 +120,7 @@ The multi-file mode avoids repeated process startup and model loading. In an exp
 
 ### Additional locally tested ASR families
 
-Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the four later models were hashed before and after their runs.
+Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned checkpoints. These are smoke tests on this Mac, not quality, speed or coverage guarantees. See [ASR compatibility](results/asr-compatibility.md) for recorded download revisions, scope and model licenses. The first seven model files were not hashed at measurement time, so their receipts do not bind their bytes to those revisions; the six later models were hashed before and after their runs.
 
 | Family / checkpoint | CLI backend | Example language |
 |---|---|---|
@@ -132,6 +132,8 @@ Python 3.14 with `mlx-audio==0.6.3` ran a short example on the following pinned 
 | Canary 1B v2 q8 | `mlx-audio` | English, whole file |
 | Granite 4.0 1B Speech | `mlx-audio` | English, whole file |
 | VibeVoice-ASR 4-bit | `mlx-audio` | English; structured JSON returned as text |
+| Voxtral Mini Realtime 4-bit | `mlx-audio` | English, whole file |
+| FireRedASR2-AED | `mlx-audio` | Mandarin, whole file |
 
 For example, the two additional checkpoints can be downloaded and run as follows (the Nemotron example is a whole-file call, not a streaming API):
 
@@ -156,6 +158,15 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx
 python -c "from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen2.5-7B', revision='d149729398750b98c0af14eb82c78cfe92750796', local_dir='models/VibeVoice-tokenizer', allow_patterns=['tokenizer.json','tokenizer_config.json','merges.txt','vocab.json'])"
 cp models/VibeVoice-tokenizer/{tokenizer.json,tokenizer_config.json,merges.txt,vocab.json} models/VibeVoice-ASR-4bit/
 python voice/voice.py transcribe --backend mlx-audio --model models/VibeVoice-ASR-4bit --audio fixtures/asr_en.wav --options-json '{"max_tokens":1024,"temperature":0}'
+```
+
+For the tested Voxtral and FireRed checkpoints, use the generic adapter (the Voxtral command is whole-file, not a streaming test):
+
+```sh
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Voxtral-Mini-4B-Realtime-2602-4bit', revision='fdebf7b2af834a1db4b8a3c99ab7480b333adf9e', local_dir='models/Voxtral-Mini-Realtime-4bit')"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/FireRedASR2-AED-mlx', revision='f3212eacfa49b851130b97c63653c8e06ee09bdb', local_dir='models/FireRedASR2-AED-mlx')"
+python voice/voice.py transcribe --backend mlx-audio --model models/Voxtral-Mini-Realtime-4bit --audio fixtures/asr_en.wav
+python voice/voice.py transcribe --backend mlx-audio --model models/FireRedASR2-AED-mlx --audio fixtures/asr_zh.wav
 ```
 
 The dedicated wav2vec2 CTC adapter uses MLX Audio's encoder, normalizes the waveform, runs the checkpoint's CTC projection and greedy decoder, and currently accepts only the checked preprocessing/vocabulary shape. Its outputs matched the Hugging Face PyTorch implementation on three short English clips. This does not establish equivalent accuracy for other checkpoints or audio. The adapter does not provide timestamps, streaming or an exposed EOS. It requires a local `model.safetensors`, vocabulary and config:
