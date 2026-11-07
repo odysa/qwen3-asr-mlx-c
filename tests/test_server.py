@@ -93,6 +93,39 @@ for line in sys.stdin:
             self.assertFalse(engine.is_ready())
             self.assertIsNotNone(engine.process.poll())
 
+    def test_native_partial_line_has_full_response_deadline(self):
+        script = """#!/usr/bin/env python3
+import json,sys,time
+print(json.dumps({'status':'ready'}),flush=True)
+for line in sys.stdin:
+    print('{"text":',end='',flush=True)
+    time.sleep(30)
+"""
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'worker';path.write_text(script);path.chmod(0o755)
+            engine=NativeEngine(Path(folder),path,response_timeout_s=3)
+            engine.response_timeout_s=.2
+            before=time.monotonic()
+            try:
+                with self.assertRaisesRegex(RuntimeError,'deadline'):
+                    engine.transcribe(Path('a.wav'),'en')
+                self.assertLess(time.monotonic()-before,2)
+                self.assertFalse(engine.is_ready())
+                self.assertIsNotNone(engine.process.poll())
+            finally:engine.close()
+
+    def test_native_invalid_protocol_marks_worker_failed(self):
+        for response in ('not json', '[]', '{}', '{"text":"partial","eos":false}'):
+            with self.subTest(response=response), tempfile.TemporaryDirectory() as folder:
+                script = "#!/usr/bin/env python3\nimport sys,json\nprint(json.dumps({'status':'ready'}),flush=True)\nfor line in sys.stdin: print("+repr(response)+",flush=True)\n"
+                path=Path(folder)/'worker';path.write_text(script);path.chmod(0o755)
+                engine=NativeEngine(Path(folder),path,response_timeout_s=3)
+                try:
+                    with self.assertRaises(RuntimeError):engine.transcribe(Path('a.wav'),'en')
+                    self.assertFalse(engine.is_ready())
+                    self.assertIsNotNone(engine.process.poll())
+                finally:engine.close()
+
     def test_benchmark_retains_empty_and_nonjson_http_errors(self):
         spec = importlib.util.spec_from_file_location('benchmark_server', Path(__file__).resolve().parents[1] / 'tools/benchmark_server.py')
         module = importlib.util.module_from_spec(spec);spec.loader.exec_module(module)

@@ -135,11 +135,13 @@ class MLXAudioEngine:
 
 class NativeEngine:
     """Persistent C worker; no MLX Python dependency in this serving process."""
-    def __init__(self, model_path, executable):
+    def __init__(self, model_path, executable, response_timeout_s=120):
         if not model_path.is_dir() or not executable.is_file():
             raise ValueError("native serving requires a local model and worker executable")
         self.process = subprocess.Popen([str(executable.resolve()), "--model", str(model_path.resolve())],
-                                        stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, start_new_session=True)
+                                        stdin=subprocess.PIPE, stdout=subprocess.PIPE, bufsize=0, start_new_session=True)
+        self.response_timeout_s = response_timeout_s
+        self.response_buffer = bytearray()
         self.peak_rss_bytes = 0
         self.failed = False
         try:
@@ -150,18 +152,37 @@ class NativeEngine:
             self.close()
             raise
 
-    def read_result(self):
-        if not select.select([self.process.stdout], [], [], 120)[0]:
+    def protocol_failure(self, message):
+        self.failed = True
+        if self.process.poll() is None:
             self.process.kill()
-            self.process.wait()
-            raise RuntimeError("native worker deadline exceeded")
-        line = self.process.stdout.readline()
-        if not line:
-            raise RuntimeError("native worker exited")
-        result = json.loads(line)
+        self.process.wait()
+        raise RuntimeError(message)
+
+    def read_result(self):
+        deadline = time.monotonic() + self.response_timeout_s
+        while b"\n" not in self.response_buffer:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0 or not select.select([self.process.stdout], [], [], remaining)[0]:
+                self.protocol_failure("native worker response deadline exceeded")
+            chunk = os.read(self.process.stdout.fileno(), 65536)
+            if time.monotonic() > deadline:
+                self.protocol_failure("native worker response deadline exceeded")
+            if not chunk:
+                self.protocol_failure("native worker exited before completing a response")
+            self.response_buffer.extend(chunk)
+            if len(self.response_buffer) > 1024 * 1024:
+                self.protocol_failure("native worker response exceeds protocol limit")
+        line, _, tail = self.response_buffer.partition(b"\n")
+        self.response_buffer = bytearray(tail)
+        try:
+            result = json.loads(line)
+        except (UnicodeError, json.JSONDecodeError):
+            self.protocol_failure("native worker returned invalid JSON")
+        if not isinstance(result, dict):
+            self.protocol_failure("native worker returned a non-object response")
         if "error" in result:
-            self.failed = True
-            raise RuntimeError(result["error"])
+            self.protocol_failure("native worker reported an inference error")
         return result
 
     def is_ready(self):
@@ -173,9 +194,11 @@ class NativeEngine:
             raise RequestError("native worker supports auto, English or Chinese")
         if not self.is_ready():
             raise RuntimeError("native worker failed or exited; restart the service")
-        self.process.stdin.write(language + "\t" + str(path) + "\n")
+        self.process.stdin.write((language + "\t" + str(path) + "\n").encode("utf-8"))
         self.process.stdin.flush()
         result = self.read_result()
+        if not isinstance(result.get("text"), str) or result.get("eos") is not True:
+            self.protocol_failure("native worker response lacks text or EOS evidence")
         self.peak_rss_bytes = max(self.peak_rss_bytes, result.get("native_peak_rss_bytes", 0))
         return result
 
