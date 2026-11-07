@@ -36,7 +36,15 @@ def upload(url, row, data, language):
             code = response.status
     except urllib.error.HTTPError as response:
         with response:
-            result = json.loads(response.read()); code = response.code
+            raw = response.read().decode('utf-8', errors='replace')
+            try:
+                result = json.loads(raw)
+                if not isinstance(result, dict):
+                    result = {'error': raw}
+            except json.JSONDecodeError:
+                result = {'error': raw or 'empty HTTP error response'}
+            result['raw_error_body'] = raw
+            code = response.code
     except Exception as exc:
         result = {'error': type(exc).__name__+': '+str(exc)}; code = 0
     elapsed = time.perf_counter()-before

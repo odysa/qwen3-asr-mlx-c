@@ -1,6 +1,7 @@
 """Real HTTP/lifecycle checks with a deterministic engine, no MLX import required."""
 import concurrent.futures
 import io
+import importlib.util
 import json
 from pathlib import Path
 import sys
@@ -12,6 +13,7 @@ import unittest
 import urllib.error
 import urllib.request
 import wave
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'voice'))
 from server import ASRServer, ResidentService, RequestError, parse_upload, NativeEngine
@@ -88,6 +90,17 @@ for line in sys.stdin:
                 with self.assertRaises(RequestError): engine.transcribe(Path('a.wav'), 'fr')
             finally: engine.close()
             self.assertIsNotNone(engine.process.poll())
+
+    def test_benchmark_retains_empty_and_nonjson_http_errors(self):
+        spec = importlib.util.spec_from_file_location('benchmark_server', Path(__file__).resolve().parents[1] / 'tools/benchmark_server.py')
+        module = importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        for body in (b'', b'<html>overloaded</html>'):
+            error = urllib.error.HTTPError('http://127.0.0.1:1',503,'overloaded',{},io.BytesIO(body))
+            with patch('urllib.request.urlopen',side_effect=error):
+                record = module.upload('http://127.0.0.1:1',{'case_id':'case','config':'en_us'},wav_bytes(),'en')
+            self.assertEqual(record['http_status'],503)
+            self.assertEqual(record['response']['raw_error_body'],body.decode())
+            self.assertIn('error',record['response'])
 
     def test_connection_admission_limits_unfinished_uploads(self):
         service = ResidentService('fake', lambda: object())
