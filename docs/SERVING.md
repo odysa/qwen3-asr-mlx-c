@@ -30,10 +30,12 @@ If the MLX C build cannot locate its Metal library, set `MLX_METAL_PATH` to the 
 ```sh
 python3.14 -m venv .venv-asr
 . .venv-asr/bin/activate
-python -m pip install -r voice/requirements.txt
+python -m pip install 'mlx==0.32.4' -r voice/requirements.txt
 python voice/voice.py serve --backend mlx-audio \
   --model models/whisper-tiny-asr-fp16 --model-id whisper-tiny --port 8080
 ```
+
+These are direct version pins, not a complete transitive lock. The measured runtime inventory and MLX Audio source hashes are recorded after the run in results/serving-v1/SOFTWARE_POST_RUN.json.
 
 The model directory must already exist. The loader requests Hugging Face offline mode; model-specific tokenizer/assets and other third-party dependencies must also be prepared locally. Model loading and inference happen on the same single worker thread. MLX Audio weights are explicitly evaluated before readiness; native C weights may remain lazy until the first request. Readiness and first-request time are therefore different metrics.
 

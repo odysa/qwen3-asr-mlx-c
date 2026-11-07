@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-11-07T06:02:15.400959+00:00",
+  "cpu_busy_percent_one_second": 99.90138067061145,
+  "load_average_1_5_15_min": [
+    97.482421875,
+    95.77783203125,
+    67.88037109375
+  ],
+  "memory_pressure_level": 2,
+  "scope": "post-run check for a future lower-contention window; not a continuous recording of previous measurements"
+}

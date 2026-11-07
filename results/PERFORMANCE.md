@@ -6,7 +6,7 @@ Hardware: Apple M1 Max, 64 GiB unified memory, one shared Mac. FLEURS: first ten
 
 ## Resident HTTP service: release candidate
 
-Measured source 3826de0; Python 3.14.3, MLX 0.32.4, MLX Audio 0.6.3. Each model starts once; concurrency 1 precedes concurrency 4, with three repeats per clip after one excluded warmup per language per phase. Not every input shape is independently warmed. Native workers use newly compiled graph/frontend/tokenizer objects and existing pinned MLX/weights archives, not a fresh dependency rebuild. No retries.
+Measured source 3826de0; subsequent health and complete-response deadline fixes at a1689ca/6466ef4 have separate CPU and usability validation, not retroactively relabeled timing results. Python 3.14.3, MLX 0.32.4, MLX Audio 0.6.3. Each model starts once; concurrency 1 precedes concurrency 4, with three repeats per clip after one excluded warmup per language per phase. Not every input shape is independently warmed. Native workers use newly compiled graph/frontend/tokenizer objects and existing pinned MLX/weights archives, not a fresh dependency rebuild. No retries.
 
 The p50/p95 values below pool successful client requests, including HTTP upload and response. At concurrency 4 they include queue waiting. Throughput uses successes over the entire measured phase wall time, including failures. The model worker is serialized; concurrent clients are not GPU batching.
 

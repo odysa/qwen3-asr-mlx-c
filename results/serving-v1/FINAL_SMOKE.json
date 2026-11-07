@@ -1,0 +1,42 @@
+{
+  "source_commit": "6466ef4c49744353c317791c9b7641330c8e2baf",
+  "scope": "functional automatic-language smoke only, not timing/quality benchmark",
+  "api_response": {
+    "text": "甚至出现交易几乎停滞的情况。",
+    "termination": "eos",
+    "eos": true,
+    "generation_tokens": 10,
+    "token_ids": [
+      11528,
+      8453,
+      151704,
+      100636,
+      100347,
+      99886,
+      100740,
+      118083,
+      102072,
+      1773
+    ],
+    "native_total_s": 5.986757,
+    "encode_frontend_s": 2.497694,
+    "prefill_s": 2.50276,
+    "decode_materialize_s": 0.986303,
+    "native_peak_rss_bytes": 1583923200,
+    "model": "smoke",
+    "timing": {
+      "queue_s": 7.774995174258947e-05,
+      "inference_s": 5.987144625047222,
+      "service_s": 5.9903040420031175,
+      "audio_s": 4.2039375,
+      "real_time_factor": 1.4241754605170085
+    },
+    "id": "120e71bea6024fdc8efb7701473a5ca9"
+  },
+  "baseline_auto_result": {
+    "text": "甚至出现交易几乎停滞的情况。",
+    "tokens": 7,
+    "status": "ok"
+  },
+  "exact_text_match": true
+}
