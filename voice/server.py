@@ -15,6 +15,8 @@ import math
 import os
 from pathlib import Path
 import resource
+import select
+import subprocess
 import statistics
 import sys
 import tempfile
@@ -52,6 +54,8 @@ def parse_upload(content_type, body, max_seconds):
         b"Content-Type: " + content_type.encode("ascii") + b"\r\nMIME-Version: 1.0\r\n\r\n" + body)
     if message.get_content_type() != "multipart/form-data" or not message.is_multipart():
         raise RequestError("use multipart/form-data with a file field")
+    if message.defects:
+        raise RequestError("malformed multipart body")
     fields = {}
     for part in message.iter_parts():
         name = part.get_param("name", header="content-disposition")
@@ -127,6 +131,60 @@ class MLXAudioEngine:
             if isinstance(limit, int) and limit > 0:
                 record["possibly_capped"] = count >= limit
         return record
+
+
+class NativeEngine:
+    """Persistent C worker; no MLX Python dependency in this serving process."""
+    def __init__(self, model_path, executable):
+        if not model_path.is_dir() or not executable.is_file():
+            raise ValueError("native serving requires a local model and worker executable")
+        self.process = subprocess.Popen([str(executable.resolve()), "--model", str(model_path.resolve())],
+                                        stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, start_new_session=True)
+        self.peak_rss_bytes = 0
+        try:
+            self.ready = self.read_result()
+            if self.ready.get("status") != "ready":
+                raise RuntimeError("native worker did not become ready")
+        except BaseException:
+            self.close()
+            raise
+
+    def read_result(self):
+        if not select.select([self.process.stdout], [], [], 120)[0]:
+            self.process.kill()
+            self.process.wait()
+            raise RuntimeError("native worker deadline exceeded")
+        line = self.process.stdout.readline()
+        if not line:
+            raise RuntimeError("native worker exited")
+        result = json.loads(line)
+        if "error" in result:
+            raise RuntimeError(result["error"])
+        return result
+
+    def transcribe(self, path, language):
+        language = {"en": "English", "zh": "Chinese"}.get(language, language)
+        if language not in ("auto", "English", "Chinese"):
+            raise RequestError("native worker supports auto, English or Chinese")
+        if self.process.poll() is not None:
+            raise RuntimeError("native worker exited; restart the service")
+        self.process.stdin.write(language + "\t" + str(path) + "\n")
+        self.process.stdin.flush()
+        result = self.read_result()
+        self.peak_rss_bytes = max(self.peak_rss_bytes, result.get("native_peak_rss_bytes", 0))
+        return result
+
+    def close(self):
+        if self.process.poll() is None:
+            self.process.stdin.close()
+            try:
+                self.process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                self.process.kill()
+                self.process.wait()
+        self.process.stdout.close()
+        if not self.process.stdin.closed:
+            self.process.stdin.close()
 
 
 class ResidentService:
@@ -212,19 +270,53 @@ class ResidentService:
                     "queue_p95_s": percentile(self.queues, .95),
                     "latency_window_requests": len(self.latencies),
                     "completed_audio_s": self.audio_seconds,
-                    "process_peak_rss_bytes": rss_bytes()}
+                    "process_peak_rss_bytes": rss_bytes(),
+                    "native_worker_peak_rss_bytes": getattr(self.engine, "peak_rss_bytes", None),
+                    "load_boundary": "worker ready; weights may be lazy" if isinstance(self.engine, NativeEngine) else "MLX import, model loading, weight materialization and sync"}
 
     def close(self):
+        closer = getattr(self.engine, "close", None)
+        if closer:
+            self.executor.submit(closer).result()
         self.executor.shutdown(wait=True)
 
 
 class ASRServer(ThreadingHTTPServer):
     daemon_threads = True
-    def __init__(self, address, service, max_upload_bytes=16 * 1024 * 1024, max_audio_seconds=30):
+    def __init__(self, address, service, max_upload_bytes=16 * 1024 * 1024, max_audio_seconds=30, max_connections=8):
         self.service = service
+        self.rejected_connections = 0
+        self.connection_counter_lock = threading.Lock()
+        self.connections = threading.BoundedSemaphore(max_connections)
+        self.max_connections = max_connections
         self.max_upload_bytes = max_upload_bytes
         self.max_audio_seconds = max_audio_seconds
         super().__init__(address, ASRHandler)
+
+
+    def process_request(self, request, client_address):
+        # Acquire before creating a thread or reading any request body.
+        if not self.connections.acquire(blocking=False):
+            with self.connection_counter_lock:
+                self.rejected_connections += 1
+            try:
+                request.sendall(b"HTTP/1.0 503 Service Unavailable\r\nContent-Length: 0\r\nRetry-After: 1\r\nConnection: close\r\n\r\n")
+            except OSError:
+                pass
+            finally:
+                self.shutdown_request(request)
+            return
+        try:
+            super().process_request(request, client_address)
+        except BaseException:
+            self.connections.release()
+            raise
+
+    def process_request_thread(self, request, client_address):
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            self.connections.release()
 
 
 class ASRHandler(BaseHTTPRequestHandler):
@@ -249,7 +341,11 @@ class ASRHandler(BaseHTTPRequestHandler):
         if self.path == "/health":
             self.respond(200, {"status": "ready", "model": self.server.service.model_id})
         elif self.path == "/metrics":
-            self.respond(200, self.server.service.metrics())
+            metrics = self.server.service.metrics()
+            with self.server.connection_counter_lock:
+                metrics["rejected_http_connections"] = self.server.rejected_connections
+            metrics["max_http_connections"] = self.server.max_connections
+            self.respond(200, metrics)
         elif self.path == "/v1/models":
             self.respond(200, {"object": "list", "data": [{"id": self.server.service.model_id, "object": "model"}]})
         else:
@@ -303,17 +399,22 @@ class ASRHandler(BaseHTTPRequestHandler):
 def serve(args):
     if args.host != "127.0.0.1":
         raise ValueError("local server binds only to 127.0.0.1")
-    if not 0 <= args.port <= 65535 or not 0 <= args.max_pending <= 64:
+    if not 0 <= args.port <= 65535 or not 0 <= args.max_pending <= 64 or not 1 <= args.max_connections <= 128:
         raise ValueError("invalid port or max-pending")
     if not 0 < args.max_audio_seconds <= 3600 or not 0 < args.max_upload_mb <= 256:
         raise ValueError("invalid upload or audio limit")
     options = json.loads(args.options_json)
     if not isinstance(options, dict):
         raise ValueError("--options-json must be an object")
-    service = ResidentService(args.model_id or args.model.name,
-                              lambda: MLXAudioEngine(args.model, options), args.max_pending)
+    if args.backend == "native":
+        if options:
+            raise ValueError("native generation uses fixed greedy decoding and a 256-token cap")
+        factory = lambda: NativeEngine(args.model, args.executable)
+    else:
+        factory = lambda: MLXAudioEngine(args.model, options)
+    service = ResidentService(args.model_id or args.model.name, factory, args.max_pending)
     try:
-        with ASRServer((args.host, args.port), service, int(args.max_upload_mb * 1024 * 1024), args.max_audio_seconds) as server:
+        with ASRServer((args.host, args.port), service, int(args.max_upload_mb * 1024 * 1024), args.max_audio_seconds, args.max_connections) as server:
             print(json.dumps({"status": "ready", "url": f"http://{args.host}:{server.server_port}",
                               "model": service.model_id, "load_prepare_s": service.load_seconds}), flush=True)
             try:

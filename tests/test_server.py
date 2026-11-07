@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 import sys
 import threading
+import tempfile
+import socket
 import time
 import unittest
 import urllib.error
@@ -12,7 +14,7 @@ import urllib.request
 import wave
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'voice'))
-from server import ASRServer, ResidentService, RequestError, parse_upload
+from server import ASRServer, ResidentService, RequestError, parse_upload, NativeEngine
 
 
 def wav_bytes(rate=16000):
@@ -64,6 +66,47 @@ class ServerTests(unittest.TestCase):
             metrics = service.metrics()
             self.assertEqual((metrics['accepted'],metrics['completed'],metrics['failed'],metrics['rejected_overload'],metrics['pending_including_active']), (3,2,1,1,0))
         finally: release.set(); service.close()
+
+    def test_native_pipe_reuses_worker_and_closes_it(self):
+        script = """#!/usr/bin/env python3
+import json,sys
+print(json.dumps({'status':'ready'}),flush=True)
+for line in sys.stdin:
+    language,path=line.rstrip('\\n').split('\\t')
+    print(json.dumps({'text':language,'eos':True,'native_peak_rss_bytes':123}),flush=True)
+"""
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'worker'
+            path.write_text(script);path.chmod(0o755)
+            engine = NativeEngine(Path(folder), path)
+            try:
+                pid = engine.process.pid
+                self.assertEqual(engine.transcribe(Path('a.wav'), 'en')['text'], 'English')
+                self.assertEqual(engine.transcribe(Path('b.wav'), 'zh')['text'], 'Chinese')
+                self.assertEqual(engine.process.pid, pid)
+                self.assertEqual(engine.peak_rss_bytes, 123)
+                with self.assertRaises(RequestError): engine.transcribe(Path('a.wav'), 'fr')
+            finally: engine.close()
+            self.assertIsNotNone(engine.process.poll())
+
+    def test_connection_admission_limits_unfinished_uploads(self):
+        service = ResidentService('fake', lambda: object())
+        server = ASRServer(('127.0.0.1',0),service,max_connections=2)
+        thread = threading.Thread(target=server.serve_forever);thread.start()
+        sockets=[]
+        try:
+            # Leave two bodies unfinished; neither may reach the GPU queue.
+            for _ in range(2):
+                sock=socket.create_connection(server.server_address,timeout=2)
+                sock.sendall(b'POST /v1/audio/transcriptions HTTP/1.0\r\nContent-Length: 100\r\n\r\n')
+                sockets.append(sock)
+            third=socket.create_connection(server.server_address,timeout=2)
+            sockets.append(third)
+            self.assertIn(b'503 Service Unavailable',third.recv(1024))
+            self.assertEqual(service.metrics()['accepted'],0)
+        finally:
+            for sock in sockets:sock.close()
+            server.shutdown();thread.join();server.server_close();service.close()
 
     def test_http_upload_models_metrics_and_text(self):
         class Engine:

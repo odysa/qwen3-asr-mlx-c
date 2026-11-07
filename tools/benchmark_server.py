@@ -105,7 +105,8 @@ def main():
     summary={'wall_s':wall,'requests':len(results),'failed':len(results)-len(successful),
              'requests_per_s':len(successful)/wall,
              'audio_seconds_per_wall_s':sum(r['response']['timing']['audio_s'] for r in successful)/wall,
-             'groups':groups,'process_peak_rss_bytes':metrics['process_peak_rss_bytes']}
+             'groups':groups,'process_peak_rss_bytes':metrics['process_peak_rss_bytes'],
+             'native_worker_peak_rss_bytes':metrics.get('native_worker_peak_rss_bytes')}
     save('SUMMARY.json',summary)
     # First repeat only. Explicit errors remain present, never silently removed.
     predictions=[]
@@ -115,6 +116,10 @@ def main():
         predictions.append({'case_id':r['case_id'],'status':'ok' if ok else 'error','text':response.get('text',''),
                             'termination_status':response.get('termination','error'),
                             'capped':response.get('possibly_capped',False)})
+    for prediction, request in zip(predictions, [r for r in results if r['repeat']==0]):
+        for key in ('eos', 'token_ids'):
+            if key in request['response']:
+                prediction[key] = request['response'][key]
     save('PREDICTIONS.json',predictions)
     pins={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in args.output.iterdir() if f.is_file()}
     save('MANIFEST.json',pins)

@@ -23,9 +23,16 @@ add_executable(qwen3-asr-resident-bench tools/resident_bench.c ${QWEN_MODEL_SOUR
 target_link_libraries(qwen3-asr-resident-bench PRIVATE qwen_weights)
 target_include_directories(qwen3-asr-resident-bench PRIVATE include deps/mlx-c)
 
+add_executable(qwen3-asr-worker src/serve_worker.c ${QWEN_MODEL_SOURCES})
+target_link_libraries(qwen3-asr-worker PRIVATE qwen_weights)
+target_include_directories(qwen3-asr-worker PRIVATE include deps/mlx-c)
+
 option(QWEN_EXPERIMENTS "Build experimental quantized model variants" OFF)
 if(QWEN_EXPERIMENTS)
   foreach(variant IN ITEMS q8 q4 head8)
+    add_executable(qwen3-asr-${variant}-worker src/serve_worker.c experimental/model_${variant}.c src/tokenizer.c src/audio.c)
+    target_link_libraries(qwen3-asr-${variant}-worker PRIVATE qwen_weights)
+    target_include_directories(qwen3-asr-${variant}-worker PRIVATE include deps/mlx-c)
     add_executable(qwen3-asr-${variant} src/main.c experimental/model_${variant}.c src/tokenizer.c src/audio.c)
     target_link_libraries(qwen3-asr-${variant} PRIVATE qwen_weights)
     target_include_directories(qwen3-asr-${variant} PRIVATE include deps/mlx-c)
