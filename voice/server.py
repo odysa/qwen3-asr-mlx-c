@@ -141,6 +141,7 @@ class NativeEngine:
         self.process = subprocess.Popen([str(executable.resolve()), "--model", str(model_path.resolve())],
                                         stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, start_new_session=True)
         self.peak_rss_bytes = 0
+        self.failed = False
         try:
             self.ready = self.read_result()
             if self.ready.get("status") != "ready":
@@ -159,15 +160,19 @@ class NativeEngine:
             raise RuntimeError("native worker exited")
         result = json.loads(line)
         if "error" in result:
+            self.failed = True
             raise RuntimeError(result["error"])
         return result
+
+    def is_ready(self):
+        return not self.failed and self.process.poll() is None
 
     def transcribe(self, path, language):
         language = {"en": "English", "zh": "Chinese"}.get(language, language)
         if language not in ("auto", "English", "Chinese"):
             raise RequestError("native worker supports auto, English or Chinese")
-        if self.process.poll() is not None:
-            raise RuntimeError("native worker exited; restart the service")
+        if not self.is_ready():
+            raise RuntimeError("native worker failed or exited; restart the service")
         self.process.stdin.write(language + "\t" + str(path) + "\n")
         self.process.stdin.flush()
         result = self.read_result()
@@ -258,6 +263,10 @@ class ResidentService:
             self.slots.release()
             raise
 
+    def is_ready(self):
+        check = getattr(self.engine, "is_ready", lambda: True)
+        return check()
+
     def metrics(self):
         with self.lock:
             return {"model": self.model_id, "load_prepare_s": self.load_seconds,
@@ -342,7 +351,8 @@ class ASRHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/health":
-            self.respond(200, {"status": "ready", "model": self.server.service.model_id})
+            ready = self.server.service.is_ready()
+            self.respond(200 if ready else 503, {"status": "ready" if ready else "failed", "model": self.server.service.model_id})
         elif self.path == "/metrics":
             metrics = self.server.service.metrics()
             with self.server.connection_counter_lock:

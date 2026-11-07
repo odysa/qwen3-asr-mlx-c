@@ -88,7 +88,9 @@ for line in sys.stdin:
                 self.assertEqual(engine.process.pid, pid)
                 self.assertEqual(engine.peak_rss_bytes, 123)
                 with self.assertRaises(RequestError): engine.transcribe(Path('a.wav'), 'fr')
+                self.assertTrue(engine.is_ready())
             finally: engine.close()
+            self.assertFalse(engine.is_ready())
             self.assertIsNotNone(engine.process.poll())
 
     def test_benchmark_retains_empty_and_nonjson_http_errors(self):
@@ -148,6 +150,8 @@ for line in sys.stdin:
             self.assertEqual(request('/v1/audio/transcriptions',b'x'*1025,{'Content-Type':'audio/wav'})[0],413)
             self.assertEqual(request('/unknown')[0],404)
             metrics=json.loads(request('/metrics')[1]);self.assertEqual(metrics['completed'],2)
+            engine.is_ready=lambda:False
+            self.assertEqual(request('/health')[0],503)
         finally:
             server.shutdown();thread.join();server.server_close();service.close()
 
