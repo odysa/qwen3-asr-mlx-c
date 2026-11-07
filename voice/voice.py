@@ -189,6 +189,19 @@ def speak(args):
 def main():
     parser = argparse.ArgumentParser(description="Run supported voice models locally")
     subs = parser.add_subparsers(dest="task", required=True)
+    p = subs.add_parser("serve", help="Run a resident, loopback-only MLX Audio ASR API")
+    p.add_argument("--model", type=Path, required=True)
+    p.add_argument("--model-id", default=None)
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--port", type=int, default=8080)
+    p.add_argument("--max-pending", type=int, default=4, help="Queued GPU jobs in addition to the active job")
+    p.add_argument("--max-audio-seconds", type=float, default=30)
+    p.add_argument("--max-upload-mb", type=float, default=16)
+    p.add_argument("--options-json", default="{}", help="Fixed model-specific generation options")
+    def start_server(args):
+        from server import serve
+        return serve(args)
+    p.set_defaults(handler=start_server)
     p = subs.add_parser("list-asr", help="List installed MLX Audio ASR implementation modules")
     p.set_defaults(handler=list_asr)
     p = subs.add_parser("transcribe", help="Transcribe with a local model")

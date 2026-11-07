@@ -1,0 +1,99 @@
+"""Real HTTP/lifecycle checks with a deterministic engine, no MLX import required."""
+import concurrent.futures
+import io
+import json
+from pathlib import Path
+import sys
+import threading
+import time
+import unittest
+import urllib.error
+import urllib.request
+import wave
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'voice'))
+from server import ASRServer, ResidentService, RequestError, parse_upload
+
+
+def wav_bytes(rate=16000):
+    output = io.BytesIO()
+    with wave.open(output, 'wb') as f:
+        f.setnchannels(1); f.setsampwidth(2); f.setframerate(rate)
+        f.writeframes(b'\x00\x00' * 160)
+    return output.getvalue()
+
+
+def multipart(audio, extra=None):
+    body = b'--test\r\nContent-Disposition: form-data; name="file"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n' + audio + b'\r\n'
+    for key, value in (extra or {}).items():
+        body += f'--test\r\nContent-Disposition: form-data; name="{key}"\r\n\r\n{value}\r\n'.encode()
+    return body + b'--test--\r\n'
+
+
+class ServerTests(unittest.TestCase):
+    def test_wav_validation(self):
+        with self.assertRaises(RequestError):
+            parse_upload('multipart/form-data; boundary=test', multipart(wav_bytes(8000)), 30)
+        with self.assertRaises(RequestError):
+            parse_upload('multipart/form-data; boundary=test', multipart(wav_bytes()[:-20]), 30)
+        with self.assertRaises(RequestError):
+            parse_upload('multipart/form-data; boundary=test', multipart(wav_bytes(), {'path': '/etc/passwd'}), 30)
+        with self.assertRaises(RequestError):
+            parse_upload('multipart/form-data; boundary=test', multipart(wav_bytes()), .001)
+
+    def test_single_owner_load_once_bounded_queue_and_error_recovery(self):
+        entered, release = threading.Event(), threading.Event()
+        threads = []
+        class Engine:
+            def __init__(self): threads.append(threading.get_ident())
+            def transcribe(self, path, language):
+                threads.append(threading.get_ident())
+                if language == 'hold': entered.set(); release.wait(3)
+                if language == 'fail': raise RuntimeError('failure')
+                return {'text': 'hello', 'termination': 'generate_returned'}
+        service = ResidentService('fake', Engine, max_pending=0)
+        try:
+            first = service.submit(wav_bytes(), .01, 'hold')
+            self.assertTrue(entered.wait(2))
+            self.assertIsNone(service.submit(wav_bytes(), .01, 'auto'))
+            release.set(); self.assertEqual(first.result(2)['text'], 'hello')
+            failed = service.submit(wav_bytes(), .01, 'fail')
+            with self.assertRaises(RuntimeError): failed.result(2)
+            self.assertEqual(service.submit(wav_bytes(), .01, 'auto').result(2)['text'], 'hello')
+            self.assertEqual(len(set(threads)), 1)
+            metrics = service.metrics()
+            self.assertEqual((metrics['accepted'],metrics['completed'],metrics['failed'],metrics['rejected_overload'],metrics['pending_including_active']), (3,2,1,1,0))
+        finally: release.set(); service.close()
+
+    def test_http_upload_models_metrics_and_text(self):
+        class Engine:
+            def transcribe(self, path, language):
+                self.last_path = path
+                return {'text': '你好', 'termination': 'generate_returned'}
+        engine = Engine(); service = ResidentService('fake', lambda: engine)
+        server = ASRServer(('127.0.0.1',0),service,max_upload_bytes=1024)
+        thread = threading.Thread(target=server.serve_forever);thread.start()
+        url = f'http://127.0.0.1:{server.server_port}'
+        def request(path, body=None, headers=None):
+            req = urllib.request.Request(url+path,data=body,headers=headers or {})
+            try:
+                with urllib.request.urlopen(req,timeout=3) as r:return r.status,r.read()
+            except urllib.error.HTTPError as r:
+                with r:return r.code,r.read()
+        try:
+            self.assertEqual(request('/health')[0],200)
+            self.assertEqual(json.loads(request('/v1/models')[1])['data'][0]['id'],'fake')
+            status,body=request('/v1/audio/transcriptions',multipart(wav_bytes()),{'Content-Type':'multipart/form-data; boundary=test'})
+            self.assertEqual(status,200);self.assertEqual(json.loads(body)['text'],'你好')
+            self.assertFalse(engine.last_path.exists())
+            status,body=request('/v1/audio/transcriptions',multipart(wav_bytes(),{'response_format':'text'}),{'Content-Type':'multipart/form-data; boundary=test'})
+            self.assertEqual((status,body),(200,'你好'.encode()))
+            self.assertEqual(request('/v1/audio/transcriptions',multipart(wav_bytes(),{'model':'other'}),{'Content-Type':'multipart/form-data; boundary=test'})[0],400)
+            self.assertEqual(request('/v1/audio/transcriptions',b'x'*1025,{'Content-Type':'audio/wav'})[0],413)
+            self.assertEqual(request('/unknown')[0],404)
+            metrics=json.loads(request('/metrics')[1]);self.assertEqual(metrics['completed'],2)
+        finally:
+            server.shutdown();thread.join();server.server_close();service.close()
+
+
+if __name__ == '__main__': unittest.main()
