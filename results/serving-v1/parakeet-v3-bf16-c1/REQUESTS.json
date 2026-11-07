@@ -1,0 +1,602 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6820633749011904,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the west could lag behind by 25-30 years.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 4.0375045500695705e-05,
+        "inference_s": 0.6633074169512838,
+        "service_s": 0.6643487080000341,
+        "audio_s": 10.56,
+        "real_time_factor": 0.06281320236281096
+      },
+      "id": "c42c1442aeac4ab6a36d0a055788013f"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.2697304580360651,
+    "response": {
+      "text": "All nouns alongside the word say for you always begin with a capital letter even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 4.191603511571884e-05,
+        "inference_s": 0.25313887500669807,
+        "service_s": 0.2541607500752434,
+        "audio_s": 8.76,
+        "real_time_factor": 0.02889713185007969
+      },
+      "id": "67c314d31d5f4c27bc8d8edc73f14105"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.3159712909255177,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendours recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.766702815890312e-05,
+        "inference_s": 0.30299658398143947,
+        "service_s": 0.3048394590150565,
+        "audio_s": 11.46,
+        "real_time_factor": 0.026439492494017405
+      },
+      "id": "85e430b910eb47b7b1ec2eb7d8ee5a2b"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.11939612496644258,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.774999640882015e-05,
+        "inference_s": 0.11256616609171033,
+        "service_s": 0.11345066607464105,
+        "audio_s": 5.76,
+        "real_time_factor": 0.01954273716869971
+      },
+      "id": "978836a688924d20b0cdffd143cd5b4e"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.09003816603217274,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 2.7957954443991184e-05,
+        "inference_s": 0.08077454101294279,
+        "service_s": 0.08160258294083178,
+        "audio_s": 4.32,
+        "real_time_factor": 0.018697810419662682
+      },
+      "id": "ebe20361c82e43a78917dc66d612014e"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.4210337500553578,
+    "response": {
+      "text": "The hospital has followed protocols for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.6582968682050705e-05,
+        "inference_s": 0.4071288750274107,
+        "service_s": 0.4087444579927251,
+        "audio_s": 11.42,
+        "real_time_factor": 0.03565051445073649
+      },
+      "id": "5885a25f1059418ea69f234d3249a483"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.34219416591804475,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.187498077750206e-05,
+        "inference_s": 0.3293201250489801,
+        "service_s": 0.3307988749584183,
+        "audio_s": 10.8,
+        "real_time_factor": 0.03049260417120186
+      },
+      "id": "8442a900e9c04d628fad191727133e99"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.11506766697857529,
+    "response": {
+      "text": "20th century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.00010287505574524403,
+        "inference_s": 0.09615183400455862,
+        "service_s": 0.09846854105126113,
+        "audio_s": 6.96,
+        "real_time_factor": 0.013814918678815895
+      },
+      "id": "9bf51189884e418b8bf085896ea7dc57"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.14446004095952958,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.00017241702880710363,
+        "inference_s": 0.1285980410175398,
+        "service_s": 0.130544500076212,
+        "audio_s": 11.04,
+        "real_time_factor": 0.011648373280574258
+      },
+      "id": "ffe52ecab78641f1bc485d8d6a26b6ac"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.2575576670933515,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.2082898542284966e-05,
+        "inference_s": 0.24674304202198982,
+        "service_s": 0.24776645796373487,
+        "audio_s": 9.9,
+        "real_time_factor": 0.024923539598180788
+      },
+      "id": "d06e75d234ce4089b2efb62c78e594b7"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5604504159418866,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the west could lag behind by 25-30 years.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.404205199331045e-05,
+        "inference_s": 0.5443862499669194,
+        "service_s": 0.5456249590497464,
+        "audio_s": 10.56,
+        "real_time_factor": 0.051551728216564334
+      },
+      "id": "7240c4a8c0f14a6e811e5ea9f17639e8"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.23454199999105185,
+    "response": {
+      "text": "All nouns alongside the word say for you always begin with a capital letter even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 4.633399657905102e-05,
+        "inference_s": 0.21914824994746596,
+        "service_s": 0.2207280839793384,
+        "audio_s": 8.76,
+        "real_time_factor": 0.0250169235099847
+      },
+      "id": "f60a517103e946a489ce3bab9d42b39d"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.3762812919449061,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendours recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.00013970793224871159,
+        "inference_s": 0.35556633304804564,
+        "service_s": 0.3581015409436077,
+        "audio_s": 11.46,
+        "real_time_factor": 0.03102673063246471
+      },
+      "id": "cba4e888e26541b8bbfba3cc26fd4cb6"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.3375595419202,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.391596980392933e-05,
+        "inference_s": 0.3220426249317825,
+        "service_s": 0.3235060409642756,
+        "audio_s": 5.76,
+        "real_time_factor": 0.05591017793954557
+      },
+      "id": "d7b30f1262b449488b7106a079923e38"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.31084358401130885,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.000969375018030405,
+        "inference_s": 0.3001582089345902,
+        "service_s": 0.3024782919092104,
+        "audio_s": 4.32,
+        "real_time_factor": 0.069481066883007
+      },
+      "id": "5d35924e86464b738a1cde292db5f1a2"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6782503749709576,
+    "response": {
+      "text": "The hospital has followed protocols for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.220792420208454e-05,
+        "inference_s": 0.6611892910441384,
+        "service_s": 0.6627476249122992,
+        "audio_s": 11.42,
+        "real_time_factor": 0.0578974860809228
+      },
+      "id": "964a13c3683948288466ffa3af852247"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6783432089723647,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.020802538841963e-05,
+        "inference_s": 0.6606984159443527,
+        "service_s": 0.6626828330336139,
+        "audio_s": 10.8,
+        "real_time_factor": 0.06117577925410673
+      },
+      "id": "d91eefed693740f4855f95a3287f7b89"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.4468325829366222,
+    "response": {
+      "text": "20th century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.00012199999764561653,
+        "inference_s": 0.4353577080182731,
+        "service_s": 0.43723358295392245,
+        "audio_s": 6.96,
+        "real_time_factor": 0.06255139483021166
+      },
+      "id": "ca5b86ca48df43d384b3d46c0215270a"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.671684917062521,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 4.099996294826269e-05,
+        "inference_s": 0.656685333000496,
+        "service_s": 0.6581804170273244,
+        "audio_s": 11.04,
+        "real_time_factor": 0.05948236711961015
+      },
+      "id": "ea8aec337f7740afbdaa1b1e95bf180d"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7513343750033528,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.316707003861666e-05,
+        "inference_s": 0.7352409999584779,
+        "service_s": 0.7367176250554621,
+        "audio_s": 9.9,
+        "real_time_factor": 0.07426676767257352
+      },
+      "id": "df36c5ffd88c47ae9a3d584f0edb22ef"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.4926294169854373,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the west could lag behind by 25-30 years.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 7.13749323040247e-05,
+        "inference_s": 0.47502670797985047,
+        "service_s": 0.476612624945119,
+        "audio_s": 10.56,
+        "real_time_factor": 0.04498358977081917
+      },
+      "id": "da879757338c405bb9f012f8f1cd3f53"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5392689580330625,
+    "response": {
+      "text": "All nouns alongside the word say for you always begin with a capital letter even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.587493069469929e-05,
+        "inference_s": 0.5274220840074122,
+        "service_s": 0.5291430419310927,
+        "audio_s": 8.76,
+        "real_time_factor": 0.060208000457467145
+      },
+      "id": "a329ab58132a44d98e4cef917d64b338"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5172440829919651,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendours recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.383300594985485e-05,
+        "inference_s": 0.4937100410461426,
+        "service_s": 0.49665066692978144,
+        "audio_s": 11.46,
+        "real_time_factor": 0.043081155414148566
+      },
+      "id": "975434825be4457ebdadaa674cfe8708"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.37575983395799994,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.387510802596807e-05,
+        "inference_s": 0.36087895790115,
+        "service_s": 0.36310245806816965,
+        "audio_s": 5.76,
+        "real_time_factor": 0.06265259685783854
+      },
+      "id": "38a3f6f9de5942b6a0ca174925d0255c"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5123471250990406,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.979195702821016e-05,
+        "inference_s": 0.504086458007805,
+        "service_s": 0.5060066669248044,
+        "audio_s": 4.32,
+        "real_time_factor": 0.11668668009439931
+      },
+      "id": "85db5ac361144319afbb03e66209f539"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7463504170300439,
+    "response": {
+      "text": "The hospital has followed protocols for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 4.045804962515831e-05,
+        "inference_s": 0.7285965830087662,
+        "service_s": 0.730175832984969,
+        "audio_s": 11.42,
+        "real_time_factor": 0.0638000510515557
+      },
+      "id": "c3b6738c32064ce0aabc958aae1450bc"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7326892080018297,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 5.487492308020592e-05,
+        "inference_s": 0.7214577079284936,
+        "service_s": 0.7228957079350948,
+        "audio_s": 10.8,
+        "real_time_factor": 0.06680163962300867
+      },
+      "id": "af80d42a8fbd4f4081a2899eb3e6b2e2"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5863164579495788,
+    "response": {
+      "text": "20th century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.804208245128393e-05,
+        "inference_s": 0.5743357090977952,
+        "service_s": 0.5754370420472696,
+        "audio_s": 6.96,
+        "real_time_factor": 0.08251949843359126
+      },
+      "id": "2b6d5b50776040f7a7a59f8e3cf33811"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7370832089800388,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 6.145797669887543e-05,
+        "inference_s": 0.7215694589540362,
+        "service_s": 0.7235045420238748,
+        "audio_s": 11.04,
+        "real_time_factor": 0.06535955244148879
+      },
+      "id": "110f225d317d43889eb89f641a40a587"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6816353331087157,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 0.00044708303175866604,
+        "inference_s": 0.6701888339594007,
+        "service_s": 0.6721889169421047,
+        "audio_s": 9.9,
+        "real_time_factor": 0.06769584181408086
+      },
+      "id": "84fe465d36b34038b4b64d491f508934"
+    },
+    "repeat": 2
+  }
+]

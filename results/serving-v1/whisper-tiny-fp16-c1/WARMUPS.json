@@ -1,0 +1,40 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 2.4309879580978304,
+    "response": {
+      "text": " However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 8.066697046160698e-05,
+        "inference_s": 2.4151986250653863,
+        "service_s": 2.4166762919630855,
+        "audio_s": 10.56,
+        "real_time_factor": 0.22871199100997974
+      },
+      "id": "66438cbea3014638afe8afe23953e6c8"
+    }
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.13868874998297542,
+    "response": {
+      "text": "这并不是告别这是一个偏胶的结束也是新偏胶的开始",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 4.4208019971847534e-05,
+        "inference_s": 0.13068570895120502,
+        "service_s": 0.13169095804914832,
+        "audio_s": 10.38,
+        "real_time_factor": 0.012590145371021677
+      },
+      "id": "11ba193d92114f529702d6bc1f15021e"
+    }
+  }
+]

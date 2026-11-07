@@ -1,0 +1,18 @@
+{
+  "qwen-0.6b-bf16": {
+    "display": "MLX Audio Qwen 0.6B",
+    "precision": "BF16 checkpoint; default MLX Audio execution",
+    "backend": "mlx-audio"
+  },
+  "whisper-tiny-fp16": {
+    "display": "MLX Audio Whisper tiny",
+    "precision": "F16 checkpoint; default MLX Audio execution",
+    "backend": "mlx-audio"
+  },
+  "parakeet-v3-bf16": {
+    "display": "MLX Audio Parakeet v3",
+    "precision": "F32 checkpoint tensors; default MLX Audio execution (no BF16 cast)",
+    "backend": "mlx-audio",
+    "correction": "Frozen run ID incorrectly contains bf16; CPU safetensors audit finds 697 F32 tensors. MLX Audio base_load_model loads these weights without the BF16 conversion used by earlier parakeet-mlx."
+  }
+}

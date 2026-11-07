@@ -1,0 +1,52 @@
+{
+  "captured_utc": "2026-11-07T05:48:28.753890+00:00",
+  "position": "after final six-profile run; not continuous monitoring",
+  "load_average_1_5_15_min": [
+    35.80859375,
+    45.466796875,
+    31.4462890625
+  ],
+  "top_cpu_processes": [
+    {
+      "pid": 1731,
+      "cpu_percent": 70.6,
+      "process": "contactsd"
+    },
+    {
+      "pid": 22943,
+      "cpu_percent": 45.8,
+      "process": "studentd"
+    },
+    {
+      "pid": 2388,
+      "cpu_percent": 44.2,
+      "process": "server"
+    },
+    {
+      "pid": 22155,
+      "cpu_percent": 36.7,
+      "process": "Mail"
+    },
+    {
+      "pid": 80484,
+      "cpu_percent": 31.0,
+      "process": "python"
+    },
+    {
+      "pid": 8747,
+      "cpu_percent": 17.0,
+      "process": "OrbStack Helper"
+    },
+    {
+      "pid": 80462,
+      "cpu_percent": 11.8,
+      "process": "(Python)"
+    },
+    {
+      "pid": 80510,
+      "cpu_percent": 11.7,
+      "process": "python3"
+    }
+  ],
+  "note": "High load was observed after the run; this does not establish the cause of every timing difference."
+}

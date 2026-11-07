@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "en_us_00",
+    "status": "ok",
+    "text": "However, due to the slow communication channels, styles in the west could lag behind by 25-30 years.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_01",
+    "status": "ok",
+    "text": "All nouns alongside the word say for you always begin with a capital letter even in the middle of a sentence.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_02",
+    "status": "ok",
+    "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendours recorded by Lord Byron.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_03",
+    "status": "ok",
+    "text": "The cabbage juice changes color depending on how acidic, basic alkaline the chemical is.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_04",
+    "status": "ok",
+    "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_05",
+    "status": "ok",
+    "text": "The hospital has followed protocols for infection control, including separating the patient from others to prevent possible infection of others.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_06",
+    "status": "ok",
+    "text": "The Northern Mariana's Emergency Management office said that there were no damages reported in the nation.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_07",
+    "status": "ok",
+    "text": "20th century research has shown that there are two pools of genetic variation hidden and expressed.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_08",
+    "status": "ok",
+    "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_09",
+    "status": "ok",
+    "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+    "termination_status": "generate_returned",
+    "capped": false
+  }
+]

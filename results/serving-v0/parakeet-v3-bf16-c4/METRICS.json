@@ -1,0 +1,16 @@
+{
+  "model": "parakeet-v3-bf16",
+  "load_prepare_s": 1.6694728750735521,
+  "uptime_s": 5.393527875072323,
+  "accepted": 62,
+  "completed": 62,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 0.10526660404866561,
+  "service_latency_p95_s": 0.3293168145813979,
+  "queue_p95_s": 0.24919430655427277,
+  "latency_window_requests": 62,
+  "completed_audio_s": 566.9999999999998,
+  "process_peak_rss_bytes": 2843443200
+}

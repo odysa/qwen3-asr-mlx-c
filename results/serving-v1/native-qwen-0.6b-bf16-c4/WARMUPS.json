@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.1035300421062857,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "eos",
+      "eos": true,
+      "generation_tokens": 26,
+      "token_ids": [
+        11209,
+        11,
+        4152,
+        311,
+        279,
+        6301,
+        10535,
+        11744,
+        11,
+        9222,
+        304,
+        279,
+        4312,
+        1410,
+        21454,
+        4815,
+        553,
+        220,
+        17,
+        20,
+        311,
+        220,
+        18,
+        15,
+        1635,
+        13
+      ],
+      "native_total_s": 1.09166,
+      "encode_frontend_s": 0.218132,
+      "prefill_s": 0.082797,
+      "decode_materialize_s": 0.790731,
+      "native_peak_rss_bytes": 1635893248,
+      "model": "native-qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 2.962502185255289e-05,
+        "inference_s": 1.0918084579752758,
+        "service_s": 1.095181875047274,
+        "audio_s": 10.56,
+        "real_time_factor": 0.1033909524597799
+      },
+      "id": "f3e9fa1670a14110aca8002c6674eec0"
+    }
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.7094261660240591,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "eos",
+      "eos": true,
+      "generation_tokens": 14,
+      "token_ids": [
+        43288,
+        102095,
+        108526,
+        3837,
+        105464,
+        103798,
+        9370,
+        80565,
+        3837,
+        100000,
+        116887,
+        9370,
+        55286,
+        1773
+      ],
+      "native_total_s": 0.696708,
+      "encode_frontend_s": 0.10989,
+      "prefill_s": 0.187502,
+      "decode_materialize_s": 0.399316,
+      "native_peak_rss_bytes": 1635893248,
+      "model": "native-qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 5.579204298555851e-05,
+        "inference_s": 0.6968892499571666,
+        "service_s": 0.7005002920050174,
+        "audio_s": 10.38,
+        "real_time_factor": 0.06713769267410083
+      },
+      "id": "dcaa38d3909b4038be94aea1b36cec45"
+    }
+  }
+]

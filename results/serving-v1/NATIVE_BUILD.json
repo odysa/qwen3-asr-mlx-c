@@ -1,0 +1,22 @@
+{
+  "note": "New worker/graph/frontend/tokenizer objects; existing matching weights and pinned MLX archives reused. Not a clean dependency rebuild.",
+  "static_archive_sha256": {
+    "libqwen_weights.a": "14e4cdf38158f9b9d6ea706e6df21d856378c54cfce65c13811913d0c00598c4",
+    "libmlxc.a": "d1f23aa5e7d852a07a1d00a3414a432b0fca82528c25493002ad9f218a7ce68d",
+    "libmlx.a": "834a508674ed547a200858f7a1aad0f38e063831eafa9bf70b6eabf3e40f616f",
+    "libjaccl.a": "bf5ee7d165dc3ebb1dfab3d0b1b617511e7eed69f397dcf22321318765464536",
+    "libgguflib.a": "e79c625786c66ba6e98d1bb02004bdcc22347e71adab93f6b06e6886b9f75cf3"
+  },
+  "worker_executable_sha256": {
+    "qwen3-asr-worker": "b44751155729adc2c0c2a027fd8b64abb630417914fec5ddbbdbc558c530baf3",
+    "qwen3-asr-q8-worker": "ac32a4301dd5db8aa5e076c3cf1dc6d67eefa58ccc463fa4963a1791ffd542b9"
+  },
+  "compiler_flags": [
+    "-O3",
+    "-DNDEBUG",
+    "-std=gnu11",
+    "-arch arm64",
+    "-mmacosx-version-min=27.0"
+  ],
+  "scope": "new C objects plus matching existing weights/MLX archives; no claim of a fresh dependency rebuild"
+}

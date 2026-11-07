@@ -1,6 +1,20 @@
-# Qwen3-ASR on Apple Silicon: native MLX C inference
+# Local ASR serving on Apple Silicon: MLX C and MLX Audio
 
 A local C11 application for Qwen3-ASR 0.6B and 1.7B on Apple Silicon, built on the official MLX C API and Metal. The default model path uses BF16. For 0.6B only, separate experimental builds quantize decoder linear weights to q8 or q4, or additionally use a q8 output head while retaining BF16 input embeddings. Model weights and audio are **not** included.
+
+## Resident serving
+
+Run a persistent, loopback-only transcription API without reloading the model for every request. Choose the native Qwen C/MLX worker or an optional local MLX Audio model. Uploads and model queues are bounded; `/metrics` exposes latency, queueing, failures and memory. This release serves whole WAV files; streaming recognition and GPU batching are not implemented.
+
+```sh
+# After building qwen3-asr-worker and downloading the local checkpoint:
+python3.14 voice/voice.py serve --backend native \
+  --executable build/qwen3-asr-worker --model models/Qwen3-ASR-0.6B --port 8080
+curl http://127.0.0.1:8080/v1/audio/transcriptions \
+  -F file=@recording-16k-mono.wav -F language=auto
+```
+
+See [serving setup and API](docs/SERVING.md), [all recorded performance results](results/PERFORMANCE.md), and [model compatibility](results/asr-compatibility.md). Model support, speed and quality are separate claims: smoke-tested adapters are not a state-of-the-art ranking.
 
 ## Local results
 
@@ -42,7 +56,7 @@ python3 tools/fetch_model.py
 
 ### Larger BF16 model
 
-The same native executable also runs the official 1.7B checkpoint, automatically loading its two safetensors shards. This is speech recognition; speech generation and conversational audio are not implemented. Downloading model weights requires network access, but inference is local. The 1.7B variant has only been smoke-tested; the latency and quality table above covers 0.6B only. See [the separate fresh-process smoke comparison](results/multimodel-bf16.md), which is not an accuracy or warm-latency test.
+The same native executable also runs the official 1.7B checkpoint, automatically loading its two safetensors shards. This is speech recognition; speech generation and conversational audio are not implemented. Downloading model weights requires network access, but inference is local. The historical comparison table above covers 0.6B only. The new [serving report](results/PERFORMANCE.md) includes 1.7B quality on the fixed 20 clips and request measurements under shared-host load. See [the separate fresh-process smoke comparison](results/multimodel-bf16.md), which is not an accuracy or warm-latency test.
 
 ```sh
 python3 tools/fetch_model.py --size 1.7B

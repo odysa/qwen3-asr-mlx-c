@@ -1,0 +1,16 @@
+{
+  "model": "whisper-tiny-fp16",
+  "load_prepare_s": 3.1852019160287455,
+  "uptime_s": 7.707978249993175,
+  "accepted": 62,
+  "completed": 62,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 0.10996625002007931,
+  "service_latency_p95_s": 0.15061351874610407,
+  "queue_p95_s": 4.055623430758714e-05,
+  "latency_window_requests": 62,
+  "completed_audio_s": 652.9199999999998,
+  "process_peak_rss_bytes": 563904512
+}

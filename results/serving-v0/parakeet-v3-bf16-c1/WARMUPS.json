@@ -1,0 +1,21 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.12856466695666313,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the west could lag behind by 25-30 years.",
+      "termination": "generate_returned",
+      "model": "parakeet-v3-bf16",
+      "timing": {
+        "queue_s": 3.058405127376318e-05,
+        "inference_s": 0.12028100003954023,
+        "service_s": 0.12133495905436575,
+        "audio_s": 10.56,
+        "real_time_factor": 0.01139024621586555
+      },
+      "id": "ce1c3de3b9ec4c63b37af6dd39d9f7cf"
+    }
+  }
+]

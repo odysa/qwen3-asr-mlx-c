@@ -1,0 +1,50 @@
+{
+  "native-qwen-0.6b-bf16": {
+    "model": "native-qwen-0.6b-bf16",
+    "ready_wall_s": 0.8426324169849977,
+    "health": {
+      "status": "ready",
+      "model": "native-qwen-0.6b-bf16"
+    }
+  },
+  "native-qwen-0.6b-q8": {
+    "model": "native-qwen-0.6b-q8",
+    "ready_wall_s": 0.8279613750055432,
+    "health": {
+      "status": "ready",
+      "model": "native-qwen-0.6b-q8"
+    }
+  },
+  "native-qwen-1.7b-bf16": {
+    "model": "native-qwen-1.7b-bf16",
+    "ready_wall_s": 0.34184012503828853,
+    "health": {
+      "status": "ready",
+      "model": "native-qwen-1.7b-bf16"
+    }
+  },
+  "qwen-0.6b-bf16": {
+    "model": "qwen-0.6b-bf16",
+    "ready_wall_s": 5.016996708000079,
+    "health": {
+      "status": "ready",
+      "model": "qwen-0.6b-bf16"
+    }
+  },
+  "whisper-tiny-fp16": {
+    "model": "whisper-tiny-fp16",
+    "ready_wall_s": 5.289682958042249,
+    "health": {
+      "status": "ready",
+      "model": "whisper-tiny-fp16"
+    }
+  },
+  "parakeet-v3-bf16": {
+    "model": "parakeet-v3-bf16",
+    "ready_wall_s": 4.616652959026396,
+    "health": {
+      "status": "ready",
+      "model": "parakeet-v3-bf16"
+    }
+  }
+}

@@ -1,0 +1,1322 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.4506553750252351,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "generation_tokens": 26,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.19065354100894183,
+        "inference_s": 0.24817799997981638,
+        "service_s": 0.4396361249964684,
+        "audio_s": 10.56,
+        "real_time_factor": 0.023501704543543216
+      },
+      "id": "cdd31d9146bd46bf8b0fedd028179b14"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6847675000317395,
+    "response": {
+      "text": "All nouns alongside the world say for you always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.43404874997213483,
+        "inference_s": 0.2332751250360161,
+        "service_s": 0.6682504579657689,
+        "audio_s": 8.76,
+        "real_time_factor": 0.026629580483563484
+      },
+      "id": "0b39580dc7df41cd9bd29dd8ec948687"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0106498330133036,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendourous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "generation_tokens": 39,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6623702909564599,
+        "inference_s": 0.3254884999478236,
+        "service_s": 0.988737832987681,
+        "audio_s": 11.46,
+        "real_time_factor": 0.02840213786630223
+      },
+      "id": "f5614a83522944de838c01e330177ba2"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.20134404196869582,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic, alkaline the chemical is.",
+      "termination": "generate_returned",
+      "generation_tokens": 18,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 2.1625077351927757e-05,
+        "inference_s": 0.17856541695073247,
+        "service_s": 0.19630112498998642,
+        "audio_s": 5.76,
+        "real_time_factor": 0.0310009404428355
+      },
+      "id": "9a4f5e84b7e74b80b9fcbda594cb7a86"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9867518750252202,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8053584169829264,
+        "inference_s": 0.1764217499876395,
+        "service_s": 0.9825937079731375,
+        "audio_s": 4.32,
+        "real_time_factor": 0.04083836805269432
+      },
+      "id": "593239dcdbd14d7e9f55ddb42d06f533"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9724846669705585,
+    "response": {
+      "text": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "generation_tokens": 22,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7287257919088006,
+        "inference_s": 0.23372458398807794,
+        "service_s": 0.9633532499428838,
+        "audio_s": 11.42,
+        "real_time_factor": 0.020466250787047106
+      },
+      "id": "6c4a3f1a26914024ad15464c62c7e6e5"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9507762909634039,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7309727079700679,
+        "inference_s": 0.21161683299578726,
+        "service_s": 0.9435150829376653,
+        "audio_s": 10.8,
+        "real_time_factor": 0.019594151203313634
+      },
+      "id": "2fd6ac682faf495ab725b8499e11c106"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8191081669647247,
+    "response": {
+      "text": "20th-century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6192403329769149,
+        "inference_s": 0.19383520807605237,
+        "service_s": 0.8139007500139996,
+        "audio_s": 6.96,
+        "real_time_factor": 0.027849886217823618
+      },
+      "id": "dfc27b89e3294db8a359cae710458ae2"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9221554999239743,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "generation_tokens": 31,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6332047079922631,
+        "inference_s": 0.2792815000284463,
+        "service_s": 0.9134460829664022,
+        "audio_s": 11.04,
+        "real_time_factor": 0.02529723732141724
+      },
+      "id": "a36bee8e074f43619ab05270f0b0dadb"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0000605409732088,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses, easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6807032499928027,
+        "inference_s": 0.3118406250141561,
+        "service_s": 0.9934290000237525,
+        "audio_s": 9.9,
+        "real_time_factor": 0.03149905303173294
+      },
+      "id": "06612887cf364141ba85bf87449523fa"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9748635840369388,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "generate_returned",
+      "generation_tokens": 14,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.781270332983695,
+        "inference_s": 0.18627695797476918,
+        "service_s": 0.9685031250119209,
+        "audio_s": 10.38,
+        "real_time_factor": 0.017945757030324583
+      },
+      "id": "7bcc8fc819084c34b36d5928e764a666"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9707431660499424,
+    "response": {
+      "text": "钙、钾等元素属于金属，银和金等元素当然也是金属。",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7742753749480471,
+        "inference_s": 0.18965970794670284,
+        "service_s": 0.9648593330057338,
+        "audio_s": 8.28,
+        "real_time_factor": 0.02290576182931194
+      },
+      "id": "bff35f02ee4c43c58642a3099d700da6"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.981343291932717,
+    "response": {
+      "text": "桥下垂直净空十五米。该项目于二零一一年八月完工，但直到二零一七年三月才开始通车。",
+      "termination": "generate_returned",
+      "generation_tokens": 30,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6807770000305027,
+        "inference_s": 0.2900245839264244,
+        "service_s": 0.9717178749851882,
+        "audio_s": 13.86,
+        "real_time_factor": 0.020925294655586176
+      },
+      "id": "be7b018800ad4c218aa8964bb2f5192a"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0700284170452505,
+    "response": {
+      "text": "适当使用博客可以使学生变得更善于分析和进行思辨。通过积极回忆网络材料，学生们可以在他人的文章的上下文语境中找到自己的立场，并能够针对特定问题提出自己的观点。Work二零零二。",
+      "termination": "generate_returned",
+      "generation_tokens": 48,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6587085409555584,
+        "inference_s": 0.40030233294237405,
+        "service_s": 1.0599102909909561,
+        "audio_s": 15.42,
+        "real_time_factor": 0.025959943770581976
+      },
+      "id": "1482b4f670d14d4fa879960f6b5b2a0a"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1105515420204028,
+    "response": {
+      "text": "科学家们可以得出结论：暗物质对其他暗物质的影响方式与普通物质相同。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8739533750340343,
+        "inference_s": 0.22670687502250075,
+        "service_s": 1.1015961660305038,
+        "audio_s": 12.9,
+        "real_time_factor": 0.01757417635833339
+      },
+      "id": "f637baf530bc438595266b17ee19435d"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1430571250384673,
+    "response": {
+      "text": "大多数现代科研望远镜都是巨型设施，位于大气大气条件优良的偏远地区。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.9102560000028461,
+        "inference_s": 0.22237608302384615,
+        "service_s": 1.1335872920462862,
+        "audio_s": 13.74,
+        "real_time_factor": 0.016184576639290113
+      },
+      "id": "66c6fbb6376c45ee90cb2f64e7876b17"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1286336670164019,
+    "response": {
+      "text": "1963年，大坝建成后，季节性洪水被控制住了，沉积物不再冲散到河流里。",
+      "termination": "generate_returned",
+      "generation_tokens": 27,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8417241669958457,
+        "inference_s": 0.2756463330006227,
+        "service_s": 1.118195042014122,
+        "audio_s": 15.18,
+        "real_time_factor": 0.01815851996051533
+      },
+      "id": "45da59ba35444cc981277650d452416a"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.063146415981464,
+    "response": {
+      "text": "它的长下颚上布满了七十多颗剃刀般锋利的牙齿，上颚上还有一排，这意味着任何与它相遇的东西都无路可逃。",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7165102079743519,
+        "inference_s": 0.3347661249572411,
+        "service_s": 1.0521595829632133,
+        "audio_s": 15.46,
+        "real_time_factor": 0.02165369501663914
+      },
+      "id": "911c2004b3564135a442fc9ca66f8b9b"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0669135830830783,
+    "response": {
+      "text": "Scotturb四零三路，公交汽车定期发车前往新特拉，在罗卡角停靠。",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8287679170025513,
+        "inference_s": 0.23066904093138874,
+        "service_s": 1.06044308305718,
+        "audio_s": 7.62,
+        "real_time_factor": 0.03027152768128461
+      },
+      "id": "fdd7c6a2d2b3415fa3bac2aa4b86be12"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0461129589239135,
+    "response": {
+      "text": "这里几乎都是沙滩，游泳很安全。大部分地方都有新西兰圣诞树的树荫。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8384051249595359,
+        "inference_s": 0.20133441605139524,
+        "service_s": 1.0407502499874681,
+        "audio_s": 6.84,
+        "real_time_factor": 0.029434856147864803
+      },
+      "id": "03ef00d9d1b0493ab9c5fffb96a5606b"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0229540409054607,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "generation_tokens": 26,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7619726249249652,
+        "inference_s": 0.252460291958414,
+        "service_s": 1.0152231249958277,
+        "audio_s": 10.56,
+        "real_time_factor": 0.023907224617274053
+      },
+      "id": "e9a48c471e6d4d20bad59a510a0ee0ca"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.922023875056766,
+    "response": {
+      "text": "All nouns alongside the world say for you always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.677181167062372,
+        "inference_s": 0.23443274991586804,
+        "service_s": 0.9124952090205625,
+        "audio_s": 8.76,
+        "real_time_factor": 0.026761729442450692
+      },
+      "id": "485104c9709b462c8dd9a7b8e8afaa84"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0246882500359789,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendourous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "generation_tokens": 39,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6830637910170481,
+        "inference_s": 0.3330169999971986,
+        "service_s": 1.01687979104463,
+        "audio_s": 11.46,
+        "real_time_factor": 0.029059075043385563
+      },
+      "id": "0e2b627df63149a287446c9dec68e95c"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0180345829576254,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic, alkaline the chemical is.",
+      "termination": "generate_returned",
+      "generation_tokens": 18,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.817706499947235,
+        "inference_s": 0.19481883302796632,
+        "service_s": 1.0133286659838632,
+        "audio_s": 5.76,
+        "real_time_factor": 0.033822714067355264
+      },
+      "id": "1744678997bc4a2dabe616a7acfd5f8d"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9453728339867666,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7598773749778047,
+        "inference_s": 0.1798459580168128,
+        "service_s": 0.9405630830442533,
+        "audio_s": 4.32,
+        "real_time_factor": 0.04163100880018815
+      },
+      "id": "ea573d69d1b54e6ab2f0808612fc24be"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9512017500819638,
+    "response": {
+      "text": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "generation_tokens": 22,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7011234590318054,
+        "inference_s": 0.24025295895989984,
+        "service_s": 0.9422557919751853,
+        "audio_s": 11.42,
+        "real_time_factor": 0.02103791234324867
+      },
+      "id": "13d29d56b6754acd95ef7c96582594e6"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8373574999859557,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6101345410570502,
+        "inference_s": 0.21916345891077071,
+        "service_s": 0.8300392910605296,
+        "audio_s": 10.8,
+        "real_time_factor": 0.0202929128621084
+      },
+      "id": "656bce34e9d8446384bd1e5250f2a19a"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8449004999129102,
+    "response": {
+      "text": "20th-century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.636479000095278,
+        "inference_s": 0.2023349590599537,
+        "service_s": 0.8396220840513706,
+        "audio_s": 6.96,
+        "real_time_factor": 0.02907111480746461
+      },
+      "id": "7be14e683a71449eb30aebd3b79face5"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.944638833985664,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "generation_tokens": 31,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6551755000837147,
+        "inference_s": 0.27939124999102205,
+        "service_s": 0.9355428750859573,
+        "audio_s": 11.04,
+        "real_time_factor": 0.02530717844121577
+      },
+      "id": "ba1bab653d8143d0b25f81fcba61895b"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0145685829920694,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses, easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6963185420027003,
+        "inference_s": 0.30951208295300603,
+        "service_s": 1.0074802079470828,
+        "audio_s": 9.9,
+        "real_time_factor": 0.0312638467629299
+      },
+      "id": "83e39c11ed7d4602b1c1ffd78a719c6a"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9816313749179244,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "generate_returned",
+      "generation_tokens": 14,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7874360420973971,
+        "inference_s": 0.1859188750386238,
+        "service_s": 0.9743489590473473,
+        "audio_s": 10.38,
+        "real_time_factor": 0.017911259637632352
+      },
+      "id": "58686e21578045eea0d31735ea4fdd2d"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9697834169492126,
+    "response": {
+      "text": "钙、钾等元素属于金属，银和金等元素当然也是金属。",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7724264590069652,
+        "inference_s": 0.19041433394886553,
+        "service_s": 0.9637859169160947,
+        "audio_s": 8.28,
+        "real_time_factor": 0.022996900235370234
+      },
+      "id": "57f231457d134a65a9fd18cfba8c6219"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9807982919737697,
+    "response": {
+      "text": "桥下垂直净空十五米。该项目于二零一一年八月完工，但直到二零一七年三月才开始通车。",
+      "termination": "generate_returned",
+      "generation_tokens": 30,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6798914580140263,
+        "inference_s": 0.29049437504727393,
+        "service_s": 0.971331916982308,
+        "audio_s": 13.86,
+        "real_time_factor": 0.020959190118850935
+      },
+      "id": "da30dcc345fd4300a6c5286efbb145c5"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.073812208021991,
+    "response": {
+      "text": "适当使用博客可以使学生变得更善于分析和进行思辨。通过积极回忆网络材料，学生们可以在他人的文章的上下文语境中找到自己的立场，并能够针对特定问题提出自己的观点。Work二零零二。",
+      "termination": "generate_returned",
+      "generation_tokens": 48,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.659471791004762,
+        "inference_s": 0.4028680420015007,
+        "service_s": 1.0634414160158485,
+        "audio_s": 15.42,
+        "real_time_factor": 0.02612633216611548
+      },
+      "id": "8cf30e0d25304a6e8bae5791240ee9ec"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1144994579954073,
+    "response": {
+      "text": "科学家们可以得出结论：暗物质对其他暗物质的影响方式与普通物质相同。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8779824170051143,
+        "inference_s": 0.22665870795026422,
+        "service_s": 1.10568450007122,
+        "audio_s": 12.9,
+        "real_time_factor": 0.017570442476764668
+      },
+      "id": "b2c95ba9dbfb4a8fab9fd79bc2b737a9"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.151788708055392,
+    "response": {
+      "text": "大多数现代科研望远镜都是巨型设施，位于大气大气条件优良的偏远地区。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.9134170420002192,
+        "inference_s": 0.2277651660842821,
+        "service_s": 1.1421582500915974,
+        "audio_s": 13.74,
+        "real_time_factor": 0.016576795202640618
+      },
+      "id": "963f328d25e94e70bdf65d9eefe130fe"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1412164170760661,
+    "response": {
+      "text": "1963年，大坝建成后，季节性洪水被控制住了，沉积物不再冲散到河流里。",
+      "termination": "generate_returned",
+      "generation_tokens": 27,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8497783750062808,
+        "inference_s": 0.279863000032492,
+        "service_s": 1.130547457956709,
+        "audio_s": 15.18,
+        "real_time_factor": 0.018436297762351252
+      },
+      "id": "c3d303cbb2174b05bbd52751dfa94a8b"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.074527999968268,
+    "response": {
+      "text": "它的长下颚上布满了七十多颗剃刀般锋利的牙齿，上颚上还有一排，这意味着任何与它相遇的东西都无路可逃。",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7262603749986738,
+        "inference_s": 0.336355583043769,
+        "service_s": 1.0636470840545371,
+        "audio_s": 15.46,
+        "real_time_factor": 0.021756506018355045
+      },
+      "id": "e68a1394629d42d5bee6b5a9bf3420b9"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0714493340346962,
+    "response": {
+      "text": "Scotturb四零三路，公交汽车定期发车前往新特拉，在罗卡角停靠。",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8406625830102712,
+        "inference_s": 0.2235295419814065,
+        "service_s": 1.0652436659438536,
+        "audio_s": 7.62,
+        "real_time_factor": 0.02933458556186437
+      },
+      "id": "90b81b8e9c334098b16f824fa961d74a"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.042231542058289,
+    "response": {
+      "text": "这里几乎都是沙滩，游泳很安全。大部分地方都有新西兰圣诞树的树荫。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8373907500645146,
+        "inference_s": 0.19849666696973145,
+        "service_s": 1.0367867080494761,
+        "audio_s": 6.84,
+        "real_time_factor": 0.02901998055113033
+      },
+      "id": "96cccf9b01ee4305aeaa0da3c0851ddd"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0118125419830903,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "generation_tokens": 26,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7540108329849318,
+        "inference_s": 0.24949145794380456,
+        "service_s": 1.004490708000958,
+        "audio_s": 10.56,
+        "real_time_factor": 0.02362608503255725
+      },
+      "id": "e2c4ffd8d421413f83dbc594f4bceae3"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9045233340002596,
+    "response": {
+      "text": "All nouns alongside the world say for you always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.66722933400888,
+        "inference_s": 0.22919654205907136,
+        "service_s": 0.8973558750003576,
+        "audio_s": 8.76,
+        "real_time_factor": 0.026163988819528694
+      },
+      "id": "0c30ae26de7f4e72b827a03d9b5f44a6"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.011628458974883,
+    "response": {
+      "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendourous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "generation_tokens": 39,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6720483329845592,
+        "inference_s": 0.3306515420554206,
+        "service_s": 1.0036821670364588,
+        "audio_s": 11.46,
+        "real_time_factor": 0.028852665100822038
+      },
+      "id": "c067dd4995574daa8cf09898ad23bdad"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0001462920336053,
+    "response": {
+      "text": "The cabbage juice changes color depending on how acidic, basic, alkaline the chemical is.",
+      "termination": "generate_returned",
+      "generation_tokens": 18,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8074613749049604,
+        "inference_s": 0.18698729190509766,
+        "service_s": 0.9953881669789553,
+        "audio_s": 5.76,
+        "real_time_factor": 0.03246307151130168
+      },
+      "id": "ad3e9b7e90444e619d3e65ecddc6202e"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9295959589071572,
+    "response": {
+      "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7458234999794513,
+        "inference_s": 0.178931292030029,
+        "service_s": 0.9256449999520555,
+        "audio_s": 4.32,
+        "real_time_factor": 0.04141928056250671
+      },
+      "id": "f9baa59b52e2403d8c233e8af81cba96"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.938942417036742,
+    "response": {
+      "text": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "generation_tokens": 22,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6904858329799026,
+        "inference_s": 0.2384814170654863,
+        "service_s": 0.9299487919779494,
+        "audio_s": 11.42,
+        "real_time_factor": 0.020882786082792145
+      },
+      "id": "4def4d13a7c94f9a9cbb85f4cc73a985"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8232820830307901,
+    "response": {
+      "text": "The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6002979580080137,
+        "inference_s": 0.21500695892609656,
+        "service_s": 0.8162695420905948,
+        "audio_s": 10.8,
+        "real_time_factor": 0.019908051752416348
+      },
+      "id": "ab171e6ab364489cac8cd0838f33449e"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.831400458002463,
+    "response": {
+      "text": "20th-century research has shown that there are two pools of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6299841669388115,
+        "inference_s": 0.19511824997607619,
+        "service_s": 0.826050707953982,
+        "audio_s": 6.96,
+        "real_time_factor": 0.028034231318401753
+      },
+      "id": "a9f076fa4e3f454e83640c98c831a8ad"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9322438749950379,
+    "response": {
+      "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+      "termination": "generate_returned",
+      "generation_tokens": 31,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6430189170641825,
+        "inference_s": 0.27982012496795505,
+        "service_s": 0.9237393330549821,
+        "audio_s": 11.04,
+        "real_time_factor": 0.025346025812314772
+      },
+      "id": "0fc812f60f4042f6bdab38f884c37dee"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.006926207919605,
+    "response": {
+      "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses, easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6856698750052601,
+        "inference_s": 0.3130954160587862,
+        "service_s": 0.9997861660085618,
+        "audio_s": 9.9,
+        "real_time_factor": 0.0316257996018976
+      },
+      "id": "1045ef6130894964a4e976c131b4e7b7"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9867021669633687,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "generate_returned",
+      "generation_tokens": 14,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7844442910281941,
+        "inference_s": 0.19479316601064056,
+        "service_s": 0.980126791051589,
+        "audio_s": 10.38,
+        "real_time_factor": 0.018766200964416238
+      },
+      "id": "1af94da19ba24659b8c002e49a0edd79"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9849590000230819,
+    "response": {
+      "text": "钙、钾等元素属于金属，银和金等元素当然也是金属。",
+      "termination": "generate_returned",
+      "generation_tokens": 17,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7847799580777064,
+        "inference_s": 0.19331879203673452,
+        "service_s": 0.979118625051342,
+        "audio_s": 8.28,
+        "real_time_factor": 0.023347680197673252
+      },
+      "id": "79c34e67f40546499c2d0a797b3469e4"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9968612079974264,
+    "response": {
+      "text": "桥下垂直净空十五米。该项目于二零一一年八月完工，但直到二零一七年三月才开始通车。",
+      "termination": "generate_returned",
+      "generation_tokens": 30,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6942276660120115,
+        "inference_s": 0.29155441699549556,
+        "service_s": 0.9868623750517145,
+        "audio_s": 13.86,
+        "real_time_factor": 0.021035672221897228
+      },
+      "id": "91d34adf069d4c15958a59b533e4afe0"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0900511249201372,
+    "response": {
+      "text": "适当使用博客可以使学生变得更善于分析和进行思辨。通过积极回忆网络材料，学生们可以在他人的文章的上下文语境中找到自己的立场，并能够针对特定问题提出自己的观点。Work二零零二。",
+      "termination": "generate_returned",
+      "generation_tokens": 48,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.6717343749478459,
+        "inference_s": 0.40644437505397946,
+        "service_s": 1.079210540978238,
+        "audio_s": 15.42,
+        "real_time_factor": 0.0263582603796355
+      },
+      "id": "c3b15be185664684be5436ccd2a9f711"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.121850415947847,
+    "response": {
+      "text": "科学家们可以得出结论：暗物质对其他暗物质的影响方式与普通物质相同。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8847609589574859,
+        "inference_s": 0.22640358307398856,
+        "service_s": 1.1121320839738473,
+        "audio_s": 12.9,
+        "real_time_factor": 0.017550665354572757
+      },
+      "id": "62fa19879dd34bf9bdf0886d25386af7"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.155406582984142,
+    "response": {
+      "text": "大多数现代科研望远镜都是巨型设施，位于大气大气条件优良的偏远地区。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.9177774169947952,
+        "inference_s": 0.22699862497393042,
+        "service_s": 1.1456480419728905,
+        "audio_s": 13.74,
+        "real_time_factor": 0.016521006184419974
+      },
+      "id": "e3e4a00e3d594ca68c17712fc283ea21"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.1415255420142785,
+    "response": {
+      "text": "1963年，大坝建成后，季节性洪水被控制住了，沉积物不再冲散到河流里。",
+      "termination": "generate_returned",
+      "generation_tokens": 27,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8525969170732424,
+        "inference_s": 0.27768083405680954,
+        "service_s": 1.131353500066325,
+        "audio_s": 15.18,
+        "real_time_factor": 0.01829254506303093
+      },
+      "id": "c6c3b79f0f2445fb8bbd607828549ba5"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0656034590210766,
+    "response": {
+      "text": "它的长下颚上布满了七十多颗剃刀般锋利的牙齿，上颚上还有一排，这意味着任何与它相遇的东西都无路可逃。",
+      "termination": "generate_returned",
+      "generation_tokens": 37,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.7230465828906745,
+        "inference_s": 0.3304505409905687,
+        "service_s": 1.054558332893066,
+        "audio_s": 15.46,
+        "real_time_factor": 0.021374549870023848
+      },
+      "id": "c6289f9eeb5b42678c73930bdfa8098a"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0571703750174493,
+    "response": {
+      "text": "Scotturb四零三路，公交汽车定期发车前往新特拉，在罗卡角停靠。",
+      "termination": "generate_returned",
+      "generation_tokens": 23,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8316274170065299,
+        "inference_s": 0.21793916600290686,
+        "service_s": 1.0505572919500992,
+        "audio_s": 7.62,
+        "real_time_factor": 0.028600940420328985
+      },
+      "id": "c3f5ba30dae04c11a082b8b5519bd8a1"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0234670419013128,
+    "response": {
+      "text": "这里几乎都是沙滩，游泳很安全。大部分地方都有新西兰圣诞树的树荫。",
+      "termination": "generate_returned",
+      "generation_tokens": 19,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 0.8240652079693973,
+        "inference_s": 0.19333058292977512,
+        "service_s": 1.0183764999965206,
+        "audio_s": 6.84,
+        "real_time_factor": 0.02826470510669227
+      },
+      "id": "da252394a0514c29b5e3f9f32023f141"
+    },
+    "repeat": 2
+  }
+]

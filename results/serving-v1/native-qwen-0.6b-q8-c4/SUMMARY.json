@@ -1,0 +1,29 @@
+{
+  "wall_s": 51.12228429201059,
+  "requests": 60,
+  "failed": 0,
+  "requests_per_s": 1.17365647546733,
+  "audio_seconds_per_wall_s": 12.362123656097388,
+  "groups": {
+    "en_us": {
+      "requests": 30,
+      "completed": 30,
+      "failed": 0,
+      "client_p50_s": 3.1844461040454917,
+      "client_p95_s": 5.210008845879929,
+      "inference_p50_s": 0.7677246044622734,
+      "queue_p95_s": 3.8608623205393076
+    },
+    "cmn_hans_cn": {
+      "requests": 30,
+      "completed": 30,
+      "failed": 0,
+      "client_p50_s": 3.335815062513575,
+      "client_p95_s": 6.7695565438014444,
+      "inference_p50_s": 0.8005923544988036,
+      "queue_p95_s": 5.578520647436378
+    }
+  },
+  "process_peak_rss_bytes": 47824896,
+  "native_worker_peak_rss_bytes": 1238974464
+}

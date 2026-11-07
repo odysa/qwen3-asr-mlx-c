@@ -1,0 +1,20 @@
+{
+  "model": "whisper-tiny-fp16",
+  "load_prepare_s": 5.075081042014062,
+  "uptime_s": 26.76888491702266,
+  "accepted": 62,
+  "completed": 62,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 0.35114966658875346,
+  "service_latency_p95_s": 0.7480776606709694,
+  "queue_p95_s": 0.00011826250702142704,
+  "latency_window_requests": 62,
+  "completed_audio_s": 652.9199999999998,
+  "process_peak_rss_bytes": 569081856,
+  "native_worker_peak_rss_bytes": null,
+  "load_boundary": "MLX import, model loading, weight materialization and sync",
+  "rejected_http_connections": 0,
+  "max_http_connections": 8
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.5029918750515208,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "generation_tokens": 26,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 2.8832932002842426e-05,
+        "inference_s": 0.49482920800801367,
+        "service_s": 0.49594091693870723,
+        "audio_s": 10.56,
+        "real_time_factor": 0.04685882651591038
+      },
+      "id": "ba05b1aac0814c478e85dfe2ad71b11a"
+    }
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.22872608294710517,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "generate_returned",
+      "generation_tokens": 14,
+      "possibly_capped": false,
+      "model": "qwen-0.6b-bf16",
+      "timing": {
+        "queue_s": 2.8290902264416218e-05,
+        "inference_s": 0.22097770893014967,
+        "service_s": 0.22189212497323751,
+        "audio_s": 10.38,
+        "real_time_factor": 0.0212887966214017
+      },
+      "id": "e3e6cc916bfe4130ba1916583486b406"
+    }
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "wall_s": 13.736667125020176,
+  "requests": 30,
+  "failed": 0,
+  "requests_per_s": 2.183935865007425,
+  "audio_seconds_per_wall_s": 19.869448499837556,
+  "groups": {
+    "en_us": {
+      "requests": 30,
+      "completed": 30,
+      "failed": 0,
+      "client_p50_s": 0.46973099996102974,
+      "client_p95_s": 0.7421801734075416,
+      "inference_p50_s": 0.4551922079990618,
+      "queue_p95_s": 0.0003234833304304622
+    }
+  },
+  "process_peak_rss_bytes": 2385199104,
+  "native_worker_peak_rss_bytes": null
+}

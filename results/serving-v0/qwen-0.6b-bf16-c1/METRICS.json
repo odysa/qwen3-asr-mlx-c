@@ -1,0 +1,16 @@
+{
+  "model": "qwen-0.6b-bf16",
+  "load_prepare_s": 2.2993872920051217,
+  "uptime_s": 15.896289625088684,
+  "accepted": 62,
+  "completed": 62,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 0.2239511664956808,
+  "service_latency_p95_s": 0.3903812496457246,
+  "queue_p95_s": 3.7021114258095623e-05,
+  "latency_window_requests": 62,
+  "completed_audio_s": 652.9199999999998,
+  "process_peak_rss_bytes": 1960116224
+}

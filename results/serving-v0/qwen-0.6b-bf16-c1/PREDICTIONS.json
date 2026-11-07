@@ -1,0 +1,142 @@
+[
+  {
+    "case_id": "en_us_00",
+    "status": "ok",
+    "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_01",
+    "status": "ok",
+    "text": "All nouns alongside the world say for you always begin with a capital letter, even in the middle of a sentence.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_02",
+    "status": "ok",
+    "text": "To the north and within easy reach is the romantic and fascinating town of Sintra, and which was made famous to foreigners after a glowing account of its splendourous recorded by Lord Byron.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_03",
+    "status": "ok",
+    "text": "The cabbage juice changes color depending on how acidic, basic, alkaline the chemical is.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_04",
+    "status": "ok",
+    "text": "Many people don't think about them as dinosaurs because they have feathers and can fly.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_05",
+    "status": "ok",
+    "text": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_06",
+    "status": "ok",
+    "text": "The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_07",
+    "status": "ok",
+    "text": "20th-century research has shown that there are two pools of genetic variation hidden and expressed.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_08",
+    "status": "ok",
+    "text": "The aspect ratio of this format, dividing by 12 to obtain the simplest whole number ratio, is therefore said to be 3 to 2.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "en_us_09",
+    "status": "ok",
+    "text": "As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses, easier to reach than those built in modern times.",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "status": "ok",
+    "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "status": "ok",
+    "text": "钙、钾等元素属于金属，银和金等元素当然也是金属。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "status": "ok",
+    "text": "桥下垂直净空十五米。该项目于二零一一年八月完工，但直到二零一七年三月才开始通车。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "status": "ok",
+    "text": "适当使用博客可以使学生变得更善于分析和进行思辨。通过积极回忆网络材料，学生们可以在他人的文章的上下文语境中找到自己的立场，并能够针对特定问题提出自己的观点。Work二零零二。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "status": "ok",
+    "text": "科学家们可以得出结论：暗物质对其他暗物质的影响方式与普通物质相同。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "status": "ok",
+    "text": "大多数现代科研望远镜都是巨型设施，位于大气大气条件优良的偏远地区。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "status": "ok",
+    "text": "1963年，大坝建成后，季节性洪水被控制住了，沉积物不再冲散到河流里。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "status": "ok",
+    "text": "它的长下颚上布满了七十多颗剃刀般锋利的牙齿，上颚上还有一排，这意味着任何与它相遇的东西都无路可逃。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "status": "ok",
+    "text": "Scotturb四零三路，公交汽车定期发车前往新特拉，在罗卡角停靠。",
+    "termination_status": "generate_returned",
+    "capped": false
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "status": "ok",
+    "text": "这里几乎都是沙滩，游泳很安全。大部分地方都有新西兰圣诞树的树荫。",
+    "termination_status": "generate_returned",
+    "capped": false
+  }
+]

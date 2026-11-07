@@ -1,0 +1,20 @@
+{
+  "model": "native-qwen-0.6b-q8",
+  "load_prepare_s": 0.6549844580003992,
+  "uptime_s": 116.66109770792536,
+  "accepted": 124,
+  "completed": 124,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 1.458987166523002,
+  "service_latency_p95_s": 5.124719018739414,
+  "queue_p95_s": 3.7611761356063647,
+  "latency_window_requests": 124,
+  "completed_audio_s": 1305.8399999999995,
+  "process_peak_rss_bytes": 47824896,
+  "native_worker_peak_rss_bytes": 1238974464,
+  "load_boundary": "worker ready; weights may be lazy",
+  "rejected_http_connections": 0,
+  "max_http_connections": 8
+}

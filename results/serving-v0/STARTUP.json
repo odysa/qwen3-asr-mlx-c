@@ -1,0 +1,26 @@
+{
+  "qwen-0.6b-bf16": {
+    "model": "qwen-0.6b-bf16",
+    "ready_wall_s": 2.4558082920266315,
+    "health": {
+      "status": "ready",
+      "model": "qwen-0.6b-bf16"
+    }
+  },
+  "whisper-tiny-fp16": {
+    "model": "whisper-tiny-fp16",
+    "ready_wall_s": 3.294531166087836,
+    "health": {
+      "status": "ready",
+      "model": "whisper-tiny-fp16"
+    }
+  },
+  "parakeet-v3-bf16": {
+    "model": "parakeet-v3-bf16",
+    "ready_wall_s": 1.8230692090000957,
+    "health": {
+      "status": "ready",
+      "model": "parakeet-v3-bf16"
+    }
+  }
+}

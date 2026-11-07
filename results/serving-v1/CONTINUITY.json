@@ -1,0 +1,33 @@
+{
+  "checks": {
+    "native-qwen-0.6b-bf16": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": [],
+      "historical_text_changes": [],
+      "historical_token_changes": []
+    },
+    "native-qwen-0.6b-q8": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": [],
+      "historical_text_changes": [],
+      "historical_token_changes": []
+    },
+    "native-qwen-1.7b-bf16": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": []
+    },
+    "qwen-0.6b-bf16": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": []
+    },
+    "whisper-tiny-fp16": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": []
+    },
+    "parakeet-v3-bf16": {
+      "c1_c4_text_changes": [],
+      "c1_c4_token_changes": []
+    }
+  },
+  "scope": "same selected clips; native 0.6B text and IDs match historical outputs, and all profile c1/c4 first texts match; no general equivalence claim"
+}

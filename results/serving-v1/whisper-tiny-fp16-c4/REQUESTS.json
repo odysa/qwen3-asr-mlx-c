@@ -1,0 +1,1202 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.3876798329874873,
+    "response": {
+      "text": " However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 5.329190753400326e-05,
+        "inference_s": 0.3294389999937266,
+        "service_s": 0.35070970898959786,
+        "audio_s": 10.56,
+        "real_time_factor": 0.03119687499940593
+      },
+      "id": "3c7c43552eb8464494bf6c7b5bcbbb27"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9287376670399681,
+    "response": {
+      "text": " All now is alongside the world's safe for you, always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.34358941693790257,
+        "inference_s": 0.5395965829957277,
+        "service_s": 0.8844812089810148,
+        "audio_s": 8.76,
+        "real_time_factor": 0.06159778344700088
+      },
+      "id": "2dba1d7e2b764af3b8550e409e0771c3"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.4940653330413625,
+    "response": {
+      "text": " To the north and with an easy reach is a romantic, infestinating town of Sinatra, which was made famous To foreigners after a glowing account of its splendrous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.884053917019628,
+        "inference_s": 0.5650541670620441,
+        "service_s": 1.4503730420256034,
+        "audio_s": 11.46,
+        "real_time_factor": 0.049306646340492505
+      },
+      "id": "f310cb9191a443a19cbb79d6acc2a996"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.663509666104801,
+    "response": {
+      "text": " The cap is used to change its color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.437861750018783,
+        "inference_s": 0.16918974998407066,
+        "service_s": 1.608011250034906,
+        "audio_s": 5.76,
+        "real_time_factor": 0.0293732204833456
+      },
+      "id": "97fc9414151f4d29ae503d568497a890"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.416141749941744,
+    "response": {
+      "text": " Maybe people don't think about them as senators because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.268771875067614,
+        "inference_s": 0.13772124995011836,
+        "service_s": 1.4079477910418063,
+        "audio_s": 4.32,
+        "real_time_factor": 0.031879918969934806
+      },
+      "id": "18083797bf284c3592c41bb5f763f950"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0504009169526398,
+    "response": {
+      "text": " The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.8618071669479832,
+        "inference_s": 0.17398216598667204,
+        "service_s": 1.0368629168951884,
+        "audio_s": 11.42,
+        "real_time_factor": 0.01523486567308862
+      },
+      "id": "d87f488ebcf249ba805e4a0f0c123f74"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6307097919052467,
+    "response": {
+      "text": " The Northern Marianna's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.4735887909773737,
+        "inference_s": 0.1453732920344919,
+        "service_s": 0.6198018749710172,
+        "audio_s": 10.8,
+        "real_time_factor": 0.013460490003193694
+      },
+      "id": "029614db87884a86833949a99e68ef66"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6115515000419691,
+    "response": {
+      "text": " 20th century research has shown that there are two poles of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.45234916696790606,
+        "inference_s": 0.1496850410476327,
+        "service_s": 0.6034314580028877,
+        "audio_s": 6.96,
+        "real_time_factor": 0.021506471414889754
+      },
+      "id": "4f07022d725843849f190db7e237e52e"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.6758600000757724,
+    "response": {
+      "text": " The aspect ratio of this format, the vying by 12 to obtain the simplest whole number ratio, is therefore said to be free to 2.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.45741675002500415,
+        "inference_s": 0.19511295796837658,
+        "service_s": 0.6610821660142392,
+        "audio_s": 11.04,
+        "real_time_factor": 0.01767327517829498
+      },
+      "id": "1eaaab4ee1f7405a92b81db5aeba9151"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7218636660836637,
+    "response": {
+      "text": " As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.4922992920037359,
+        "inference_s": 0.21947483299300075,
+        "service_s": 0.7130510839633644,
+        "audio_s": 9.9,
+        "real_time_factor": 0.022169175049798054
+      },
+      "id": "60424993f79f4561be6f345ec1766e2e"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.8260603750823066,
+    "response": {
+      "text": "这并不是告别这是一个偏胶的结束也是新偏胶的开始",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.567060291999951,
+        "inference_s": 0.24962020898237824,
+        "service_s": 0.8176334169693291,
+        "audio_s": 10.38,
+        "real_time_factor": 0.02404818969001717
+      },
+      "id": "dd2a339667a14e318580c93939845fa2"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.889345542062074,
+    "response": {
+      "text": "蓋家等元素属于金属迎合金等元素当然也是金属",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.6673255829373375,
+        "inference_s": 0.21231495798565447,
+        "service_s": 0.8811804580036551,
+        "audio_s": 8.28,
+        "real_time_factor": 0.025641903138364067
+      },
+      "id": "fbdd814976cd4ba5b6973705217e5e58"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.9151874160161242,
+    "response": {
+      "text": "小夏垂直進空15米該項目於21年8月晚空但直到2017年3月才開始通知",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.6728987090755254,
+        "inference_s": 0.2288240420166403,
+        "service_s": 0.9028636250877753,
+        "audio_s": 13.86,
+        "real_time_factor": 0.01650967114117174
+      },
+      "id": "26b13e71c18e4457bec4c3d243321601"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.0502924579195678,
+    "response": {
+      "text": "事件使用不可可使學生變得更善於分析和精英思變通過積極回憶往外材料學生們可以在他能文章的上下文語金融找到自己的立場並能夠針對特定問題提出自己的關鍵Work 2022",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.6790116250049323,
+        "inference_s": 0.3546971670584753,
+        "service_s": 1.0350215840153396,
+        "audio_s": 15.42,
+        "real_time_factor": 0.02300241031507622
+      },
+      "id": "3c62720a32314f53b3c9c49f64baf847"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.317596166045405,
+    "response": {
+      "text": "科学部家门可以得出结论二五十对其他二五十的影响方式与普通物质相同",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.7832847499521449,
+        "inference_s": 0.5170514999190345,
+        "service_s": 1.301307207904756,
+        "audio_s": 12.9,
+        "real_time_factor": 0.04008151162163058
+      },
+      "id": "325c6592f3a545309dc1fcc6e2705ce5"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.7070396250346676,
+    "response": {
+      "text": "大多数现在科研网已经都是务心设施位于大体大体调建有两个偏远点去",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.087047749897465,
+        "inference_s": 0.6014119590399787,
+        "service_s": 1.6896045409375802,
+        "audio_s": 13.74,
+        "real_time_factor": 0.043770884937407474
+      },
+      "id": "1fa2100d59a241ed8d8626a183eea9e4"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.095890500000678,
+    "response": {
+      "text": "1963年大网建成后,继节性红水被空直入了,沉击物不在冲散到河流里。",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.461860458017327,
+        "inference_s": 0.6171534999739379,
+        "service_s": 2.0811426249565557,
+        "audio_s": 15.18,
+        "real_time_factor": 0.04065569828550315
+      },
+      "id": "c92542b0bdd7404ea3fa1a0f6bab9e5d"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.093191249994561,
+    "response": {
+      "text": "他的成下餓上不滿了起時多顆體道般風力的牙齒上餓上還有一排這意味著任何以他相遇的東西都無路可逃",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.7216404160717502,
+        "inference_s": 0.3519920000107959,
+        "service_s": 2.0748207910219207,
+        "audio_s": 15.46,
+        "real_time_factor": 0.022767917206390417
+      },
+      "id": "422ba5d8465d4bdfb0dffda5a13c63fd"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.7822914590360597,
+    "response": {
+      "text": "SkowTurb4035公交汽車定期發車前往新特拉在羅卡角停靠",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.5644512079888955,
+        "inference_s": 0.20455620903521776,
+        "service_s": 1.7705218750052154,
+        "audio_s": 7.62,
+        "real_time_factor": 0.026844646855015454
+      },
+      "id": "debdac1bd69a47acb3c157f62ba3b9bc"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.362061084015295,
+    "response": {
+      "text": "这里几乎都是沙灿游泳很安全大部分地方都有信息来声难受的数应",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.1662669579964131,
+        "inference_s": 0.1823392080841586,
+        "service_s": 1.3503808750538155,
+        "audio_s": 6.84,
+        "real_time_factor": 0.02665777895967231
+      },
+      "id": "2f7854cb0e9b4d3fb0501154b4f15a0a"
+    },
+    "repeat": 0
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9172877920791507,
+    "response": {
+      "text": " However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.7250552499899641,
+        "inference_s": 0.17329741606954485,
+        "service_s": 0.8991506249876693,
+        "audio_s": 10.56,
+        "real_time_factor": 0.016410740158100838
+      },
+      "id": "de006ae1ae0f4f949898ff86c815dd6c"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.721474124933593,
+    "response": {
+      "text": " All now is alongside the world's safe for you, always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.5495492910267785,
+        "inference_s": 0.15765283291693777,
+        "service_s": 0.7081257910467684,
+        "audio_s": 8.76,
+        "real_time_factor": 0.017996898734810248
+      },
+      "id": "01e2f76ee4cd4f1286e1dbf5567501f1"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7784555000253022,
+    "response": {
+      "text": " To the north and with an easy reach is a romantic, infestinating town of Sinatra, which was made famous To foreigners after a glowing account of its splendrous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.5045430840691552,
+        "inference_s": 0.26083095907233655,
+        "service_s": 0.7664710000390187,
+        "audio_s": 11.46,
+        "real_time_factor": 0.022760118592699524
+      },
+      "id": "f6204ab68c9a44efa28a16c63c02204b"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8468554159626365,
+    "response": {
+      "text": " The cap is used to change its color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.586229708045721,
+        "inference_s": 0.2506824160227552,
+        "service_s": 0.8386819580337033,
+        "audio_s": 5.76,
+        "real_time_factor": 0.04352125278172834
+      },
+      "id": "16b65d5c7f1140a38835ba78e5b21047"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.9687200830085203,
+    "response": {
+      "text": " Maybe people don't think about them as senators because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.6685506670037284,
+        "inference_s": 0.29427379195112735,
+        "service_s": 0.9642779589630663,
+        "audio_s": 4.32,
+        "real_time_factor": 0.06811893332202021
+      },
+      "id": "fa5a008c6f924a0a9cc6fcc04e43d6af"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.3853027080185711,
+    "response": {
+      "text": " The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.7993115409044549,
+        "inference_s": 0.5740783340297639,
+        "service_s": 1.374253832967952,
+        "audio_s": 11.42,
+        "real_time_factor": 0.05026955639490052
+      },
+      "id": "30c762568ed343d3b0470913f6a7e85f"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.517317624995485,
+    "response": {
+      "text": " The Northern Marianna's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.1126481249229982,
+        "inference_s": 0.3939247910166159,
+        "service_s": 1.5077080419287086,
+        "audio_s": 10.8,
+        "real_time_factor": 0.0364745176867237
+      },
+      "id": "9d0a0c76f1dc4e4e8615303b68cd9e6a"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.5387216659728438,
+    "response": {
+      "text": " 20th century research has shown that there are two poles of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.2534836659906432,
+        "inference_s": 0.27226429199799895,
+        "service_s": 1.5268659580033273,
+        "audio_s": 6.96,
+        "real_time_factor": 0.03911843275833318
+      },
+      "id": "77faa78384c340ee82ab126f4fced9d1"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.7719343750504777,
+    "response": {
+      "text": " The aspect ratio of this format, the vying by 12 to obtain the simplest whole number ratio, is therefore said to be free to 2.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.2309992079390213,
+        "inference_s": 0.5272583340993151,
+        "service_s": 1.7594322499353439,
+        "audio_s": 11.04,
+        "real_time_factor": 0.047758907074213326
+      },
+      "id": "44540fa2061b42748d4a7a25a829617c"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.8106499169953167,
+    "response": {
+      "text": " As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.188817166024819,
+        "inference_s": 0.6111932920757681,
+        "service_s": 1.801776707987301,
+        "audio_s": 9.9,
+        "real_time_factor": 0.0617366961692695
+      },
+      "id": "43729aa562414d9f99c60579ccb4ecae"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.91443679202348,
+    "response": {
+      "text": "这并不是告别这是一个偏胶的结束也是新偏胶的开始",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.402749374974519,
+        "inference_s": 0.4971556660020724,
+        "service_s": 1.9025479999836534,
+        "audio_s": 10.38,
+        "real_time_factor": 0.047895536223706396
+      },
+      "id": "95c6875b9bb5413b9bb5a0f110b96fd9"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.1469280840829015,
+    "response": {
+      "text": "蓋家等元素属于金属迎合金等元素当然也是金属",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.633183415979147,
+        "inference_s": 0.49454500002320856,
+        "service_s": 2.1387200829340145,
+        "audio_s": 8.28,
+        "real_time_factor": 0.05972765700763389
+      },
+      "id": "732ef9df7fbb47428df5b5f792fdc905"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.1768323329743,
+    "response": {
+      "text": "小夏垂直進空15米該項目於21年8月晚空但直到2017年3月才開始通知",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.6045240839011967,
+        "inference_s": 0.5574580839602277,
+        "service_s": 2.1629006249131635,
+        "audio_s": 13.86,
+        "real_time_factor": 0.04022064097837141
+      },
+      "id": "656ea64fce7e4fb1a1a4ca5cb7702aa9"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.606824041926302,
+    "response": {
+      "text": "事件使用不可可使學生變得更善於分析和精英思變通過積極回憶往外材料學生們可以在他能文章的上下文語金融找到自己的立場並能夠針對特定問題提出自己的關鍵Work 2022",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.5475655829068273,
+        "inference_s": 1.0427155419019982,
+        "service_s": 2.5914423749782145,
+        "audio_s": 15.42,
+        "real_time_factor": 0.06762098196511013
+      },
+      "id": "3be406bf8bfe43a1a8d613128ca34128"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.5882527080830187,
+    "response": {
+      "text": "科学部家门可以得出结论二五十对其他二五十的影响方式与普通物质相同",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 2.086934542050585,
+        "inference_s": 0.4798607910051942,
+        "service_s": 2.5678563750116155,
+        "audio_s": 12.9,
+        "real_time_factor": 0.037198510930635205
+      },
+      "id": "d552a911560f48d99c4a47f14b53b6fc"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.6179272499866784,
+    "response": {
+      "text": "大多数现在科研网已经都是务心设施位于大体大体调建有两个偏远点去",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 2.069371624966152,
+        "inference_s": 0.5337257499340922,
+        "service_s": 2.6041697500040755,
+        "audio_s": 13.74,
+        "real_time_factor": 0.038844668845275994
+      },
+      "id": "2f961b5a449d418b9322bf002a3b2e81"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.7093303749570623,
+    "response": {
+      "text": "1963年大网建成后,继节性红水被空直入了,沉击物不在冲散到河流里。",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 2.0454067919636145,
+        "inference_s": 0.6483310000039637,
+        "service_s": 2.695101625053212,
+        "audio_s": 15.18,
+        "real_time_factor": 0.042709552042421856
+      },
+      "id": "b80df8f4e2be4149889410d509e6c4f4"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.2827538329875097,
+    "response": {
+      "text": "他的成下餓上不滿了起時多顆體道般風力的牙齒上餓上還有一排這意味著任何以他相遇的東西都無路可逃",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.6505230000475422,
+        "inference_s": 0.6155483339680359,
+        "service_s": 2.267665916006081,
+        "audio_s": 15.46,
+        "real_time_factor": 0.0398155455348018
+      },
+      "id": "a788b361be1d4d058c41f7bd4e2fc899"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.9876010000007227,
+    "response": {
+      "text": "SkowTurb4035公交汽車定期發車前往新特拉在羅卡角停靠",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.7845202919561416,
+        "inference_s": 0.18526720791123807,
+        "service_s": 1.9712220838991925,
+        "audio_s": 7.62,
+        "real_time_factor": 0.024313281878115232
+      },
+      "id": "113dbb31ca21416a8feee4cf96a69b44"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.6578346659662202,
+    "response": {
+      "text": "这里几乎都是沙灿游泳很安全大部分地方都有信息来声难受的数应",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.446764292079024,
+        "inference_s": 0.2035897079622373,
+        "service_s": 1.6510996670695022,
+        "audio_s": 6.84,
+        "real_time_factor": 0.029764577187461595
+      },
+      "id": "7f436624d32547cabe23259cf0e66f72"
+    },
+    "repeat": 1
+  },
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.156354083912447,
+    "response": {
+      "text": " However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.995220834040083,
+        "inference_s": 0.14652508299332112,
+        "service_s": 1.1425359590211883,
+        "audio_s": 10.56,
+        "real_time_factor": 0.0138754813440645
+      },
+      "id": "de2f9e9eff184b2e95b362f52bfc11d1"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_01",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.7085601669969037,
+    "response": {
+      "text": " All now is alongside the world's safe for you, always begin with a capital letter, even in the middle of a sentence.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.5191941250814125,
+        "inference_s": 0.1699043749831617,
+        "service_s": 0.6898595000384375,
+        "audio_s": 8.76,
+        "real_time_factor": 0.019395476596251335
+      },
+      "id": "65ef6e5dc39948109364d74c43772c13"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_02",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 0.8340080410707742,
+    "response": {
+      "text": " To the north and with an easy reach is a romantic, infestinating town of Sinatra, which was made famous To foreigners after a glowing account of its splendrous recorded by Lord Byron.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.5104821670101956,
+        "inference_s": 0.31088158302009106,
+        "service_s": 0.8221984589472413,
+        "audio_s": 11.46,
+        "real_time_factor": 0.02712753778534826
+      },
+      "id": "77d3f505f26f4332ad6f5e8c13b5c627"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_03",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.0017632079543546,
+    "response": {
+      "text": " The cap is used to change its color depending on how acidic, basic alkaline the chemical is.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.621754709049128,
+        "inference_s": 0.3699358330341056,
+        "service_s": 0.9931877499911934,
+        "audio_s": 5.76,
+        "real_time_factor": 0.06422497101286556
+      },
+      "id": "efa22903ac584cd2a00c52e784b35cbc"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_04",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.2285209159599617,
+    "response": {
+      "text": " Maybe people don't think about them as senators because they have feathers and can fly.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 0.8474433328956366,
+        "inference_s": 0.3740247500827536,
+        "service_s": 1.2228882079944015,
+        "audio_s": 4.32,
+        "real_time_factor": 0.08657980325989666
+      },
+      "id": "c3aede46208e416ea8c3aedcac1fd2ef"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_05",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.5243454580195248,
+    "response": {
+      "text": " The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.0485608750022948,
+        "inference_s": 0.4639241670956835,
+        "service_s": 1.514125916059129,
+        "audio_s": 11.42,
+        "real_time_factor": 0.04062383249524374
+      },
+      "id": "9b0aada8ecd848cc93a1580b46d664e1"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_06",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.5788240829715505,
+    "response": {
+      "text": " The Northern Marianna's Emergency Management Office said that there were no damages reported in the nation.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.2043720420915633,
+        "inference_s": 0.365381333976984,
+        "service_s": 1.5707014580257237,
+        "audio_s": 10.8,
+        "real_time_factor": 0.033831604997868886
+      },
+      "id": "590a9ec3b79f401aac979de24d08c400"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_07",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.5023512500338256,
+    "response": {
+      "text": " 20th century research has shown that there are two poles of genetic variation hidden and expressed.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.1967107079690322,
+        "inference_s": 0.2946330000413582,
+        "service_s": 1.4922332909191027,
+        "audio_s": 6.96,
+        "real_time_factor": 0.042332327592149166
+      },
+      "id": "4616b44f570948acac0f68dd6abc85c5"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_08",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.6817106250673532,
+    "response": {
+      "text": " The aspect ratio of this format, the vying by 12 to obtain the simplest whole number ratio, is therefore said to be free to 2.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.1128595840418711,
+        "inference_s": 0.5529990829527378,
+        "service_s": 1.6667832920793444,
+        "audio_s": 11.04,
+        "real_time_factor": 0.05009049664426973
+      },
+      "id": "1b7c1f565f4745c4bc7bb2b04579967e"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "en_us_09",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.8411560830427334,
+    "response": {
+      "text": " As light pollution in their heyday was not the kind of problem it is today, they are usually located in cities or at campuses easier to reach than those built in modern times.",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.2052047919714823,
+        "inference_s": 0.6230278339935467,
+        "service_s": 1.8301837919279933,
+        "audio_s": 9.9,
+        "real_time_factor": 0.06293210444379259
+      },
+      "id": "e350d8c700684721ac82100729607135"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 1.8790479999734089,
+    "response": {
+      "text": "这并不是告别这是一个偏胶的结束也是新偏胶的开始",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.4653327090200037,
+        "inference_s": 0.40315162495244294,
+        "service_s": 1.8698332089697942,
+        "audio_s": 10.38,
+        "real_time_factor": 0.038839270226632264
+      },
+      "id": "ca942e9c623c46d2b61bb8aa2f9d7125"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_01",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.0349806249141693,
+    "response": {
+      "text": "蓋家等元素属于金属迎合金等元素当然也是金属",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.5741148749366403,
+        "inference_s": 0.45067279099021107,
+        "service_s": 2.0256527080200613,
+        "audio_s": 8.28,
+        "real_time_factor": 0.05442908103746511
+      },
+      "id": "0bb22dda40e54743875b6b56ab93368f"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_02",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.0241224999772385,
+    "response": {
+      "text": "小夏垂直進空15米該項目於21年8月晚空但直到2017年3月才開始通知",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.4609737090067938,
+        "inference_s": 0.5431144579779357,
+        "service_s": 2.005098249996081,
+        "audio_s": 13.86,
+        "real_time_factor": 0.03918574732885539
+      },
+      "id": "be462721973a47c886bdced95ddeb5cc"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_03",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.295141833019443,
+    "response": {
+      "text": "事件使用不可可使學生變得更善於分析和精英思變通過積極回憶往外材料學生們可以在他能文章的上下文語金融找到自己的立場並能夠針對特定問題提出自己的關鍵Work 2022",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.3843515421031043,
+        "inference_s": 0.8933446250157431,
+        "service_s": 2.2792603340931237,
+        "audio_s": 15.42,
+        "real_time_factor": 0.05793415207624793
+      },
+      "id": "e384f5a821d14e2abaa4e928c6831740"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_04",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.3644751670071855,
+    "response": {
+      "text": "科学部家门可以得出结论二五十对其他二五十的影响方式与普通物质相同",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.8793332499917597,
+        "inference_s": 0.4717427919385955,
+        "service_s": 2.3531684579793364,
+        "audio_s": 12.9,
+        "real_time_factor": 0.0365692086774105
+      },
+      "id": "1a6c189bf0c64e0db86ac32fb5a71550"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_05",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.2695066669257358,
+    "response": {
+      "text": "大多数现在科研网已经都是务心设施位于大体大体调建有两个偏远点去",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.9013797079678625,
+        "inference_s": 0.355582750053145,
+        "service_s": 2.258005250012502,
+        "audio_s": 13.74,
+        "real_time_factor": 0.025879385011145922
+      },
+      "id": "8551072e856f45bba1f72738d6455c15"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_06",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.403369874926284,
+    "response": {
+      "text": "1963年大网建成后,继节性红水被空直入了,沉击物不在冲散到河流里。",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.7145600409712642,
+        "inference_s": 0.6749043749878183,
+        "service_s": 2.390937790973112,
+        "audio_s": 15.18,
+        "real_time_factor": 0.04446010375413823
+      },
+      "id": "5797683026234081845fd6e55a1eb59f"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_07",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.306736708036624,
+    "response": {
+      "text": "他的成下餓上不滿了起時多顆體道般風力的牙齒上餓上還有一排這意味著任何以他相遇的東西都無路可逃",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.4831275830511004,
+        "inference_s": 0.7983331669820473,
+        "service_s": 2.2824676249874756,
+        "audio_s": 15.46,
+        "real_time_factor": 0.05163862658357356
+      },
+      "id": "a017820fc554484290f662aaca657996"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_08",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.381188333965838,
+    "response": {
+      "text": "SkowTurb4035公交汽車定期發車前往新特拉在羅卡角停靠",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 1.8217092499835417,
+        "inference_s": 0.5478177079930902,
+        "service_s": 2.370600917027332,
+        "audio_s": 7.62,
+        "real_time_factor": 0.07189208766313519
+      },
+      "id": "91344e07193a49da80ca5db9a8de1374"
+    },
+    "repeat": 2
+  },
+  {
+    "case_id": "cmn_hans_cn_09",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 2.5560474999947473,
+    "response": {
+      "text": "这里几乎都是沙灿游泳很安全大部分地方都有信息来声难受的数应",
+      "termination": "generate_returned",
+      "model": "whisper-tiny-fp16",
+      "timing": {
+        "queue_s": 2.016527041909285,
+        "inference_s": 0.5304271249333397,
+        "service_s": 2.5481894169934094,
+        "audio_s": 6.84,
+        "real_time_factor": 0.077547825282652
+      },
+      "id": "6fdca74857724cfe8a7f6f8509b992bd"
+    },
+    "repeat": 2
+  }
+]

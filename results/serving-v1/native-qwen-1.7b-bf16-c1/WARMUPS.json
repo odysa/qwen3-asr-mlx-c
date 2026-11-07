@@ -1,0 +1,99 @@
+[
+  {
+    "case_id": "en_us_00",
+    "config": "en_us",
+    "http_status": 200,
+    "client_s": 1.1566530000418425,
+    "response": {
+      "text": "However, due to the slow communication channels, styles in the West could lag behind by 25 to 30 years.",
+      "termination": "eos",
+      "eos": true,
+      "generation_tokens": 26,
+      "token_ids": [
+        11209,
+        11,
+        4152,
+        311,
+        279,
+        6301,
+        10535,
+        11744,
+        11,
+        9222,
+        304,
+        279,
+        4312,
+        1410,
+        21454,
+        4815,
+        553,
+        220,
+        17,
+        20,
+        311,
+        220,
+        18,
+        15,
+        1635,
+        13
+      ],
+      "native_total_s": 1.143821,
+      "encode_frontend_s": 0.177203,
+      "prefill_s": 0.517125,
+      "decode_materialize_s": 0.449493,
+      "native_peak_rss_bytes": 4149428224,
+      "model": "native-qwen-1.7b-bf16",
+      "timing": {
+        "queue_s": 8.154194802045822e-05,
+        "inference_s": 1.144070875016041,
+        "service_s": 1.1464979999000207,
+        "audio_s": 10.56,
+        "real_time_factor": 0.10834004498257964
+      },
+      "id": "82568f22f6694382b52c26a2c9a61924"
+    }
+  },
+  {
+    "case_id": "cmn_hans_cn_00",
+    "config": "cmn_hans_cn",
+    "http_status": 200,
+    "client_s": 0.5781980409519747,
+    "response": {
+      "text": "这并不是告别，这是一个篇章的结束，也是新篇章的开始。",
+      "termination": "eos",
+      "eos": true,
+      "generation_tokens": 15,
+      "token_ids": [
+        43288,
+        102095,
+        108526,
+        3837,
+        105464,
+        103798,
+        9370,
+        80565,
+        3837,
+        100000,
+        16628,
+        103798,
+        9370,
+        55286,
+        1773
+      ],
+      "native_total_s": 0.563347,
+      "encode_frontend_s": 0.066938,
+      "prefill_s": 0.220708,
+      "decode_materialize_s": 0.275701,
+      "native_peak_rss_bytes": 4151738368,
+      "model": "native-qwen-1.7b-bf16",
+      "timing": {
+        "queue_s": 7.724994793534279e-05,
+        "inference_s": 0.5635660830885172,
+        "service_s": 0.5664842079859227,
+        "audio_s": 10.38,
+        "real_time_factor": 0.05429345694494385
+      },
+      "id": "5d133b5246824c96872d16c25026bfef"
+    }
+  }
+]

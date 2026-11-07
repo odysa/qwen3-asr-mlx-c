@@ -1,0 +1,20 @@
+{
+  "model": "parakeet-v3-bf16",
+  "load_prepare_s": 4.390702917007729,
+  "uptime_s": 26.50016170903109,
+  "accepted": 62,
+  "completed": 62,
+  "failed": 0,
+  "rejected_overload": 0,
+  "pending_including_active": 0,
+  "service_latency_p50_s": 0.5493070215452462,
+  "service_latency_p95_s": 1.9579463124857281,
+  "queue_p95_s": 1.4393788034736643,
+  "latency_window_requests": 62,
+  "completed_audio_s": 566.9999999999998,
+  "process_peak_rss_bytes": 2385199104,
+  "native_worker_peak_rss_bytes": null,
+  "load_boundary": "MLX import, model loading, weight materialization and sync",
+  "rejected_http_connections": 0,
+  "max_http_connections": 8
+}

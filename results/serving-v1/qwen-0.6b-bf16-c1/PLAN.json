@@ -1,0 +1,182 @@
+{
+  "protocol": "one warmup per selected language, then repeat-major requests; no retries",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "python": "3.14.3",
+  "cohort_sha256": "d91f418f2527c86df8da5182ca60afe18beac817d32d017174366d1b0d28c17a",
+  "concurrency": 1,
+  "repeat": 3,
+  "configs": [
+    "en_us",
+    "cmn_hans_cn"
+  ],
+  "languages": {
+    "en_us": "English",
+    "cmn_hans_cn": "Chinese"
+  },
+  "health": {
+    "status": "ready",
+    "model": "qwen-0.6b-bf16"
+  },
+  "metrics_before": {
+    "model": "qwen-0.6b-bf16",
+    "load_prepare_s": 4.839930000016466,
+    "uptime_s": 0.15695912495721132,
+    "accepted": 0,
+    "completed": 0,
+    "failed": 0,
+    "rejected_overload": 0,
+    "pending_including_active": 0,
+    "service_latency_p50_s": null,
+    "service_latency_p95_s": null,
+    "queue_p95_s": null,
+    "latency_window_requests": 0,
+    "completed_audio_s": 0.0,
+    "process_peak_rss_bytes": 1910259712,
+    "native_worker_peak_rss_bytes": null,
+    "load_boundary": "MLX import, model loading, weight materialization and sync",
+    "rejected_http_connections": 0,
+    "max_http_connections": 8
+  },
+  "selected_inputs": [
+    {
+      "case_id": "en_us_00",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_00.wav",
+      "audio_sha256": "b438b60eb4e9fddbcaa303e27070c2458c3daac42f0b08d5d8622c47335d24f7",
+      "duration_s": 10.56
+    },
+    {
+      "case_id": "en_us_01",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_01.wav",
+      "audio_sha256": "fd99727983733f9771077fe1a030fcc44ea7e16be1e9396cff525db2886a8f0f",
+      "duration_s": 8.76
+    },
+    {
+      "case_id": "en_us_02",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_02.wav",
+      "audio_sha256": "b4aea90be63667ffe68bd0c67fcc11b6a5bc334a4566df8153c074b37e2760d6",
+      "duration_s": 11.46
+    },
+    {
+      "case_id": "en_us_03",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_03.wav",
+      "audio_sha256": "1a2230cb99ec7ed59df1ad0cf43020b093c6536f9b4ca02636b8daa9c4577229",
+      "duration_s": 5.76
+    },
+    {
+      "case_id": "en_us_04",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_04.wav",
+      "audio_sha256": "5fda1c914915f9fcd856b11739eb88570deb747c0a492c841255f13383d00e82",
+      "duration_s": 4.32
+    },
+    {
+      "case_id": "en_us_05",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_05.wav",
+      "audio_sha256": "c15df2cdf2811dde17f6086317a9aeb0f2cb4a9967204c6beac2cd87fadfb93b",
+      "duration_s": 11.42
+    },
+    {
+      "case_id": "en_us_06",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_06.wav",
+      "audio_sha256": "b804e68fee5b002c5a6942a4dbefe4dba14b3f816e07404c80ee508527ecf956",
+      "duration_s": 10.8
+    },
+    {
+      "case_id": "en_us_07",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_07.wav",
+      "audio_sha256": "eecacd023023857f4a8fb8b86a5815a06c972ac49584d34fec14d71640a9c684",
+      "duration_s": 6.96
+    },
+    {
+      "case_id": "en_us_08",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_08.wav",
+      "audio_sha256": "409f227a6a0d463314a5b138931d658c69377b1684a134f2459aa698eb0fc8cd",
+      "duration_s": 11.04
+    },
+    {
+      "case_id": "en_us_09",
+      "config": "en_us",
+      "audio_path": "perf-round2/quality/audio_pcm16/en_us_09.wav",
+      "audio_sha256": "3f988cc9edf80f64bcb387e5d6353604fd7ef7b3d5016b495fc6f09a18847b2f",
+      "duration_s": 9.9
+    },
+    {
+      "case_id": "cmn_hans_cn_00",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_00.wav",
+      "audio_sha256": "407400c0a228817cfe9cc95feffe48261e005aaaea828412d6bcbb36915d8f7b",
+      "duration_s": 10.38
+    },
+    {
+      "case_id": "cmn_hans_cn_01",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_01.wav",
+      "audio_sha256": "d15ddc6cf1c0eaac6277cd7c57d061d06c71fb2e1ecdfb68fea9484a6eb35db8",
+      "duration_s": 8.28
+    },
+    {
+      "case_id": "cmn_hans_cn_02",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_02.wav",
+      "audio_sha256": "a0b2f1f1b106e400cd7e80ec8ebcb8a3a9e30deec0da732036bc23c6c7b6a668",
+      "duration_s": 13.86
+    },
+    {
+      "case_id": "cmn_hans_cn_03",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_03.wav",
+      "audio_sha256": "2efa08e65685c20429024da9f390bd74fdf9dd978cae4197fe2145b371b73727",
+      "duration_s": 15.42
+    },
+    {
+      "case_id": "cmn_hans_cn_04",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_04.wav",
+      "audio_sha256": "feaa69d9082d796cff4f15d77fb19b152efde65ad325384785ebe2a7b803357d",
+      "duration_s": 12.9
+    },
+    {
+      "case_id": "cmn_hans_cn_05",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_05.wav",
+      "audio_sha256": "1ad6110c5249948cbcb79f21dd88e185ff8a8de733329f35edcf39c369c4faac",
+      "duration_s": 13.74
+    },
+    {
+      "case_id": "cmn_hans_cn_06",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_06.wav",
+      "audio_sha256": "7482d481451c24e8b3c0dd2f5b1e14d99753298a8ae1c9aee7c7c5a52729f0b2",
+      "duration_s": 15.18
+    },
+    {
+      "case_id": "cmn_hans_cn_07",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_07.wav",
+      "audio_sha256": "011dec65dcb0c89663e1ad85cf899c8d6b8900c487111162c86bab32fac15097",
+      "duration_s": 15.46
+    },
+    {
+      "case_id": "cmn_hans_cn_08",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_08.wav",
+      "audio_sha256": "728d79a55b838514cb7c736827004ac702d69894fcd0a84ced336cb879d9c5ce",
+      "duration_s": 7.62
+    },
+    {
+      "case_id": "cmn_hans_cn_09",
+      "config": "cmn_hans_cn",
+      "audio_path": "perf-round2/quality/audio_pcm16/cmn_hans_cn_09.wav",
+      "audio_sha256": "f7fd14d22aa7fa0617a327c259ed6bab2bceee8dbe87d2fa0452de263b6fa1ff",
+      "duration_s": 6.84
+    }
+  ]
+}
